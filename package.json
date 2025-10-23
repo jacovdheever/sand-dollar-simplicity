@@ -10,7 +10,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server.js",
-    "dev:full": "concurrently \"npm run server\" \"npm run dev\""
+    "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
+    "start": "npm run dev:full",
+    "setup": "npm install && npm run dev:full",
+    "clean": "rm -rf node_modules package-lock.json && npm install"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

@@ -1,6 +1,6 @@
 import { BlogPost } from '@/types/blog';
 import { Project } from '@/types/project';
-import { API_BASE_URL } from '@/utils/apiConfig';
+import { API_BASE_URL, STATIC_DATA_URL } from '@/utils/apiConfig';
 
 // File-based storage manager for development
 // This will save data to JSON files in the public directory
@@ -93,7 +93,7 @@ export const loadArticlesWithFallback = async (): Promise<BlogPost[]> => {
   
   // Try loading directly from static JSON file (for production/GitHub Pages)
   try {
-    const response = await fetch('/sand-dollar-simplicity/data/articles.json');
+    const response = await fetch(`${STATIC_DATA_URL}/articles.json`);
     if (response.ok) {
       const staticArticles = await response.json();
       if (staticArticles.length > 0) {
@@ -138,7 +138,7 @@ export const loadProjectsWithFallback = async (): Promise<Project[]> => {
   
   // Try loading directly from static JSON file (for production/GitHub Pages)
   try {
-    const response = await fetch('/sand-dollar-simplicity/data/projects.json');
+    const response = await fetch(`${STATIC_DATA_URL}/projects.json`);
     if (response.ok) {
       const staticProjects = await response.json();
       if (staticProjects.length > 0) {

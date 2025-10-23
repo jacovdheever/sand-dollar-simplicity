@@ -1,83 +1,159 @@
 # 🚀 Sand Dollar Design - Colleague Setup Guide
 
-## Quick Start
+This guide will help you set up the Sand Dollar Design website locally and understand how it works.
 
-Your colleague can now access the complete Sand Dollar Design website with all projects, blog posts, and backend functionality.
+## 📋 Prerequisites
 
-### 📋 What's Included
+- **Node.js**: Version 18 or higher
+- **npm**: Comes with Node.js
+- **Git**: For version control
 
-✅ **All Projects**: 51MB of uploaded projects in `public/data/projects.json`  
-✅ **All Blog Posts**: 7MB of articles in `public/data/articles.json`  
-✅ **Generated Designs**: Interactive HTML design mockups in `public/designs/`  
-✅ **Audit Screenshots**: Website audit screenshots in `public/screenshots/`  
-✅ **Complete Backend**: Full server functionality with website auditing  
-✅ **Admin Dashboard**: Complete admin system for content management  
+## 🔧 Quick Setup (5 minutes)
 
-### 🛠️ Setup Instructions
+### 1. Clone the Repository
+```bash
+git clone https://github.com/jacovdheever/sand-dollar-simplicity.git
+cd sand-dollar-simplicity
+```
 
-1. **Clone the Test Branch**
-   ```bash
-   git clone https://github.com/jacovdheever/sand-dollar-simplicity.git
-   cd sand-dollar-simplicity
-   git checkout Test
-   ```
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-2. **Install Dependencies**
-   ```bash
-   npm install
-   ```
+### 3. Start the Development Environment
+```bash
+npm run dev:full
+```
 
-3. **Start the Development Server**
-   ```bash
-   npm run dev:full
-   ```
-   This starts both the frontend (port 8080) and backend (port 3001)
+This command will:
+- Start the backend server on port 3001
+- Start the frontend development server on port 8080
+- Enable hot reloading for development
 
-4. **Access the Website**
-   - **Frontend**: http://localhost:8080
-   - **Admin Dashboard**: http://localhost:8080/sanddollar-admin
-   - **Backend API**: http://localhost:3001
+### 4. Access the Website
+- **Main Website**: http://localhost:8080
+- **Admin Dashboard**: http://localhost:8080/sanddollar-admin
 
-### 🔐 Admin Access
+## 🔐 Admin Access
 
 **Admin Credentials:**
-- Email: `jaco@sanddollardesign.co.za`
+- Username: `jaco@sanddollardesign.co.za`
 - Password: `SandDollarDesign@2025!`
 
-### 📁 Key Directories
+## 🏗️ How It Works
 
-- `public/data/` - All projects and articles data
-- `public/designs/` - Generated website design mockups
-- `public/screenshots/` - Website audit screenshots
-- `src/components/` - React components
-- `server.js` - Backend server with website auditing
+### Local Development Mode
+- **Frontend**: React app served by Vite on port 8080
+- **Backend**: Node.js/Express server on port 3001
+- **Data Storage**: JSON files in `public/data/` + localStorage fallback
+- **API Calls**: Proxied through Vite to backend server
 
-### 🎯 Features Available
+### Production Mode (GitHub Pages)
+- **Frontend**: Static React build served by GitHub Pages
+- **Backend**: Not available (static hosting)
+- **Data Storage**: Static JSON files in `public/data/`
+- **API Calls**: Fallback to static JSON files
 
-1. **Website Auditing**: Analyze any website and generate improvement recommendations
-2. **Design Generation**: Create interactive HTML mockups of improved designs
-3. **Project Management**: View and manage all uploaded projects
-4. **Blog Management**: View and manage all blog posts
-5. **Admin Dashboard**: Complete content management system
+## 📁 Project Structure
 
-### 🔧 Troubleshooting
+```
+sand-dollar-simplicity/
+├── src/                    # React frontend source code
+│   ├── components/         # React components
+│   ├── pages/             # Page components
+│   ├── services/          # API services
+│   ├── utils/             # Utility functions
+│   └── types/             # TypeScript type definitions
+├── public/                # Static assets
+│   ├── data/              # JSON data files
+│   ├── designs/           # Generated design mockups
+│   └── screenshots/       # Website audit screenshots
+├── server.js              # Backend server
+├── package.json           # Dependencies and scripts
+└── vite.config.ts         # Vite configuration
+```
 
-If you encounter any issues:
+## 🛠️ Available Scripts
 
-1. **Port Conflicts**: Make sure ports 8080 and 3001 are available
-2. **Dependencies**: Run `npm install` to ensure all packages are installed
-3. **Data Loading**: The system automatically loads from `public/data/` files
-4. **Backend Issues**: Check that `server.js` is running on port 3001
+- `npm run dev` - Start frontend only (port 8080)
+- `npm run server` - Start backend only (port 3001)
+- `npm run dev:full` - Start both frontend and backend
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-### 📞 Support
+## 🔄 Data Management
 
-All functionality is identical to the local development environment. The colleague will have access to:
-- Complete website with all uploaded content
-- Full backend functionality
-- Admin dashboard
-- Website auditing capabilities
-- Design generation features
+### Projects
+- **Location**: `public/data/projects.json`
+- **Admin Access**: Upload/edit via admin dashboard
+- **Fallback**: localStorage if files unavailable
+
+### Blog Articles
+- **Location**: `public/data/articles.json`
+- **Admin Access**: Upload/edit via admin dashboard
+- **Fallback**: localStorage if files unavailable
+
+### Website Audits
+- **Screenshots**: Saved to `public/screenshots/`
+- **Designs**: Generated in `public/designs/`
+- **Backend Required**: Only works with running backend server
+
+## 🌐 Deployment
+
+### GitHub Pages (Automatic)
+- Pushes to `main` branch trigger automatic deployment
+- Custom domain: `sanddollardesign.co.za`
+- Static hosting (no backend server)
+
+### Local Production Build
+```bash
+npm run build
+npm run preview
+```
+
+## 🐛 Troubleshooting
+
+### Port Already in Use
+```bash
+# Kill processes on ports 3001 and 8080
+lsof -ti:3001 | xargs kill -9
+lsof -ti:8080 | xargs kill -9
+```
+
+### Missing Data
+- Check if `public/data/projects.json` and `articles.json` exist
+- Data will fallback to localStorage if files are missing
+- Use admin dashboard to upload new content
+
+### API Errors
+- Ensure backend server is running (`npm run server`)
+- Check browser console for detailed error messages
+- Website audit requires backend server
+
+### Build Errors
+```bash
+# Clear node_modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
+
+## 📞 Support
+
+For technical issues or questions:
+- **Email**: jaco@sanddollardesign.co.za
+- **Repository**: https://github.com/jacovdheever/sand-dollar-simplicity
+
+## 🎯 Key Features
+
+- **Project Management**: Upload and manage client projects
+- **Blog System**: Create and edit blog articles
+- **Website Auditing**: Analyze websites with screenshots
+- **Admin Dashboard**: Full content management system
+- **Responsive Design**: Works on all devices
+- **SEO Optimized**: Built for search engines
 
 ---
 
-**Note**: This is the complete Test branch deployment with all local saves, projects, blog posts, and backend functionality preserved.
+**Happy coding! 🚀**
