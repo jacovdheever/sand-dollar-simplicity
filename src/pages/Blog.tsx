@@ -15,16 +15,6 @@ import { loadArticlesFromStorage, restoreAllTruncatedArticles } from '@/utils/st
 import { loadArticlesWithFallback } from '@/utils/fileStorageManager';
 import { ensureArticlesHaveSlugs } from '@/utils/articleUtils';
 
-const blogWords = [
-  "Design Thinking",
-  "User Experience", 
-  "Digital Strategy",
-  "Innovation",
-  "Technology",
-  "Branding",
-  "Research",
-  "Development"
-];
 
 const BlogPage = () => {
   const [filters, setFilters] = useState<BlogFilters>({});
@@ -283,32 +273,6 @@ const BlogPage = () => {
         <Contact />
         <Footer />
       </div>
-      </div>
-      
-      {/* Blog words carousel - positioned at bottom of screen */}
-      <div className="overflow-hidden bg-black">
-        <div>
-          <div className="clients-marquee-no-hover">
-            <div className="clients-marquee-track-no-hover">
-              {[...blogWords, ...blogWords].map((word, index) => (
-                <div key={`blog-words-${index}`} className="p-0">
-                  <div className="h-[60px] md:h-[70px] lg:h-[80px] flex items-center justify-center">
-                    <span className="text-[3.55rem] md:text-[4.19rem] lg:text-[4.83rem] font-black whitespace-nowrap mr-6 uppercase text-white">
-                      {word}
-                    </span>
-                    <div className="ml-6 flex items-center justify-center">
-                      <img 
-                        src="/Sand-Dollar-icon.png" 
-                        alt="Sand Dollar Design Icon - Blog separator" 
-                        className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
       
       {/* Back to Top Button */}

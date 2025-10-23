@@ -10,16 +10,6 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
 
-const serviceWords = [
-  "Information Architecture",
-  "UX Design", 
-  "UI Design",
-  "Brand Design",
-  "Visual Design",
-  "SEO",
-  "Copywriting",
-  "Development"
-];
 
 const Index = () => {
   useEffect(() => {
@@ -86,32 +76,6 @@ const Index = () => {
         <div className="mt-auto">
           <Contact />
           <Footer />
-        </div>
-      </div>
-      
-      {/* Service words carousel - positioned at bottom of screen */}
-      <div className="overflow-hidden bg-black">
-        <div className="flex items-center justify-center">
-          <div className="clients-marquee-no-hover">
-            <div className="clients-marquee-track-no-hover">
-              {[...serviceWords, ...serviceWords].map((word, index) => (
-                <div key={`service-words-${index}`} className="p-0">
-                  <div className="h-[60px] md:h-[70px] lg:h-[80px] flex items-center justify-center">
-                    <span className="text-[3.55rem] md:text-[4.19rem] lg:text-[4.83rem] font-black whitespace-nowrap mr-6 uppercase text-white">
-                      {word}
-                    </span>
-                    <div className="ml-6 flex items-center justify-center">
-                      <img 
-                        src="/Sand-Dollar-icon.png" 
-                        alt="Sand Dollar Design Icon - Service separator" 
-                        className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
       
