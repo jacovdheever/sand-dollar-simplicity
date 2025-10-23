@@ -30,13 +30,7 @@ const Hero = () => {
             We Design Solutions.
           </h1>
           <p className="text-xl text-gray-100 mb-12 leading-relaxed">
-          At Sand Dollar Design, we approach your business goals and challenges holistically.
-          <br className="hidden md:block" />
-          We leverage innovation consulting, flawless UX/UI design, rapid-prototyping, and
-          <br className="hidden md:block" />
-          AI development to build powerful solutions. We combine human-centerd focus
-          <br className="hidden md:block" />
-          with technical expertise to turn business challenges into opportunities.
+          At Sand Dollar Design, we approach your business goals and challenges holistically. We leverage innovation consulting, flawless UX/UI design, rapid-prototyping, and AI development to build powerful solutions. We combine human-centred focus with technical expertise to turn business challenges into opportunities.
           </p>
           
           {/* Stats component - positioned above the button */}
