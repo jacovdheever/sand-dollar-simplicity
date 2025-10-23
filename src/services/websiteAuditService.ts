@@ -1367,7 +1367,7 @@ class WebsiteAuditService {
   // Generate design mockups for the website
   private async generateDesignMockups(url: string, websiteData: Record<string, unknown>): Promise<DesignMockup[]> {
     try {
-      const response = await fetch('/sand-dollar-simplicity/api/generate-designs', {
+      const response = await fetch('/api/generate-designs', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
