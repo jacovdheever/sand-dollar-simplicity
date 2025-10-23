@@ -95,12 +95,23 @@ sand-dollar-simplicity/
 git clone https://github.com/jacovdheever/sand-dollar-simplicity.git
 cd sand-dollar-simplicity
 
+# Switch to Test branch (development branch)
+git checkout Test
+
 # Install dependencies
 npm install
 
 # Start development server
 npm run dev:full
+# or use the quick start script
+./start.sh
 ```
+
+### 🔄 Git Workflow
+- **Test Branch**: All development work happens here
+- **Main Branch**: Production deployment only
+- **Never work directly on main branch**
+- **Deploy to production**: `./deploy-to-production.sh`
 
 ### Available Scripts
 - `npm run dev` - Start frontend development server (port 8080)

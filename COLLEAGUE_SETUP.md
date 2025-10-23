@@ -16,12 +16,19 @@ git clone https://github.com/jacovdheever/sand-dollar-simplicity.git
 cd sand-dollar-simplicity
 ```
 
-### 2. Install Dependencies
+### 2. Switch to Test Branch (Development Branch)
+```bash
+git checkout Test
+```
+
+**Important**: Always work on the `Test` branch for development. The `main` branch is for production deployment only.
+
+### 3. Install Dependencies
 ```bash
 npm install
 ```
 
-### 3. Start the Development Environment
+### 4. Start the Development Environment
 ```bash
 npm run dev:full
 ```
@@ -31,7 +38,7 @@ This command will:
 - Start the frontend development server on port 8080
 - Enable hot reloading for development
 
-### 4. Access the Website
+### 5. Access the Website
 - **Main Website**: http://localhost:8080
 - **Admin Dashboard**: http://localhost:8080/sanddollar-admin
 
@@ -99,6 +106,25 @@ sand-dollar-simplicity/
 - **Screenshots**: Saved to `public/screenshots/`
 - **Designs**: Generated in `public/designs/`
 - **Backend Required**: Only works with running backend server
+
+## 🔄 Git Workflow
+
+### Development Workflow
+1. **Always work on Test branch**: `git checkout Test`
+2. **Make your changes**: Edit files, add features, fix bugs
+3. **Commit changes**: `git add . && git commit -m "Your message"`
+4. **Push to Test branch**: `git push origin Test`
+5. **When ready for production**: Merge Test → main and push
+
+### Branch Structure
+- **Test Branch**: Development and testing (always work here)
+- **Main Branch**: Production deployment (GitHub Pages auto-deploys from here)
+
+### Important Notes
+- **Never work directly on main branch**
+- **All development happens on Test branch**
+- **Test branch is the source of truth for development**
+- **Main branch is only for production deployment**
 
 ## 🌐 Deployment
 

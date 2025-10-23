@@ -5,6 +5,15 @@
 
 echo "🚀 Starting Sand Dollar Design Development Environment..."
 
+# Ensure we're on the Test branch
+echo "🔄 Switching to Test branch (development branch)..."
+git checkout Test
+if [ $? -ne 0 ]; then
+    echo "❌ Failed to switch to Test branch"
+    exit 1
+fi
+echo "✅ Now on Test branch"
+
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
     echo "❌ Node.js is not installed. Please install Node.js 18+ first."
