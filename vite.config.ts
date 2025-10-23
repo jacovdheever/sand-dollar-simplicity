@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: { mode: string }) => ({
-  base: '/',  // Use root path for custom domain
+  base: mode === 'production' ? '/sand-dollar-simplicity/' : '/',  // Use repository name for GitHub Pages, root for local dev
   server: {
     host: "::",
     port: 8080,
