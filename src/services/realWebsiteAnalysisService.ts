@@ -2,6 +2,7 @@
 // Performs actual analysis of websites using backend API
 
 import axios from 'axios';
+import { API_BASE_URL } from '@/utils/apiConfig';
 
 export interface RealAnalysisData {
   url: string;
@@ -58,7 +59,7 @@ class RealWebsiteAnalysisService {
     
     try {
       // Use backend API to avoid CORS issues
-      const response = await axios.post('/sand-dollar-simplicity/api/analyze-website', {
+      const response = await axios.post(`${API_BASE_URL}/analyze-website`, {
         url: url
       }, {
         timeout: 30000

@@ -1,5 +1,6 @@
 import { BlogPost } from '@/types/blog';
 import { Project } from '@/types/project';
+import { API_BASE_URL } from '@/utils/apiConfig';
 
 // File-based storage manager for development
 // This will save data to JSON files in the public directory
@@ -11,7 +12,7 @@ export const saveArticlesToFile = async (articles: BlogPost[]): Promise<boolean>
   try {
     // In a real implementation, you'd send this to a server endpoint
     // For now, we'll use a simple approach with fetch to a local endpoint
-    const response = await fetch('/sand-dollar-simplicity/api/save-articles', {
+    const response = await fetch(`${API_BASE_URL}/save-articles`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +29,7 @@ export const saveArticlesToFile = async (articles: BlogPost[]): Promise<boolean>
 
 export const loadArticlesFromFile = async (): Promise<BlogPost[]> => {
   try {
-    const response = await fetch('/sand-dollar-simplicity/api/load-articles');
+    const response = await fetch(`${API_BASE_URL}/load-articles`);
     if (response.ok) {
       return await response.json();
     }
@@ -40,7 +41,7 @@ export const loadArticlesFromFile = async (): Promise<BlogPost[]> => {
 
 export const saveProjectsToFile = async (projects: Project[]): Promise<boolean> => {
   try {
-    const response = await fetch('/sand-dollar-simplicity/api/save-projects', {
+    const response = await fetch(`${API_BASE_URL}/save-projects`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -57,7 +58,7 @@ export const saveProjectsToFile = async (projects: Project[]): Promise<boolean> 
 
 export const loadProjectsFromFile = async (): Promise<Project[]> => {
   try {
-    const response = await fetch('/sand-dollar-simplicity/api/load-projects');
+    const response = await fetch(`${API_BASE_URL}/load-projects`);
     if (response.ok) {
       return await response.json();
     }
