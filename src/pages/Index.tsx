@@ -5,7 +5,6 @@ import Services from '@/components/Services';
 import Logos from '@/components/Logos';
 import Clients from '@/components/Clients';
 import Media from '@/components/Media';
-import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
