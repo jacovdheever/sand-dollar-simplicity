@@ -1,45 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Homepage -->
   <url>
     <loc>https://sanddollardesign.co.za/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>Sand Dollar Design - UX/UI Design and AI Development</image:title>
+      <image:caption>Leading UX/UI design and AI development firm specializing in digital transformation</image:caption>
+    </image:image>
   </url>
+
+  <!-- Work Portfolio Page -->
   <url>
-    <loc>https://sanddollardesign.co.za/#work</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://sanddollardesign.co.za/#work-portfolio</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://sanddollardesign.co.za/#clients</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sanddollardesign.co.za/#testimonials</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sanddollardesign.co.za/#media</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://sanddollardesign.co.za/work</loc>
+    <lastmod>2025-01-23</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>Our Work - Portfolio of UX/UI Design Projects</image:title>
+      <image:caption>Explore our portfolio of successful UX/UI design and AI development projects</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog Page -->
+  <url>
+    <loc>https://sanddollardesign.co.za/blog</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>Our Insights - UX/UI Design Blog</image:title>
+      <image:caption>Latest insights on UX/UI design, AI development, and digital transformation</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Individual Project Pages -->
+  <url>
+    <loc>https://sanddollardesign.co.za/project/mukuru-money-transfer-mobile-application</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>Mukuru Money Transfer Mobile Application</image:title>
+      <image:caption>UX/UI design for Mukuru's money transfer mobile application</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sanddollardesign.co.za/project/whole-health-wellness</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>Whole Health Wellness Platform</image:title>
+      <image:caption>Comprehensive health and wellness platform design</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sanddollardesign.co.za/project/my-blood-test</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>My Blood Test Application</image:title>
+      <image:caption>Healthcare application for blood test management</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sanddollardesign.co.za/project/emergency-room-triage-solution</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>Emergency Room Triage Solution</image:title>
+      <image:caption>Healthcare triage system for emergency rooms</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sanddollardesign.co.za/project/toyota-b2b-procurement-portal</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>Toyota B2B Procurement Portal</image:title>
+      <image:caption>Business-to-business procurement portal for Toyota</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sanddollardesign.co.za/project/whole-mobile-app</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>Whole Mobile Application</image:title>
+      <image:caption>Mobile application for Whole health platform</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sanddollardesign.co.za/project/gigexecs</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>GigExecs Platform</image:title>
+      <image:caption>Executive gig economy platform design</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sanddollardesign.co.za/project/modern-gesture</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>Modern Gesture Application</image:title>
+      <image:caption>Gesture-based interaction design</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sanddollardesign.co.za/project/tradition-capital-bank</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>Tradition Capital Bank</image:title>
+      <image:caption>Banking platform design for Tradition Capital Bank</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Individual Article Pages -->
+  <url>
+    <loc>https://sanddollardesign.co.za/article/sand-dollar-design-produces-award-winning-app-design-for-mukuru</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sanddollardesign.co.za/og-image.jpg</image:loc>
+      <image:title>Sand Dollar Design Produces Award-Winning App Design for Mukuru</image:title>
+      <image:caption>Award-winning mobile application design for Mukuru money transfer service</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service Pages (if they exist as separate pages) -->
+  <url>
+    <loc>https://sanddollardesign.co.za/#services</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>https://sanddollardesign.co.za/#about</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <url>
     <loc>https://sanddollardesign.co.za/#contact</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
-</urlset> 
+
+  <url>
+    <loc>https://sanddollardesign.co.za/#clients</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://sanddollardesign.co.za/#media</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
