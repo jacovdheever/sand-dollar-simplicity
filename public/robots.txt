@@ -1,3 +1,40 @@
+# Robots.txt for Sand Dollar Design
+# https://sanddollardesign.co.za
+
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl the entire site
+Allow: /work
+Allow: /blog
+Allow: /article/
+Allow: /project/
+
+# Disallow admin and private areas
+Disallow: /sanddollar-admin
+Disallow: /admin
+Disallow: /api/
+Disallow: /designs/
+Disallow: /screenshots/
+Disallow: /_redirects
+
+# Allow important files
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /favicon.ico
+Allow: /og-image.jpg
+Allow: /Sand-Dollar-icon.png
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.webp
+Allow: /*.svg
+Allow: /*.ico
+
+# Specific bot instructions
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
@@ -6,25 +43,34 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-User-agent: Twitterbot
+User-agent: Slurp
 Allow: /
+Crawl-delay: 2
 
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: *
+User-agent: DuckDuckBot
 Allow: /
 Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Block problematic bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
 
 # Sitemap location
 Sitemap: https://sanddollardesign.co.za/sitemap.xml
 
-# Disallow admin or private areas (if any)
-Disallow: /admin/
-Disallow: /private/
-Disallow: /*.json$
-Disallow: /src/
-Disallow: /node_modules/
+# Host declaration
+Host: sanddollardesign.co.za
