@@ -76,7 +76,7 @@ const SEO: React.FC<SEOProps> = ({
       "name": "Sand Dollar Design",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://sanddollardesign.co.za/Sand-Dollar-icon.png",
+        "url": "https://sanddollardesign.co.za/Sand-Dollar_Logo.png",
         "width": 512,
         "height": 512
       },
@@ -105,7 +105,7 @@ const SEO: React.FC<SEOProps> = ({
     "@type": "Organization",
     "name": "Sand Dollar Design",
     "url": "https://sanddollardesign.co.za",
-    "logo": "https://sanddollardesign.co.za/Sand-Dollar-icon.png",
+    "logo": "https://sanddollardesign.co.za/Sand-Dollar_Logo.png",
     "description": "Leading UX/UI design and AI development firm specializing in digital transformation, rapid prototyping, and innovation consulting. Serving clients across USA and South Africa.",
     "foundingDate": "2020",
     "address": {

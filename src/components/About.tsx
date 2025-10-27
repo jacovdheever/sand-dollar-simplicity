@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { getAssetPath } from '@/lib/utils';
 
 const About = () => {
   return (
@@ -36,7 +37,7 @@ const About = () => {
           <div className="order-1 md:order-2 aspect-square rounded-2xl overflow-hidden coral-gradient flex items-center justify-center">
             <div className="p-8">
               <img 
-                src="/Sand Dollar Design-1.png" 
+                src={getAssetPath("Sand-Dollar_Logo.png")} 
                 alt="Sand Dollar Design" 
                 className="w-full h-auto"
               />

@@ -21,7 +21,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <img 
-              src={getAssetPath("Sand-Dollar-icon.png")}
+              src={getAssetPath("Sand-Dollar_Logo.png")}
               alt="Sand Dollar Design Logo" 
               className="h-10 mb-6"
             />
