@@ -21,9 +21,8 @@ Disallow: /_redirects
 # Allow important files
 Allow: /sitemap.xml
 Allow: /robots.txt
-Allow: /favicon.ico
-Allow: /og-image.jpg
 Allow: /Sand-Dollar-icon.png
+Allow: /og-image.jpg
 Allow: /*.css
 Allow: /*.js
 Allow: /*.png
