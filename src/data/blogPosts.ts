@@ -11,7 +11,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: '2024-01-15',
     category: 'design',
     tags: ['design-thinking', 'digital-transformation', 'ux'],
-    featuredImage: '/Sand Dollar Design-1.png',
+    featuredImage: 'Sand Dollar Design-1.png',
     readTime: 5,
     featured: true,
     slug: 'design-thinking-in-the-digital-age'

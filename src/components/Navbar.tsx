@@ -73,7 +73,7 @@ const Navbar = () => {
             }}
           >
             <img 
-              src={getAssetPath("Sand-Dollar-icon.png")}
+              src={getAssetPath("Sand Dollar Design-1.png")}
               alt="Sand Dollar Design Logo" 
               className="h-10 md:h-12"
             />
