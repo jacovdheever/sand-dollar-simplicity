@@ -289,21 +289,21 @@ class AnalyticsService {
       totalVisitors: finalTotalVisitors,
       uniqueVisitors: finalTotalVisitors, // GA4 doesn't distinguish in real-time
       pageViews: ga4Data.totals?.[0]?.values?.[1] || totalPageViews,
-      bounceRate: 0, // Bounce rate requires historical analysis
-      avgSessionDuration: '0m 0s', // Would need separate query for historical data
-      newVsReturning: { new: 65, returning: 35 }, // Would need separate query
-      pageLoadSpeed: 2.1, // Would come from PageSpeed Insights
-      coreWebVitals: { lcp: 2.3, fid: 45, cls: 0.08 },
-      organicTraffic: 68,
-      keywordRankings: 156,
-      backlinks: 89,
-      domainAuthority: 42,
+      bounceRate: null, // Not available in real-time data
+      avgSessionDuration: null, // Not available in real-time data
+      newVsReturning: { new: 0, returning: 0 }, // Would need separate query
+      pageLoadSpeed: null, // Would come from PageSpeed Insights
+      coreWebVitals: null, // Would come from separate API
+      organicTraffic: null, // Not available in real-time
+      keywordRankings: null, // Would need separate service
+      backlinks: null, // Would need separate service
+      domainAuthority: null, // Would need separate service
       topPages: this.transformTopPages(rows),
       trafficSources: this.transformTrafficSources(rows),
       deviceBreakdown: this.transformDeviceBreakdown(rows),
-      contactFormSubmissions: 47,
-      conversionRate: 3.8,
-      leadQuality: 'high',
+      contactFormSubmissions: null, // Would need backend tracking
+      conversionRate: null, // Would need backend tracking
+      leadQuality: null, // Would need backend tracking
       performanceIssues: [],
       seoIssues: [],
       recommendations: []
@@ -312,29 +312,47 @@ class AnalyticsService {
 
   private transformTopPages(rows: Record<string, unknown>[]): Array<{ page: string; views: number; bounceRate: number }> {
     // Transform GA4 rows to top pages format
-    return rows.slice(0, 5).map(row => ({
-      page: row.dimensionValues?.[0]?.value || '/',
-      views: parseInt(row.metricValues?.[0]?.value || '0'),
-      bounceRate: parseFloat(row.metricValues?.[1]?.value || '0')
+    // unifiedScreenName is dimension 2 (index: 0=country, 1=deviceCategory, 2=screen)
+    return rows.slice(0, 5).map((row: any) => ({
+      page: row.dimensionValues?.[2]?.value || '/', // unifiedScreenName is the 3rd dimension
+      views: parseInt(row.metricValues?.[1]?.value || '0'), // screenPageViews is metric 1
+      bounceRate: 0 // Bounce rate not available in real-time data
     }));
   }
 
   private transformTrafficSources(rows: Record<string, unknown>[]): Array<{ source: string; percentage: number; visitors: number }> {
-    // Transform GA4 rows to traffic sources format
-    return rows.slice(0, 4).map(row => ({
-      source: row.dimensionValues?.[0]?.value || 'Unknown',
-      percentage: Math.round(Math.random() * 50 + 10), // Would calculate from actual data
-      visitors: parseInt(row.metricValues?.[0]?.value || '0')
-    }));
+    // Group by country since real-time doesn't have source data
+    // dimension 0 = country
+    const countryMap = new Map<string, number>();
+    
+    rows.forEach((row: any) => {
+      const country = row.dimensionValues?.[0]?.value || 'Unknown';
+      const visitors = parseInt(row.metricValues?.[0]?.value || '0');
+      countryMap.set(country, (countryMap.get(country) || 0) + visitors);
+    });
+    
+    // Calculate total visitors
+    const totalVisitors = Array.from(countryMap.values()).reduce((sum, val) => sum + val, 0);
+    
+    // Convert to array with percentages, sorted by visitors
+    return Array.from(countryMap.entries())
+      .map(([country, visitors]) => ({
+        source: country,
+        percentage: totalVisitors > 0 ? Math.round((visitors / totalVisitors) * 100) : 0,
+        visitors
+      }))
+      .sort((a, b) => b.visitors - a.visitors)
+      .slice(0, 4);
   }
 
   private transformDeviceBreakdown(rows: Record<string, unknown>[]): Array<{ device: string; percentage: number; visitors: number }> {
     // Group by device category and sum visitors
+    // dimension 1 = deviceCategory (desktop, mobile, tablet)
     const deviceMap = new Map<string, number>();
     
     rows.forEach((row: any) => {
-      const device = row.dimensionValues?.[1]?.value || 'Unknown'; // deviceCategory is dimension 1
-      const visitors = parseInt(row.metricValues?.[0]?.value || '0');
+      const device = row.dimensionValues?.[1]?.value || 'Unknown'; // deviceCategory is at index 1
+      const visitors = parseInt(row.metricValues?.[0]?.value || '0'); // activeUsers is metric 0
       deviceMap.set(device, (deviceMap.get(device) || 0) + visitors);
     });
     
@@ -343,7 +361,7 @@ class AnalyticsService {
     
     // Convert to array with percentages
     return Array.from(deviceMap.entries()).map(([device, visitors]) => ({
-      device: device.charAt(0).toUpperCase() + device.slice(1), // Capitalize
+      device: device.charAt(0).toUpperCase() + device.slice(1), // Capitalize (desktop -> Desktop)
       percentage: totalVisitors > 0 ? Math.round((visitors / totalVisitors) * 100) : 0,
       visitors
     }));
