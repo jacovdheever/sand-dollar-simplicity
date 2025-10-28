@@ -9,6 +9,7 @@ import https from 'https';
 import puppeteer from 'puppeteer';
 import { createCanvas, loadImage, registerFont } from 'canvas';
 import { pipeline } from 'stream/promises';
+import { BetaAnalyticsDataClient } from '@google-analytics/data';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -581,7 +582,72 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
+// Google Analytics API Endpoints
+const PROPERTY_ID = '448584441'; // Your GA4 Property ID
+
+// Initialize the Analytics Data Client
+let analyticsDataClient;
+
+try {
+  analyticsDataClient = new BetaAnalyticsDataClient({
+    keyFilename: path.join(__dirname, 'sand-dollar-design-ec8817f0bb25.json'),
+  });
+} catch (error) {
+  console.warn('⚠️  Google Analytics client not initialized:', error.message);
+}
+
+// Get real-time analytics data
+app.get('/api/analytics/realtime', async (req, res) => {
+  if (!analyticsDataClient) {
+    return res.status(503).json({ error: 'Analytics service not configured' });
+  }
+
+  try {
+    const [response] = await analyticsDataClient.runRealtimeReport({
+      property: `properties/${PROPERTY_ID}`,
+      dimensions: [
+        { name: 'country' },
+        { name: 'deviceCategory' },
+        { name: 'unifiedScreenName' },
+      ],
+      metrics: [
+        { name: 'activeUsers' },
+        { name: 'screenPageViews' },
+      ],
+    });
+
+    res.json(response);
+  } catch (error) {
+    console.error('Error fetching real-time analytics:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get historical analytics data
+app.post('/api/analytics/historical', async (req, res) => {
+  if (!analyticsDataClient) {
+    return res.status(503).json({ error: 'Analytics service not configured' });
+  }
+
+  try {
+    const { dateRange, metrics, dimensions } = req.body;
+    
+    const [response] = await analyticsDataClient.runReport({
+      property: `properties/${PROPERTY_ID}`,
+      dateRanges: [dateRange],
+      dimensions: dimensions.map(d => ({ name: d })),
+      metrics: metrics.map(m => ({ name: m })),
+    });
+
+    res.json(response);
+  } catch (error) {
+    console.error('Error fetching historical analytics:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`🚀 Storage server running on http://localhost:${PORT}`);
   console.log(`📁 Data will be saved to: ${dataDir}`);
+  console.log(`📊 Google Analytics API endpoints configured`);
 });
