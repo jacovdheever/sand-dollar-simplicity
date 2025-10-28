@@ -157,10 +157,14 @@ const AnalyticsDashboard: React.FC = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Bounce Rate</p>
-              <p className="text-2xl font-bold text-gray-900">{analyticsData.bounceRate}%</p>
+              <p className="text-2xl font-bold text-gray-900">
+                {analyticsData.bounceRate !== null && analyticsData.bounceRate !== undefined 
+                  ? `${analyticsData.bounceRate.toFixed(1)}%` 
+                  : 'N/A'}
+              </p>
               <p className="text-sm text-red-600 flex items-center">
                 <ArrowDownRight className="w-4 h-4 mr-1" />
-                +2.1% from last period
+                {analyticsData.bounceRate !== null ? '+2.1% from last period' : 'Data not available'}
               </p>
             </div>
             <MousePointer className="h-8 w-8 text-red-600" />
@@ -171,10 +175,12 @@ const AnalyticsDashboard: React.FC = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Avg. Session</p>
-              <p className="text-2xl font-bold text-gray-900">{analyticsData.avgSessionDuration}</p>
+              <p className="text-2xl font-bold text-gray-900">
+                {analyticsData.avgSessionDuration || 'N/A'}
+              </p>
               <p className="text-sm text-green-600 flex items-center">
                 <ArrowUpRight className="w-4 h-4 mr-1" />
-                +15s from last period
+                {analyticsData.avgSessionDuration ? '+15s from last period' : 'Data not available'}
               </p>
             </div>
             <Clock className="h-8 w-8 text-purple-600" />
@@ -193,19 +199,27 @@ const AnalyticsDashboard: React.FC = () => {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Page Load Speed</span>
-              <span className="text-lg font-semibold text-gray-900">{analyticsData.pageLoadSpeed}s</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {analyticsData.pageLoadSpeed ? `${analyticsData.pageLoadSpeed}s` : 'N/A'}
+              </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Largest Contentful Paint</span>
-              <span className="text-lg font-semibold text-gray-900">{analyticsData.coreWebVitals.lcp}s</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {analyticsData.coreWebVitals?.lcp ? `${analyticsData.coreWebVitals.lcp}s` : 'N/A'}
+              </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">First Input Delay</span>
-              <span className="text-lg font-semibold text-gray-900">{analyticsData.coreWebVitals.fid}ms</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {analyticsData.coreWebVitals?.fid ? `${analyticsData.coreWebVitals.fid}ms` : 'N/A'}
+              </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Cumulative Layout Shift</span>
-              <span className="text-lg font-semibold text-gray-900">{analyticsData.coreWebVitals.cls}</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {analyticsData.coreWebVitals?.cls ? analyticsData.coreWebVitals.cls : 'N/A'}
+              </span>
             </div>
           </div>
         </div>
@@ -219,19 +233,27 @@ const AnalyticsDashboard: React.FC = () => {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Organic Traffic</span>
-              <span className="text-lg font-semibold text-gray-900">{analyticsData.organicTraffic}%</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {analyticsData.organicTraffic !== null ? `${analyticsData.organicTraffic}%` : 'N/A'}
+              </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Keyword Rankings</span>
-              <span className="text-lg font-semibold text-gray-900">{analyticsData.keywordRankings}</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {analyticsData.keywordRankings !== null ? analyticsData.keywordRankings : 'N/A'}
+              </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Backlinks</span>
-              <span className="text-lg font-semibold text-gray-900">{analyticsData.backlinks}</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {analyticsData.backlinks !== null ? analyticsData.backlinks : 'N/A'}
+              </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Domain Authority</span>
-              <span className="text-lg font-semibold text-gray-900">{analyticsData.domainAuthority}/100</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {analyticsData.domainAuthority !== null ? `${analyticsData.domainAuthority}/100` : 'N/A'}
+              </span>
             </div>
           </div>
         </div>
@@ -245,7 +267,9 @@ const AnalyticsDashboard: React.FC = () => {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">{analyticsData.contactFormSubmissions}</div>
+            <div className="text-3xl font-bold text-gray-900">
+              {analyticsData.contactFormSubmissions !== null ? analyticsData.contactFormSubmissions : 'N/A'}
+            </div>
             <div className="text-sm text-gray-600">Contact Form Submissions</div>
             <div className="text-sm text-green-600 flex items-center justify-center mt-1">
               <ArrowUpRight className="w-4 h-4 mr-1" />
@@ -253,7 +277,9 @@ const AnalyticsDashboard: React.FC = () => {
             </div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">{analyticsData.conversionRate}%</div>
+            <div className="text-3xl font-bold text-gray-900">
+              {analyticsData.conversionRate !== null ? `${analyticsData.conversionRate}%` : 'N/A'}
+            </div>
             <div className="text-sm text-gray-600">Conversion Rate</div>
             <div className="text-sm text-green-600 flex items-center justify-center mt-1">
               <ArrowUpRight className="w-4 h-4 mr-1" />
@@ -263,9 +289,10 @@ const AnalyticsDashboard: React.FC = () => {
           <div className="text-center">
             <div className={`text-3xl font-bold capitalize ${
               analyticsData.leadQuality === 'high' ? 'text-green-600' : 
-              analyticsData.leadQuality === 'medium' ? 'text-yellow-600' : 'text-red-600'
+              analyticsData.leadQuality === 'medium' ? 'text-yellow-600' : 
+              analyticsData.leadQuality === 'low' ? 'text-red-600' : 'text-gray-600'
             }`}>
-              {analyticsData.leadQuality}
+              {analyticsData.leadQuality || 'N/A'}
             </div>
             <div className="text-sm text-gray-600">Lead Quality</div>
             <div className="text-sm text-gray-500 mt-1">Based on engagement</div>
