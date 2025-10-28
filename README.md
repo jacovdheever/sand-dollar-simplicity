@@ -163,9 +163,18 @@ This ensures data is available in all environments:
 - **Offline/Edge Cases**: Falls back to localStorage
 
 ### Environment Variables
-- No environment variables required for basic functionality
+**Required for Analytics:**
+- `PAGESPEED_API_KEY` - PageSpeed Insights API key (for performance metrics)
+  - Current key: `AIzaSyCphVtIQ2wybCAN5lKaGWmZv5nOOyMRYNw`
+  
+**Server Configuration:**
 - Backend runs on port 3001
 - Frontend runs on port 8080
+
+**Starting Server with Analytics:**
+```bash
+PAGESPEED_API_KEY=your-key-here npm run dev:full
+```
 
 ### Admin Access
 - **URL**: `/sanddollar-admin`
@@ -208,6 +217,8 @@ This ensures data is available in all environments:
 - **Input Validation**: Zod schema validation
 - **File Upload Security**: Type and size restrictions
 - **Admin Authentication**: Secure login system
+- **ReCaptcha Key: 6LdL2vgrAAAAAPonqB58BlmkIh77n0-u1MpIPdjv
+
 
 ## 📈 Performance Optimizations
 
@@ -281,6 +292,67 @@ npm run dev:full
 - `POST /api/save-projects` - Save projects
 - `GET /api/load-articles` - Load articles
 - `POST /api/save-articles` - Save articles
+- `GET /api/analytics/realtime` - Get real-time Google Analytics data
+- `POST /api/analytics/historical` - Get historical Google Analytics data
+- `GET /api/pagespeed` - Get PageSpeed Insights performance metrics
+
+## 📊 Analytics Integration
+
+### Google Analytics 4 (GA4)
+The application includes full integration with Google Analytics 4 for real-time and historical analytics data.
+
+**Features:**
+- Real-time visitor tracking
+- Historical data analysis (7, 30, 90 days)
+- Page views, bounce rate, session duration
+- Traffic sources and device breakdown
+- Top pages analysis
+
+**Setup:**
+1. Service account JSON key configured in `server.js`
+2. GA4 Property ID: `317285123`
+3. Analytics endpoints available at `/api/analytics/*`
+
+**References:**
+- See `GOOGLE_ANALYTICS_SETUP.md` for detailed setup instructions
+- Analytics dashboard accessible at `/sanddollar-admin` (Analytics tab)
+
+### PageSpeed Insights API
+Performance metrics are powered by Google's PageSpeed Insights API.
+
+**Features:**
+- Core Web Vitals (LCP, FID, CLS)
+- First Contentful Paint (FCP)
+- Page load speed metrics
+- Performance recommendations
+
+**Setup:**
+1. API key required: `PAGESPEED_API_KEY` environment variable
+2. Currently configured key: `AIzaSyCphVtIQ2wybCAN5lKaGWmZv5nOOyMRYNw`
+3. Endpoint available at `/api/pagespeed`
+
+**Usage:**
+```bash
+# Start server with PageSpeed API key
+PAGESPEED_API_KEY=your-key-here npm run server
+```
+
+### Current Analytics Status ✅
+- **Google Analytics 4**: Fully integrated and working
+- **PageSpeed Insights**: Fully integrated and working
+- **Performance Metrics**: Displaying real PageSpeed data
+- **Core Web Vitals**: Showing LCP, FID, CLS from real measurements
+- **Traffic Sources**: Displaying real source data (Direct, Google, etc.)
+- **Device Breakdown**: Showing Desktop, Mobile, Tablet percentages
+- **Top Pages**: Listing actual page paths with views and bounce rates
+
+### Next Steps (Future Enhancements)
+- **Lead Generation Tracking**: Add backend tracking for contact form submissions
+- **Conversion Tracking**: Implement conversion events for form submissions
+- **SEO Metrics**: Integrate third-party SEO tools for keyword rankings, backlinks, domain authority
+- **Performance Issues**: Populate performance recommendations from PageSpeed data
+- **SEO Issues**: Add SEO audit recommendations
+- **Real-time Recommendations**: Generate actionable insights from analytics data
 
 ## 🤝 Contributing
 
