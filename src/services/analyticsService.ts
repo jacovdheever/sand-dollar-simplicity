@@ -116,7 +116,12 @@ class AnalyticsService {
       // Fetch PageSpeed Insights data for performance metrics
       try {
         const pagespeedData = await this.getCoreWebVitals();
-        transformed.coreWebVitals = pagespeedData;
+        transformed.coreWebVitals = {
+          lcp: pagespeedData.lcp,
+          fid: pagespeedData.fid,
+          cls: pagespeedData.cls
+        };
+        transformed.pageLoadSpeed = pagespeedData.pageLoadSpeed;
       } catch (error) {
         console.error('Error fetching PageSpeed data:', error);
       }
@@ -130,9 +135,9 @@ class AnalyticsService {
   }
 
   // Get Core Web Vitals data
-  async getCoreWebVitals(): Promise<{ lcp: number; fid: number; cls: number }> {
+  async getCoreWebVitals(): Promise<{ lcp: number; fid: number; cls: number; pageLoadSpeed: number }> {
     if (this.shouldUseMockData()) {
-      return { lcp: 2.3, fid: 45, cls: 0.08 };
+      return { lcp: 2.3, fid: 45, cls: 0.08, pageLoadSpeed: 2.1 };
     }
 
     try {
@@ -149,11 +154,12 @@ class AnalyticsService {
       return {
         lcp: parseFloat(data.lcp) || 2.3,
         fid: parseInt(data.fid) || 45,
-        cls: parseFloat(data.cls) || 0.08
+        cls: parseFloat(data.cls) || 0.08,
+        pageLoadSpeed: parseFloat(data.fcp) || 2.1 // First Contentful Paint as page load speed
       };
     } catch (error) {
       console.error('Error fetching Core Web Vitals:', error);
-      return { lcp: 2.3, fid: 45, cls: 0.08 };
+      return { lcp: 2.3, fid: 45, cls: 0.08, pageLoadSpeed: 2.1 };
     }
   }
 

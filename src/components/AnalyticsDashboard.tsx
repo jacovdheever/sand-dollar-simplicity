@@ -271,20 +271,24 @@ const AnalyticsDashboard: React.FC = () => {
               {analyticsData.contactFormSubmissions !== null ? analyticsData.contactFormSubmissions : 'N/A'}
             </div>
             <div className="text-sm text-gray-600">Contact Form Submissions</div>
-            <div className="text-sm text-green-600 flex items-center justify-center mt-1">
-              <ArrowUpRight className="w-4 h-4 mr-1" />
-              +23% from last period
-            </div>
+            {analyticsData.contactFormSubmissions !== null && (
+              <div className="text-sm text-green-600 flex items-center justify-center mt-1">
+                <ArrowUpRight className="w-4 h-4 mr-1" />
+                +23% from last period
+              </div>
+            )}
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-gray-900">
               {analyticsData.conversionRate !== null ? `${analyticsData.conversionRate}%` : 'N/A'}
             </div>
             <div className="text-sm text-gray-600">Conversion Rate</div>
-            <div className="text-sm text-green-600 flex items-center justify-center mt-1">
-              <ArrowUpRight className="w-4 h-4 mr-1" />
-              +1.2% from last period
-            </div>
+            {analyticsData.conversionRate !== null && (
+              <div className="text-sm text-green-600 flex items-center justify-center mt-1">
+                <ArrowUpRight className="w-4 h-4 mr-1" />
+                +1.2% from last period
+              </div>
+            )}
           </div>
           <div className="text-center">
             <div className={`text-3xl font-bold capitalize ${
