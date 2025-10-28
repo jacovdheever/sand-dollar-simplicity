@@ -630,13 +630,28 @@ app.post('/api/analytics/historical', async (req, res) => {
   }
 
   try {
-    const { dateRange, metrics, dimensions } = req.body;
+    const { dateRange } = req.body;
     
+    // Use fixed, valid GA4 metrics and dimensions for historical data
     const [response] = await analyticsDataClient.runReport({
       property: `properties/${PROPERTY_ID}`,
-      dateRanges: [dateRange],
-      dimensions: dimensions.map(d => ({ name: d })),
-      metrics: metrics.map(m => ({ name: m })),
+      dateRanges: [{
+        startDate: dateRange.startDate,
+        endDate: dateRange.endDate
+      }],
+      dimensions: [
+        { name: 'pagePath' },
+        { name: 'sessionSource' },
+        { name: 'deviceCategory' },
+        { name: 'newVsReturning' }
+      ],
+      metrics: [
+        { name: 'activeUsers' },
+        { name: 'screenPageViews' },
+        { name: 'sessions' },
+        { name: 'averageSessionDuration' },
+        { name: 'bounceRate' }
+      ]
     });
 
     res.json(response);

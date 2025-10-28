@@ -79,7 +79,7 @@ class AnalyticsService {
       }
 
       const data = await response.json();
-      return this.transformGA4Data(data);
+      return this.transformGA4Data(data, false); // Real-time data
     } catch (error) {
       console.error('Error fetching real-time analytics:', error);
       // Fallback to mock data if API fails
@@ -103,21 +103,7 @@ class AnalyticsService {
           'Authorization': `Bearer ${await this.getAccessToken()}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          dateRange,
-          metrics: [
-            'activeUsers',
-            'screenPageViews',
-            'sessions',
-            'averageSessionDuration'
-          ],
-          dimensions: [
-            'pagePath',
-            'sessionSource',
-            'deviceCategory',
-            'newVsReturning'
-          ]
-        }),
+        body: JSON.stringify({ dateRange }),
       });
 
       if (!response.ok) {
@@ -125,7 +111,7 @@ class AnalyticsService {
       }
 
       const data = await response.json();
-      return this.transformGA4Data(data);
+      return this.transformGA4Data(data, true); // Historical data
     } catch (error) {
       console.error('Error fetching historical analytics:', error);
       // Fallback to mock data if API fails
@@ -264,13 +250,17 @@ class AnalyticsService {
     };
   }
 
-  private transformGA4Data(ga4Data: Record<string, unknown>): AnalyticsData {
+  private transformGA4Data(ga4Data: Record<string, unknown>, isHistorical = false): AnalyticsData {
     // Transform Google Analytics 4 data to our AnalyticsData interface
     const rows = ga4Data.rows || [];
     
     // Calculate totals from rows since GA4 may not return totals
     let totalVisitors = 0;
     let totalPageViews = 0;
+    let totalSessions = 0;
+    let totalDuration = 0;
+    let totalBounceRate = 0;
+    let sessionCount = 0;
     
     rows.forEach((row: any) => {
       // Sum up the active users (metric 0)
@@ -280,26 +270,46 @@ class AnalyticsService {
       // Sum up page views (metric 1)
       const pageViews = parseInt(row.metricValues?.[1]?.value || '0');
       totalPageViews += pageViews;
+      
+      // For historical data, calculate average bounce rate and session duration
+      if (isHistorical) {
+        const sessions = parseInt(row.metricValues?.[2]?.value || '0'); // metric 2 = sessions
+        const avgDuration = parseFloat(row.metricValues?.[3]?.value || '0'); // metric 3 = averageSessionDuration
+        const bounce = parseFloat(row.metricValues?.[4]?.value || '0'); // metric 4 = bounceRate
+        
+        totalSessions += sessions;
+        totalDuration += avgDuration * sessions;
+        totalBounceRate += bounce * sessions;
+        sessionCount += sessions;
+      }
     });
     
     // Try to get totals from GA4 response, fallback to calculated values
     const finalTotalVisitors = ga4Data.totals?.[0]?.values?.[0] || totalVisitors;
     
+    // Calculate averages for historical data
+    const avgSessionDuration = isHistorical && sessionCount > 0 
+      ? this.formatDuration(totalDuration / sessionCount)
+      : null;
+    const bounceRate = isHistorical && sessionCount > 0
+      ? totalBounceRate / sessionCount
+      : null;
+    
     return {
       totalVisitors: finalTotalVisitors,
       uniqueVisitors: finalTotalVisitors, // GA4 doesn't distinguish in real-time
       pageViews: ga4Data.totals?.[0]?.values?.[1] || totalPageViews,
-      bounceRate: null, // Not available in real-time data
-      avgSessionDuration: null, // Not available in real-time data
-      newVsReturning: { new: 0, returning: 0 }, // Would need separate query
+      bounceRate: bounceRate,
+      avgSessionDuration: avgSessionDuration,
+      newVsReturning: { new: 0, returning: 0 }, // Would need separate query with newVsReturning dimension
       pageLoadSpeed: null, // Would come from PageSpeed Insights
       coreWebVitals: null, // Would come from separate API
       organicTraffic: null, // Not available in real-time
       keywordRankings: null, // Would need separate service
       backlinks: null, // Would need separate service
       domainAuthority: null, // Would need separate service
-      topPages: this.transformTopPages(rows),
-      trafficSources: this.transformTrafficSources(rows),
+      topPages: this.transformTopPages(rows, isHistorical),
+      trafficSources: this.transformTrafficSources(rows, isHistorical),
       deviceBreakdown: this.transformDeviceBreakdown(rows),
       contactFormSubmissions: null, // Would need backend tracking
       conversionRate: null, // Would need backend tracking
@@ -310,34 +320,48 @@ class AnalyticsService {
     };
   }
 
-  private transformTopPages(rows: Record<string, unknown>[]): Array<{ page: string; views: number; bounceRate: number }> {
+  private transformTopPages(rows: Record<string, unknown>[], isHistorical = false): Array<{ page: string; views: number; bounceRate: number }> {
     // Transform GA4 rows to top pages format
-    // unifiedScreenName is dimension 2 (index: 0=country, 1=deviceCategory, 2=screen)
-    return rows.slice(0, 5).map((row: any) => ({
-      page: row.dimensionValues?.[2]?.value || '/', // unifiedScreenName is the 3rd dimension
-      views: parseInt(row.metricValues?.[1]?.value || '0'), // screenPageViews is metric 1
-      bounceRate: 0 // Bounce rate not available in real-time data
-    }));
+    if (isHistorical) {
+      // Historical data: dimension 0 = pagePath, metric 4 = bounceRate
+      return rows.slice(0, 5).map((row: any) => ({
+        page: row.dimensionValues?.[0]?.value || '/', // pagePath is dimension 0
+        views: parseInt(row.metricValues?.[1]?.value || '0'), // screenPageViews is metric 1
+        bounceRate: parseFloat(row.metricValues?.[4]?.value || '0') // bounceRate is metric 4
+      }));
+    } else {
+      // Real-time data: dimension 2 = unifiedScreenName
+      return rows.slice(0, 5).map((row: any) => ({
+        page: row.dimensionValues?.[2]?.value || '/', // unifiedScreenName is dimension 2
+        views: parseInt(row.metricValues?.[1]?.value || '0'), // screenPageViews is metric 1
+        bounceRate: 0 // Bounce rate not available in real-time data
+      }));
+    }
   }
 
-  private transformTrafficSources(rows: Record<string, unknown>[]): Array<{ source: string; percentage: number; visitors: number }> {
-    // Group by country since real-time doesn't have source data
-    // dimension 0 = country
-    const countryMap = new Map<string, number>();
+  private transformTrafficSources(rows: Record<string, unknown>[], isHistorical = false): Array<{ source: string; percentage: number; visitors: number }> {
+    const sourceMap = new Map<string, number>();
     
     rows.forEach((row: any) => {
-      const country = row.dimensionValues?.[0]?.value || 'Unknown';
+      let source: string;
+      if (isHistorical) {
+        // Historical data: dimension 1 = sessionSource
+        source = row.dimensionValues?.[1]?.value || 'Unknown';
+      } else {
+        // Real-time data: dimension 0 = country
+        source = row.dimensionValues?.[0]?.value || 'Unknown';
+      }
       const visitors = parseInt(row.metricValues?.[0]?.value || '0');
-      countryMap.set(country, (countryMap.get(country) || 0) + visitors);
+      sourceMap.set(source, (sourceMap.get(source) || 0) + visitors);
     });
     
     // Calculate total visitors
-    const totalVisitors = Array.from(countryMap.values()).reduce((sum, val) => sum + val, 0);
+    const totalVisitors = Array.from(sourceMap.values()).reduce((sum, val) => sum + val, 0);
     
     // Convert to array with percentages, sorted by visitors
-    return Array.from(countryMap.entries())
-      .map(([country, visitors]) => ({
-        source: country,
+    return Array.from(sourceMap.entries())
+      .map(([source, visitors]) => ({
+        source: source,
         percentage: totalVisitors > 0 ? Math.round((visitors / totalVisitors) * 100) : 0,
         visitors
       }))
