@@ -207,11 +207,6 @@ ${phone} | ${email} | ${website}`;
     
     return `After analyzing ${auditResult.url}, I found your website has a ${overallScore.toFixed(1)}/${scoreOutOf} overall performance score, indicating ${performanceLevel}. 
 
-Key findings:
-• ${topIssues[0] || 'Performance optimization needed'}
-• ${topIssues[1] || 'User experience improvements required'}
-• ${topIssues[2] || 'Technical enhancements needed'}
-
 Your strongest area is ${this.formatCategoryName(topCategory?.[0] || 'general performance')} (${topCategory?.[1]?.score?.toFixed(1) || 'N/A'}/5), while ${this.formatCategoryName(bottomCategory?.[0] || 'overall optimization')} (${bottomCategory?.[1]?.score?.toFixed(1) || 'N/A'}/5) presents the biggest opportunity for improvement.`;
   }
 
