@@ -111,7 +111,17 @@ class AnalyticsService {
       }
 
       const data = await response.json();
-      return this.transformGA4Data(data, true); // Historical data
+      const transformed = this.transformGA4Data(data, true); // Historical data
+      
+      // Fetch PageSpeed Insights data for performance metrics
+      try {
+        const pagespeedData = await this.getCoreWebVitals();
+        transformed.coreWebVitals = pagespeedData;
+      } catch (error) {
+        console.error('Error fetching PageSpeed data:', error);
+      }
+      
+      return transformed;
     } catch (error) {
       console.error('Error fetching historical analytics:', error);
       // Fallback to mock data if API fails
@@ -127,23 +137,19 @@ class AnalyticsService {
 
     try {
       // Use Google's PageSpeed Insights API or Chrome UX Report
-      const response = await fetch('/api/analytics/web-vitals', {
+      const response = await fetch('/api/pagespeed?url=https://sanddollardesign.co.za&strategy=mobile', {
         method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${await this.getAccessToken()}`,
-          'Content-Type': 'application/json',
-        },
       });
 
       if (!response.ok) {
-        throw new Error(`Web Vitals API error: ${response.status}`);
+        throw new Error(`PageSpeed API error: ${response.status}`);
       }
 
       const data = await response.json();
       return {
-        lcp: data.lcp || 2.3,
-        fid: data.fid || 45,
-        cls: data.cls || 0.08
+        lcp: parseFloat(data.lcp) || 2.3,
+        fid: parseInt(data.fid) || 45,
+        cls: parseFloat(data.cls) || 0.08
       };
     } catch (error) {
       console.error('Error fetching Core Web Vitals:', error);

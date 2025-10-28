@@ -661,8 +661,62 @@ app.post('/api/analytics/historical', async (req, res) => {
   }
 });
 
+// Get PageSpeed Insights data
+app.get('/api/pagespeed', async (req, res) => {
+  try {
+    const url = req.query.url || 'https://sanddollardesign.co.za';
+    const strategy = req.query.strategy || 'mobile'; // mobile or desktop
+    
+    // Use PageSpeed Insights API with service account authentication
+    const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=${strategy}&key=${process.env.PAGESPEED_API_KEY || ''}`;
+    
+    const response = await axios.get(apiUrl, {
+      httpsAgent: new https.Agent({
+        rejectUnauthorized: false
+      })
+    });
+    
+    // Extract relevant metrics
+    const lighthouseResult = response.data.lighthouseResult;
+    const categories = lighthouseResult.categories;
+    
+    const metrics = {
+      performance: categories.performance?.score ? Math.round(categories.performance.score * 100) : 0,
+      accessibility: categories.accessibility?.score ? Math.round(categories.accessibility.score * 100) : 0,
+      bestPractices: categories['best-practices']?.score ? Math.round(categories['best-practices'].score * 100) : 0,
+      seo: categories.seo?.score ? Math.round(categories.seo.score * 100) : 0,
+      
+      // Core Web Vitals
+      lcp: lighthouseResult.audits['largest-contentful-paint']?.numericValue ? (lighthouseResult.audits['largest-contentful-paint'].numericValue / 1000).toFixed(2) : null,
+      fid: lighthouseResult.audits['max-potential-fid']?.numericValue ? Math.round(lighthouseResult.audits['max-potential-fid'].numericValue) : null,
+      cls: lighthouseResult.audits['cumulative-layout-shift']?.numericValue ? lighthouseResult.audits['cumulative-layout-shift'].numericValue.toFixed(3) : null,
+      
+      // Additional performance metrics
+      fcp: lighthouseResult.audits['first-contentful-paint']?.numericValue ? (lighthouseResult.audits['first-contentful-paint'].numericValue / 1000).toFixed(2) : null,
+      si: lighthouseResult.audits['speed-index']?.numericValue ? (lighthouseResult.audits['speed-index'].numericValue / 1000).toFixed(2) : null,
+      tti: lighthouseResult.audits['interactive']?.numericValue ? (lighthouseResult.audits['interactive'].numericValue / 1000).toFixed(2) : null,
+      
+      // Recommendations
+      opportunities: lighthouseResult.audits ? Object.values(lighthouseResult.audits)
+        .filter(audit => audit.details?.type === 'opportunity' && audit.score < 0.9)
+        .map(audit => ({
+          title: audit.title,
+          description: audit.description,
+          savings: audit.numericValue || 0
+        }))
+        .slice(0, 5) : []
+    };
+    
+    res.json(metrics);
+  } catch (error) {
+    console.error('Error fetching PageSpeed Insights:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`🚀 Storage server running on http://localhost:${PORT}`);
   console.log(`📁 Data will be saved to: ${dataDir}`);
   console.log(`📊 Google Analytics API endpoints configured`);
+  console.log(`⚡ PageSpeed Insights API endpoint configured`);
 });
