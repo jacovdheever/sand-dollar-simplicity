@@ -310,7 +310,7 @@ class AnalyticsService {
       domainAuthority: null, // Would need separate service
       topPages: this.transformTopPages(rows, isHistorical),
       trafficSources: this.transformTrafficSources(rows, isHistorical),
-      deviceBreakdown: this.transformDeviceBreakdown(rows),
+      deviceBreakdown: this.transformDeviceBreakdown(rows, isHistorical),
       contactFormSubmissions: null, // Would need backend tracking
       conversionRate: null, // Would need backend tracking
       leadQuality: null, // Would need backend tracking
@@ -369,13 +369,19 @@ class AnalyticsService {
       .slice(0, 4);
   }
 
-  private transformDeviceBreakdown(rows: Record<string, unknown>[]): Array<{ device: string; percentage: number; visitors: number }> {
+  private transformDeviceBreakdown(rows: Record<string, unknown>[], isHistorical = false): Array<{ device: string; percentage: number; visitors: number }> {
     // Group by device category and sum visitors
-    // dimension 1 = deviceCategory (desktop, mobile, tablet)
     const deviceMap = new Map<string, number>();
     
     rows.forEach((row: any) => {
-      const device = row.dimensionValues?.[1]?.value || 'Unknown'; // deviceCategory is at index 1
+      let device: string;
+      if (isHistorical) {
+        // Historical data: dimension 2 = deviceCategory (pagePath=0, sessionSource=1, deviceCategory=2)
+        device = row.dimensionValues?.[2]?.value || 'Unknown';
+      } else {
+        // Real-time data: dimension 1 = deviceCategory
+        device = row.dimensionValues?.[1]?.value || 'Unknown';
+      }
       const visitors = parseInt(row.metricValues?.[0]?.value || '0'); // activeUsers is metric 0
       deviceMap.set(device, (deviceMap.get(device) || 0) + visitors);
     });
