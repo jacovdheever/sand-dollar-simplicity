@@ -106,19 +106,16 @@ class AnalyticsService {
         body: JSON.stringify({
           dateRange,
           metrics: [
+            'activeUsers',
+            'screenPageViews',
             'sessions',
-            'users',
-            'pageviews',
-            'bounceRate',
-            'avgSessionDuration',
-            'organicTraffic',
-            'conversions'
+            'averageSessionDuration'
           ],
           dimensions: [
             'pagePath',
-            'source',
+            'sessionSource',
             'deviceCategory',
-            'userType'
+            'newVsReturning'
           ]
         }),
       });
