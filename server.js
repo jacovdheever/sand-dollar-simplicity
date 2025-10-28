@@ -583,7 +583,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Google Analytics API Endpoints
-const PROPERTY_ID = '448584441'; // Your GA4 Property ID
+const PROPERTY_ID = '317285123'; // Your GA4 Property ID
 
 // Initialize the Analytics Data Client
 let analyticsDataClient;
