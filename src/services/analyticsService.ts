@@ -322,21 +322,46 @@ class AnalyticsService {
 
   private transformTopPages(rows: Record<string, unknown>[], isHistorical = false): Array<{ page: string; views: number; bounceRate: number }> {
     // Transform GA4 rows to top pages format
-    if (isHistorical) {
-      // Historical data: dimension 0 = pagePath, metric 4 = bounceRate
-      return rows.slice(0, 5).map((row: any) => ({
-        page: row.dimensionValues?.[0]?.value || '/', // pagePath is dimension 0
-        views: parseInt(row.metricValues?.[1]?.value || '0'), // screenPageViews is metric 1
-        bounceRate: parseFloat(row.metricValues?.[4]?.value || '0') // bounceRate is metric 4
-      }));
-    } else {
-      // Real-time data: dimension 2 = unifiedScreenName
-      return rows.slice(0, 5).map((row: any) => ({
-        page: row.dimensionValues?.[2]?.value || '/', // unifiedScreenName is dimension 2
-        views: parseInt(row.metricValues?.[1]?.value || '0'), // screenPageViews is metric 1
-        bounceRate: 0 // Bounce rate not available in real-time data
-      }));
-    }
+    // For historical data: aggregate by pagePath to show unique pages
+    const pageMap = new Map<string, { views: number; bounceRate: number }>();
+    
+    rows.forEach((row: any) => {
+      let pagePath: string;
+      if (isHistorical) {
+        // Historical data: dimension 0 = pagePath
+        pagePath = row.dimensionValues?.[0]?.value || '/';
+      } else {
+        // Real-time data: dimension 2 = unifiedScreenName
+        pagePath = row.dimensionValues?.[2]?.value || '/';
+      }
+      
+      const views = parseInt(row.metricValues?.[1]?.value || '0'); // screenPageViews
+      let bounceRate = 0;
+      
+      if (isHistorical && row.metricValues?.[4]?.value) {
+        bounceRate = parseFloat(row.metricValues[4].value);
+      }
+      
+      const existing = pageMap.get(pagePath);
+      if (existing) {
+        pageMap.set(pagePath, {
+          views: existing.views + views,
+          bounceRate: existing.bounceRate + bounceRate / 2 // Average bounce rate
+        });
+      } else {
+        pageMap.set(pagePath, { views, bounceRate });
+      }
+    });
+    
+    // Convert to array and sort by views
+    return Array.from(pageMap.entries())
+      .map(([page, data]) => ({
+        page,
+        views: data.views,
+        bounceRate: isHistorical ? parseFloat((data.bounceRate * 100).toFixed(2)) : 0
+      }))
+      .sort((a, b) => b.views - a.views)
+      .slice(0, 5);
   }
 
   private transformTrafficSources(rows: Record<string, unknown>[], isHistorical = false): Array<{ source: string; percentage: number; visitors: number }> {
