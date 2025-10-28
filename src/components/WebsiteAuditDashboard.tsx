@@ -43,6 +43,7 @@ const WebsiteAuditDashboard: React.FC<WebsiteAuditDashboardProps> = ({ onClose }
   const [isGeneratingPrompts, setIsGeneratingPrompts] = useState(false);
   const [prompts, setPrompts] = useState<string[]>([]);
   const [showSalesPitch, setShowSalesPitch] = useState(false);
+  const [selectedScreenshot, setSelectedScreenshot] = useState<{type: 'fullPage' | 'viewport', src: string, alt: string} | null>(null);
 
   const handleAudit = async () => {
     if (!url.trim()) {
@@ -221,10 +222,10 @@ const WebsiteAuditDashboard: React.FC<WebsiteAuditDashboardProps> = ({ onClose }
                       <p className="text-lg opacity-90">Comprehensive website analysis</p>
                     </div>
                     <div className="text-right">
-                      <div className={`text-5xl font-black ${getScoreColor(auditResult.overallScore)}`}>
-                        {auditResult.overallScore}
+                      <div className={`text-5xl font-black ${getScoreColor(auditResult.overallScore * 20)}`}>
+                        {auditResult.overallScore.toFixed(1)}
                       </div>
-                      <div className="text-lg opacity-90">/ 100</div>
+                      <div className="text-lg opacity-90">/ 5.0</div>
                     </div>
                   </div>
                 </div>
@@ -240,14 +241,17 @@ const WebsiteAuditDashboard: React.FC<WebsiteAuditDashboardProps> = ({ onClose }
                             {category.replace(/([A-Z])/g, ' $1').trim()}
                           </h4>
                         </div>
-                        <div className={`px-3 py-1 rounded-full text-sm font-bold ${getScoreBgColor(data.score)} ${getScoreColor(data.score)}`}>
-                          {data.score}
+                        <div className={`px-3 py-1 rounded-full text-sm font-bold ${getScoreBgColor(data.score * 20)} ${getScoreColor(data.score * 20)}`}>
+                          {data.score.toFixed(1)}
                         </div>
                       </div>
                       <div className="space-y-2">
+                        <div className="text-sm text-gray-600 mb-2">
+                          {getCategoryDescription(category)}
+                        </div>
                         <div className="flex items-center justify-between text-sm">
                           <span className="text-gray-600">Grade:</span>
-                          <span className={`font-semibold ${getScoreColor(data.score)}`}>{data.grade}</span>
+                          <span className={`font-semibold ${getScoreColor(data.score * 20)}`}>{data.grade}</span>
                         </div>
                         <div className="flex items-center justify-between text-sm">
                           <span className="text-gray-600">Issues:</span>
@@ -303,18 +307,23 @@ const WebsiteAuditDashboard: React.FC<WebsiteAuditDashboardProps> = ({ onClose }
                           <h4 className="font-semibold text-gray-900">{rec.title}</h4>
                           <div className="flex gap-2">
                             <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                              rec.priority === 'high' ? 'bg-red-100 text-red-600' :
-                              rec.priority === 'medium' ? 'bg-yellow-100 text-yellow-600' :
+                              rec.impact === 'High' ? 'bg-red-100 text-red-600' :
+                              rec.impact === 'Med' ? 'bg-yellow-100 text-yellow-600' :
                               'bg-green-100 text-green-600'
                             }`}>
-                              {rec.priority.toUpperCase()}
+                              {rec.impact} Impact
                             </span>
-                            <span className="px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-600">
-                              ROI: {rec.roi}
+                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                              rec.effort === 'High' ? 'bg-orange-100 text-orange-600' :
+                              rec.effort === 'Med' ? 'bg-yellow-100 text-yellow-600' :
+                              'bg-green-100 text-green-600'
+                            }`}>
+                              {rec.effort} Effort
                             </span>
                           </div>
                         </div>
-                        <p className="text-gray-600 text-sm mb-2">{rec.description}</p>
+                        <p className="text-gray-600 text-sm mb-2">{rec.problem}</p>
+                        <p className="text-gray-700 text-sm mb-2"><strong>Recommendation:</strong> {rec.recommendation}</p>
                         <div className="text-sm text-gray-500">
                           <span className="font-medium">Effort:</span> {rec.effort} | 
                           <span className="font-medium ml-2">Impact:</span> {rec.impact}
@@ -485,17 +494,27 @@ const WebsiteAuditDashboard: React.FC<WebsiteAuditDashboardProps> = ({ onClose }
                             <FileImage className="w-4 h-4 text-green-500" />
                             Full Page Screenshot
                           </h4>
-                          <div className="border border-gray-200 rounded-lg overflow-hidden">
+                          <div className="relative border border-gray-200 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-200 group" 
+                               onClick={() => setSelectedScreenshot({
+                                 type: 'fullPage',
+                                 src: auditResult.screenshots.fullPage,
+                                 alt: 'Full page screenshot'
+                               })}>
                             <img 
-                              src={`/sand-dollar-simplicity${auditResult.screenshots.fullPage}`}
+                              src={auditResult.screenshots.fullPage}
                               alt="Full page screenshot"
-                              className="w-full h-auto max-h-96 object-contain bg-gray-50"
+                              className="w-full h-auto max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-200"
                               onError={(e) => {
                                 e.currentTarget.style.display = 'none';
                               }}
                             />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200 flex items-center justify-center">
+                              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white/90 rounded-full p-2">
+                                <Eye className="w-6 h-6 text-gray-700" />
+                              </div>
+                            </div>
                           </div>
-                          <p className="text-sm text-gray-500">Complete page layout and content</p>
+                          <p className="text-sm text-gray-500">Complete page layout and content • Click to enlarge</p>
                         </div>
                       )}
 
@@ -506,17 +525,27 @@ const WebsiteAuditDashboard: React.FC<WebsiteAuditDashboardProps> = ({ onClose }
                             <Eye className="w-4 h-4 text-blue-500" />
                             Viewport Screenshot
                           </h4>
-                          <div className="border border-gray-200 rounded-lg overflow-hidden">
+                          <div className="relative border border-gray-200 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-200 group" 
+                               onClick={() => setSelectedScreenshot({
+                                 type: 'viewport',
+                                 src: auditResult.screenshots.viewport,
+                                 alt: 'Viewport screenshot'
+                               })}>
                             <img 
-                              src={`/sand-dollar-simplicity${auditResult.screenshots.viewport}`}
+                              src={auditResult.screenshots.viewport}
                               alt="Viewport screenshot"
-                              className="w-full h-auto max-h-96 object-contain bg-gray-50"
+                              className="w-full h-auto max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-200"
                               onError={(e) => {
                                 e.currentTarget.style.display = 'none';
                               }}
                             />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200 flex items-center justify-center">
+                              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white/90 rounded-full p-2">
+                                <Eye className="w-6 h-6 text-gray-700" />
+                              </div>
+                            </div>
                           </div>
-                          <p className="text-sm text-gray-500">Above-the-fold content (1920x1080 viewport)</p>
+                          <p className="text-sm text-gray-500">Above-the-fold content (1920x1080 viewport) • Click to enlarge</p>
                         </div>
                       )}
                     </div>
@@ -621,6 +650,53 @@ const WebsiteAuditDashboard: React.FC<WebsiteAuditDashboardProps> = ({ onClose }
         />
       )}
 
+      {/* Screenshot Modal */}
+      {selectedScreenshot && (
+        <div className="fixed inset-0 z-50 overflow-y-auto">
+          <div className="fixed inset-0 bg-black/90 backdrop-blur-sm" onClick={() => setSelectedScreenshot(null)} />
+          <div className="flex min-h-full items-center justify-center p-4">
+            <div className="relative w-full max-w-6xl bg-white rounded-2xl shadow-2xl max-h-[95vh] overflow-hidden">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <FileImage className="w-6 h-6 text-[#f97316]" />
+                  <h2 className="text-xl font-bold text-gray-900">
+                    {selectedScreenshot.type === 'fullPage' ? 'Full Page Screenshot' : 'Viewport Screenshot'}
+                  </h2>
+                </div>
+                <button
+                  onClick={() => setSelectedScreenshot(null)}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Screenshot Content */}
+              <div className="overflow-y-auto max-h-[calc(95vh-80px)] p-6">
+                <div className="text-center">
+                  <img 
+                    src={selectedScreenshot.src}
+                    alt={selectedScreenshot.alt}
+                    className="max-w-full h-auto mx-auto rounded-lg shadow-lg"
+                    style={{ maxHeight: 'calc(95vh - 200px)' }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                  <p className="mt-4 text-sm text-gray-600">
+                    {selectedScreenshot.type === 'fullPage' 
+                      ? 'Complete page layout and content - Click outside to close'
+                      : 'Above-the-fold content (1920x1080 viewport) - Click outside to close'
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
@@ -628,30 +704,68 @@ const WebsiteAuditDashboard: React.FC<WebsiteAuditDashboardProps> = ({ onClose }
 // Helper function to get category icons
 const getCategoryIcon = (category: string) => {
   switch (category) {
-    case 'usability':
-      return <Users className="w-5 h-5 text-blue-500" />;
-    case 'uxDesign':
-      return <Eye className="w-5 h-5 text-purple-500" />;
-    case 'uiDesign':
-      return <FileImage className="w-5 h-5 text-pink-500" />;
-    case 'backend':
-      return <Database className="w-5 h-5 text-gray-500" />;
-    case 'seo':
-      return <Search className="w-5 h-5 text-green-500" />;
-    case 'crm':
-      return <Users className="w-5 h-5 text-indigo-500" />;
-    case 'contentManagement':
-      return <FileText className="w-5 h-5 text-orange-500" />;
-    case 'sales':
-      return <ShoppingCart className="w-5 h-5 text-red-500" />;
-    case 'performance':
-      return <TrendingUp className="w-5 h-5 text-yellow-500" />;
+    case 'strategyPositioning':
+      return <TrendingUp className="w-5 h-5 text-blue-500" />;
+    case 'navigationIA':
+      return <Search className="w-5 h-5 text-purple-500" />;
+    case 'searchDiscovery':
+      return <Search className="w-5 h-5 text-pink-500" />;
+    case 'plpPdp':
+      return <ShoppingCart className="w-5 h-5 text-green-500" />;
+    case 'checkoutPayments':
+      return <Database className="w-5 h-5 text-orange-500" />;
+    case 'contentMerchandising':
+      return <FileText className="w-5 h-5 text-indigo-500" />;
     case 'accessibility':
-      return <Users className="w-5 h-5 text-teal-500" />;
-    case 'security':
+      return <Eye className="w-5 h-5 text-teal-500" />;
+    case 'performanceCoreWebVitals':
+      return <TrendingUp className="w-5 h-5 text-yellow-500" />;
+    case 'seo':
+      return <Globe className="w-5 h-5 text-green-600" />;
+    case 'trustPrivacySecurity':
       return <Shield className="w-5 h-5 text-red-600" />;
+    case 'analyticsExperimentation':
+      return <BarChart3 className="w-5 h-5 text-blue-600" />;
+    case 'postPurchaseRetention':
+      return <Users className="w-5 h-5 text-purple-600" />;
+    case 'opsCms':
+      return <Database className="w-5 h-5 text-gray-600" />;
     default:
       return <BarChart3 className="w-5 h-5 text-gray-500" />;
+  }
+};
+
+// Helper function to get category descriptions
+const getCategoryDescription = (category: string) => {
+  switch (category) {
+    case 'strategyPositioning':
+      return 'Business model clarity, value proposition, target audience alignment, and goal definition';
+    case 'navigationIA':
+      return 'Navigation structure, information architecture, breadcrumbs, and internal linking';
+    case 'searchDiscovery':
+      return 'Search functionality, filters, categories, and product discovery features';
+    case 'plpPdp':
+      return 'Product listing pages, product detail pages, image quality, and pricing clarity';
+    case 'checkoutPayments':
+      return 'Checkout flow, payment options, form validation, and order summary';
+    case 'contentMerchandising':
+      return 'Content quality, merchandising, call-to-actions, and content structure';
+    case 'accessibility':
+      return 'WCAG compliance, keyboard navigation, screen reader support, and color contrast';
+    case 'performanceCoreWebVitals':
+      return 'Page speed, Core Web Vitals, mobile performance, and optimization';
+    case 'seo':
+      return 'Meta tags, heading structure, alt text, SSL, and mobile-friendly design';
+    case 'trustPrivacySecurity':
+      return 'SSL certificates, privacy policies, trust signals, and security headers';
+    case 'analyticsExperimentation':
+      return 'Analytics tracking, A/B testing, event tracking, and conversion measurement';
+    case 'postPurchaseRetention':
+      return 'Order tracking, customer support, retention features, and post-purchase experience';
+    case 'opsCms':
+      return 'Content management, operational efficiency, and system administration';
+    default:
+      return 'Website audit category evaluation';
   }
 };
 

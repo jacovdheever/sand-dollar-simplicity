@@ -7,8 +7,6 @@ export interface SalesPitchOptions {
   clientName?: string;
   companyName?: string;
   contactEmail?: string;
-  includePricing?: boolean;
-  includeTimeline?: boolean;
   includeCaseStudies?: boolean;
 }
 
@@ -42,7 +40,7 @@ class SalesPitchGenerator {
     // Slide 2: Current State
     slides.push({
       title: `Current Website Performance`,
-      content: `Overall Score: ${auditResult.overallScore}/100\n\n${this.getScoreInterpretation(auditResult.overallScore)}\n\nKey Issues Identified:\n${this.getTopIssues(auditResult).slice(0, 3).map(issue => `• ${issue}`).join('\n')}`,
+      content: `Overall Score: ${auditResult.overallScore.toFixed(1)}/5.0\n\n${this.getScoreInterpretation(auditResult.overallScore)}\n\nKey Issues Identified:\n${this.getTopIssues(auditResult).slice(0, 3).map(issue => `• ${issue}`).join('\n')}`,
       type: 'problem'
     });
 
@@ -90,24 +88,6 @@ class SalesPitchGenerator {
       });
     }
 
-    if (options.includePricing) {
-      // Slide 9: Investment
-      slides.push({
-        title: `Investment & Packages`,
-        content: this.getPricingContent(auditResult),
-        type: 'pricing'
-      });
-    }
-
-    if (options.includeTimeline) {
-      // Slide 10: Timeline
-      slides.push({
-        title: `Project Timeline`,
-        content: this.getTimelineContent(),
-        type: 'timeline'
-      });
-    }
-
     // Final Slide: Call to Action
     slides.push({
       title: `Ready to Transform Your Website?`,
@@ -122,57 +102,54 @@ class SalesPitchGenerator {
   generateEmailTemplate(auditResult: AuditResult, options: SalesPitchOptions = {}): EmailTemplate {
     const clientName = options.clientName || 'Valued Client';
     const companyName = options.companyName || 'Your Company';
+    const yourName = options.clientName || 'Jaco';
+    const phone = options.contactEmail || '+27 82 123 4567';
+    const email = options.contactEmail || 'jaco@sanddollardesign.co.za';
+    const website = 'https://sanddollardesign.co.za';
     
-    const subject = `Website Audit Results for ${companyName} - ${auditResult.overallScore}/100 Score`;
+    const subject = `Quick wins to lift revenue on ${companyName}'s site`;
     
-    const body = `Dear ${clientName},
+    const auditSummary = this.generateAuditSummary(auditResult);
+    
+    const body = `Hi ${clientName},
 
-I hope this email finds you well. I'm reaching out to share some important insights about your website's current performance.
+I'm ${yourName} from Sand Dollar Design. We specialize in designing and optimizing high‑performing websites and e‑commerce experiences.
 
-**Website Audit Summary**
-We recently conducted a comprehensive audit of ${auditResult.url} and identified several opportunities for improvement that could significantly impact your business growth.
+${auditSummary}
 
-**Current Performance Score: ${auditResult.overallScore}/100**
-${this.getScoreInterpretation(auditResult.overallScore)}
+We've developed a focused Website & E‑commerce Audit that pinpoints exactly where your site is creating friction—and how to turn those moments into revenue. Our audit covers:
 
-**Key Issues Identified:**
-${this.getTopIssues(auditResult).slice(0, 5).map(issue => `• ${issue}`).join('\n')}
+UX/UI and conversion: home, PLP/PDP, cart and checkout
+Navigation, search, and product discovery
+Content and merchandising
+Accessibility and performance (Core Web Vitals)
+SEO and structured data
+Analytics, experimentation, and post‑purchase retention
 
-**The Impact on Your Business:**
-${this.getBusinessImpactContent(auditResult)}
+What you get:
 
-**How We Can Help:**
-At Sand Dollar Design, we specialize in transforming websites like yours into high-converting, user-friendly platforms that drive business growth. Our proven approach has helped companies achieve:
+An executive summary with the top 5 opportunities
+A prioritized, effort/impact roadmap with owner by team
+Page‑level findings with clear design and development guidance
+KPI plan to measure improvements (conversion, AOV, repeat rate)
 
-• 40-60% improvement in website performance
-• 25-45% increase in conversion rates
-• 30-50% improvement in search engine rankings
-• Enhanced user experience and customer satisfaction
+Typical outcomes include:
 
-**What's Next:**
-I'd love to schedule a brief 15-minute call to discuss these findings and explore how we can help ${companyName} achieve its digital goals. During this call, we can:
+Faster paths to product and clearer PDPs → higher add-to-cart
+Streamlined checkout and wallet pay → lower abandonment
+Image/JS optimizations → improved speed and conversion
+Stronger SEO and structured data → more qualified organic traffic
 
-• Review the detailed audit findings
-• Discuss your business objectives
-• Explore potential solutions
-• Answer any questions you may have
+If you'd like, we can run a quick no‑obligation pre‑audit on ${auditResult.url} and share the top 3 opportunities we see.
 
-**Free Consultation Offer:**
-As a gesture of goodwill, I'm offering a complimentary 30-minute strategy session where we'll dive deeper into your specific challenges and opportunities.
-
-Would you be available for a brief call this week? I'm flexible with timing and can accommodate your schedule.
-
-Looking forward to helping ${companyName} reach its full potential online.
+Would you be open to a 20‑minute call this week to discuss?
 
 Best regards,
-[Your Name]
+${yourName}
 Sand Dollar Design
-${options.contactEmail || 'hello@sanddollardesign.co.za'}
-Phone: [Your Phone Number]
+${phone} | ${email} | ${website}`;
 
-P.S. I've attached a detailed audit report for your review. Feel free to share it with your team, and don't hesitate to reach out if you have any questions.`;
-
-    const callToAction = `Schedule Your Free Strategy Call: ${options.contactEmail || 'hello@sanddollardesign.co.za'}`;
+    const callToAction = `Schedule Your Free Strategy Call: ${email}`;
 
     return {
       subject,
@@ -201,11 +178,43 @@ P.S. I've attached a detailed audit report for your review. Feel free to share i
     return content;
   }
 
+  // Generate brief audit summary
+  private generateAuditSummary(auditResult: AuditResult): string {
+    const overallScore = auditResult.overallScore;
+    const scoreOutOf = 5.0; // Updated to 5.0 scale
+    
+    // Get top 3 issues
+    const topIssues = this.getTopIssues(auditResult).slice(0, 3);
+    
+    // Get score interpretation
+    let performanceLevel = '';
+    if (overallScore >= 4.0) {
+      performanceLevel = 'strong foundation with optimization opportunities';
+    } else if (overallScore >= 3.0) {
+      performanceLevel = 'decent performance with significant improvement potential';
+    } else if (overallScore >= 2.0) {
+      performanceLevel = 'below-average performance requiring immediate attention';
+    } else {
+      performanceLevel = 'poor performance with critical issues affecting business growth';
+    }
+    
+    // Get top performing and underperforming categories
+    const categories = Object.entries(auditResult.categories || {});
+    const sortedCategories = categories.sort((a, b) => (b[1]?.score || 0) - (a[1]?.score || 0));
+    
+    const topCategory = sortedCategories[0];
+    const bottomCategory = sortedCategories[sortedCategories.length - 1];
+    
+    return `After analyzing ${auditResult.url}, I found your website has a ${overallScore.toFixed(1)}/${scoreOutOf} overall performance score, indicating ${performanceLevel}. 
+
+Your strongest area is ${this.formatCategoryName(topCategory?.[0] || 'general performance')} (${topCategory?.[1]?.score?.toFixed(1) || 'N/A'}/5), while ${this.formatCategoryName(bottomCategory?.[0] || 'overall optimization')} (${bottomCategory?.[1]?.score?.toFixed(1) || 'N/A'}/5) presents the biggest opportunity for improvement.`;
+  }
+
   // Helper methods
   private getScoreInterpretation(score: number): string {
-    if (score >= 80) return "Excellent performance with minor optimization opportunities.";
-    if (score >= 60) return "Good foundation with significant improvement potential.";
-    if (score >= 40) return "Below average performance requiring immediate attention.";
+    if (score >= 4.0) return "Excellent performance with minor optimization opportunities.";
+    if (score >= 3.0) return "Good foundation with significant improvement potential.";
+    if (score >= 2.0) return "Below average performance requiring immediate attention.";
     return "Poor performance with critical issues affecting business growth.";
   }
 
@@ -232,7 +241,7 @@ P.S. I've attached a detailed audit report for your review. Feel free to share i
     }
     
     return categories.map(([category, data]) => 
-      `${this.formatCategoryName(category)}: ${data?.score || 0}/100`
+      `${this.formatCategoryName(category)}: ${data?.score?.toFixed(1) || 0}/5.0`
     ).join('\n');
   }
 
@@ -248,11 +257,11 @@ P.S. I've attached a detailed audit report for your review. Feel free to share i
 
   private getBusinessImpactContent(auditResult: AuditResult): string {
     const score = auditResult.overallScore;
-    if (score < 40) {
+    if (score < 2.0) {
       return "Your website is likely losing potential customers due to poor performance, slow loading times, and poor user experience. This directly impacts your revenue and brand reputation.";
-    } else if (score < 60) {
+    } else if (score < 3.0) {
       return "While your website has a decent foundation, there are significant opportunities to improve user experience and conversion rates that could substantially increase your business growth.";
-    } else if (score < 80) {
+    } else if (score < 4.0) {
       return "Your website performs well but has room for optimization that could unlock additional growth potential and competitive advantages.";
     } else {
       return "Your website performs well, but even small optimizations can yield significant returns on investment in today's competitive digital landscape.";
@@ -267,9 +276,9 @@ P.S. I've attached a detailed audit report for your review. Feel free to share i
     const score = auditResult.overallScore;
     let basePrice = 5000;
     
-    if (score < 40) {
+    if (score < 2.0) {
       basePrice = 8000; // More work needed
-    } else if (score < 60) {
+    } else if (score < 3.0) {
       basePrice = 6000; // Moderate work needed
     }
 

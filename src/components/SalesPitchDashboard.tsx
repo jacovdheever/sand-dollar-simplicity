@@ -17,8 +17,6 @@ const SalesPitchDashboard: React.FC<SalesPitchDashboardProps> = ({ auditResult, 
     clientName: '',
     companyName: '',
     contactEmail: 'hello@sanddollardesign.co.za',
-    includePricing: true,
-    includeTimeline: true,
     includeCaseStudies: true
   });
   const [copiedItems, setCopiedItems] = useState<Set<string>>(new Set());
@@ -106,7 +104,7 @@ const SalesPitchDashboard: React.FC<SalesPitchDashboardProps> = ({ auditResult, 
         {/* Options Panel */}
         <div className="p-6 border-b border-gray-200 bg-gray-50">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Client Information</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Client Name</label>
               <input
@@ -136,28 +134,6 @@ const SalesPitchDashboard: React.FC<SalesPitchDashboardProps> = ({ auditResult, 
                 placeholder="hello@sanddollardesign.co.za"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f97316] focus:border-transparent"
               />
-            </div>
-            <div className="flex items-end">
-              <div className="flex space-x-2">
-                <label className="flex items-center">
-                  <input
-                    type="checkbox"
-                    checked={options.includePricing || false}
-                    onChange={(e) => setOptions(prev => ({ ...prev, includePricing: e.target.checked }))}
-                    className="mr-2"
-                  />
-                  <span className="text-sm text-gray-700">Include Pricing</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="checkbox"
-                    checked={options.includeTimeline || false}
-                    onChange={(e) => setOptions(prev => ({ ...prev, includeTimeline: e.target.checked }))}
-                    className="mr-2"
-                  />
-                  <span className="text-sm text-gray-700">Include Timeline</span>
-                </label>
-              </div>
             </div>
           </div>
         </div>
