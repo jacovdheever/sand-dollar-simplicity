@@ -266,14 +266,31 @@ class AnalyticsService {
 
   private transformGA4Data(ga4Data: Record<string, unknown>): AnalyticsData {
     // Transform Google Analytics 4 data to our AnalyticsData interface
-    // This is a simplified transformation - in reality, you'd need to handle
-    // the complex GA4 response structure
+    const rows = ga4Data.rows || [];
+    
+    // Calculate totals from rows since GA4 may not return totals
+    let totalVisitors = 0;
+    let totalPageViews = 0;
+    
+    rows.forEach((row: any) => {
+      // Sum up the active users (metric 0)
+      const visitors = parseInt(row.metricValues?.[0]?.value || '0');
+      totalVisitors += visitors;
+      
+      // Sum up page views (metric 1)
+      const pageViews = parseInt(row.metricValues?.[1]?.value || '0');
+      totalPageViews += pageViews;
+    });
+    
+    // Try to get totals from GA4 response, fallback to calculated values
+    const finalTotalVisitors = ga4Data.totals?.[0]?.values?.[0] || totalVisitors;
+    
     return {
-      totalVisitors: ga4Data.totals?.[0]?.values?.[0] || 0,
-      uniqueVisitors: ga4Data.totals?.[0]?.values?.[1] || 0,
-      pageViews: ga4Data.totals?.[0]?.values?.[2] || 0,
-      bounceRate: ga4Data.totals?.[0]?.values?.[3] || 0,
-      avgSessionDuration: this.formatDuration(ga4Data.totals?.[0]?.values?.[4] || 0),
+      totalVisitors: finalTotalVisitors,
+      uniqueVisitors: finalTotalVisitors, // GA4 doesn't distinguish in real-time
+      pageViews: ga4Data.totals?.[0]?.values?.[1] || totalPageViews,
+      bounceRate: 0, // Bounce rate requires historical analysis
+      avgSessionDuration: '0m 0s', // Would need separate query for historical data
       newVsReturning: { new: 65, returning: 35 }, // Would need separate query
       pageLoadSpeed: 2.1, // Would come from PageSpeed Insights
       coreWebVitals: { lcp: 2.3, fid: 45, cls: 0.08 },
@@ -281,9 +298,9 @@ class AnalyticsService {
       keywordRankings: 156,
       backlinks: 89,
       domainAuthority: 42,
-      topPages: this.transformTopPages(ga4Data.rows || []),
-      trafficSources: this.transformTrafficSources(ga4Data.rows || []),
-      deviceBreakdown: this.transformDeviceBreakdown(ga4Data.rows || []),
+      topPages: this.transformTopPages(rows),
+      trafficSources: this.transformTrafficSources(rows),
+      deviceBreakdown: this.transformDeviceBreakdown(rows),
       contactFormSubmissions: 47,
       conversionRate: 3.8,
       leadQuality: 'high',
@@ -312,12 +329,24 @@ class AnalyticsService {
   }
 
   private transformDeviceBreakdown(rows: Record<string, unknown>[]): Array<{ device: string; percentage: number; visitors: number }> {
-    // Transform GA4 rows to device breakdown format
-    return [
-      { device: 'Desktop', percentage: 52, visitors: 6474 },
-      { device: 'Mobile', percentage: 38, visitors: 4731 },
-      { device: 'Tablet', percentage: 10, visitors: 1245 }
-    ];
+    // Group by device category and sum visitors
+    const deviceMap = new Map<string, number>();
+    
+    rows.forEach((row: any) => {
+      const device = row.dimensionValues?.[1]?.value || 'Unknown'; // deviceCategory is dimension 1
+      const visitors = parseInt(row.metricValues?.[0]?.value || '0');
+      deviceMap.set(device, (deviceMap.get(device) || 0) + visitors);
+    });
+    
+    // Calculate total visitors
+    const totalVisitors = Array.from(deviceMap.values()).reduce((sum, val) => sum + val, 0);
+    
+    // Convert to array with percentages
+    return Array.from(deviceMap.entries()).map(([device, visitors]) => ({
+      device: device.charAt(0).toUpperCase() + device.slice(1), // Capitalize
+      percentage: totalVisitors > 0 ? Math.round((visitors / totalVisitors) * 100) : 0,
+      visitors
+    }));
   }
 
   private formatDuration(seconds: number): string {
