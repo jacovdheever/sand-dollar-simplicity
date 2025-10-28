@@ -12,7 +12,7 @@ export const analyticsConfig = {
 
   // Development settings
   development: {
-    useMockData: import.meta.env.VITE_USE_MOCK_ANALYTICS === 'true' || import.meta.env.DEV,
+    useMockData: import.meta.env.VITE_USE_MOCK_ANALYTICS === 'true',
     enableConsoleLogging: import.meta.env.DEV,
   },
 
@@ -50,9 +50,9 @@ export const analyticsConfig = {
 
 // Helper function to check if we should use mock data
 export const shouldUseMockData = (): boolean => {
-  return analyticsConfig.development.useMockData || 
-         analyticsConfig.development.enableConsoleLogging ||
-         !analyticsConfig.ga4.apiKey;
+  // Only use mock data if explicitly set in environment
+  // The backend uses service account JSON, so we don't need frontend API key
+  return import.meta.env.VITE_USE_MOCK_ANALYTICS === 'true';
 };
 
 // Helper function to get GA4 measurement ID
