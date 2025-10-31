@@ -269,9 +269,27 @@ npm run dev:full
 #### 4. Missing Sand Dollar Logo in Loader
 **Symptoms**: Loading indicator shows without logo
 **Cause**: Incorrect image path
-**Solution**: Ensure logo path includes base path: `/sand-dollar-simplicity/Sand-Dollar-icon.png`
+**Solution**: Ensure logo path uses root path: `/Sand-Dollar-icon.png` (for custom domain)
 
-#### 5. Build Errors
+#### 5. Mobile Sections Not Visible (Blank Screen)
+**Symptoms**: Services, Projects, or other sections not showing on mobile devices
+**Cause**: Intersection Observer not triggering on mobile, or sections hidden with `opacity: 0`
+**Solution**: 
+- Check browser console for JavaScript errors
+- Verify sections have `opacity: 1` in computed styles
+- Sections should auto-reveal within 500ms (fallback timeout)
+- Ensure Intersection Observer is working: check for `animate-fade-in` class on sections
+- **Fixed in January 2025**: See "Recent Progress & Learnings" section above
+
+#### 6. RangeError: Invalid array length
+**Symptoms**: Page crashes on mobile with `RangeError: Invalid array length` in Media component
+**Cause**: Invalid array length calculation for pagination dots
+**Solution**: 
+- Error is now prevented with validation in `Media.tsx`
+- If still occurring, check that `allArticles.length` and container width are valid numbers
+- **Fixed in January 2025**: See "Recent Progress & Learnings" section above
+
+#### 7. Build Errors
 **Symptoms**: Vite build fails with merge conflicts
 **Solution**:
 - Check for Git merge conflict markers (`<<<<<<< HEAD`, `=======`, `>>>>>>> branch`)
@@ -353,6 +371,44 @@ PAGESPEED_API_KEY=your-key-here npm run server
 - **Performance Issues**: Populate performance recommendations from PageSpeed data
 - **SEO Issues**: Add SEO audit recommendations
 - **Real-time Recommendations**: Generate actionable insights from analytics data
+
+## 📝 Recent Progress & Learnings
+
+### Mobile Optimization & Bug Fixes (January 2025)
+
+**Issues Resolved:**
+1. **Mobile Blank Screen Bug** - Fixed critical issue where Services and Projects sections were not visible on mobile devices
+2. **RangeError Prevention** - Added comprehensive validation to prevent `RangeError: Invalid array length` crashes in Media component
+3. **Base Path Configuration** - Updated Vite and API configuration to use root paths (`/`) instead of repository paths for custom domain compatibility
+4. **Mobile Spacing** - Reduced excessive white space below hero section on mobile viewports
+
+**Technical Changes:**
+- **`vite.config.ts`**: Changed base path from `/sand-dollar-simplicity/` to `/` for custom domain support
+- **`src/utils/apiConfig.ts`**: Updated API and static data URLs to use root paths
+- **`src/components/Media.tsx`**: Added array length validation to prevent RangeError when calculating pagination dots
+- **`src/components/SandDollarLoader.tsx`**: Fixed icon path to use root path
+- **`src/components/Services.tsx`**: Reduced top padding from `pt-16` to `pt-8` on mobile
+- **`src/pages/Index.tsx`**: Improved Intersection Observer with:
+  - Immediate visibility for sections above the fold
+  - Lower threshold (0.05) and rootMargin for better mobile detection
+  - 500ms fallback timeout to ensure sections are visible even if observer fails
+
+**Key Learnings:**
+1. **Custom Domain Deployment**: When using a custom domain with GitHub Pages, all asset paths must use root paths (`/`) rather than repository-specific paths (`/sand-dollar-simplicity/`)
+2. **Intersection Observer on Mobile**: Mobile browsers may not trigger Intersection Observer correctly for off-screen content. Always include:
+   - Initial visibility check for above-the-fold content
+   - Fallback timeout mechanism
+   - Lower threshold values for better detection
+3. **Array Validation**: Always validate array lengths before using `Array.from()` with calculated lengths, especially when calculations involve viewport dimensions
+4. **Mobile Testing**: Always test production builds (`npm run build && npm run preview`) before deploying, as development and production behaviors can differ significantly
+
+**Deployment Workflow:**
+1. Develop and test on `Test` branch
+2. Build production version: `npm run build`
+3. Test locally: `npm run preview` (port 4173)
+4. Merge `Test` → `main` branch
+5. Push to GitHub (automatic deployment via GitHub Pages)
+6. Verify on live site after 2-5 minute deployment delay
 
 ## 🤝 Contributing
 
