@@ -1,6 +1,21 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import { copyFileSync } from "fs";
+
+// Plugin to copy index.html to 404.html after build (for GitHub Pages SPA routing)
+const copy404Plugin = () => {
+  return {
+    name: 'copy-404',
+    writeBundle() {
+      const distDir = path.resolve(process.cwd(), 'dist');
+      copyFileSync(
+        path.join(distDir, 'index.html'),
+        path.join(distDir, '404.html')
+      );
+    }
+  };
+};
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: { mode: string }) => ({
@@ -18,6 +33,7 @@ export default defineConfig(({ mode }: { mode: string }) => ({
   },
   plugins: [
     react(),
+    copy404Plugin(),
   ],
   resolve: {
     alias: {
