@@ -52,7 +52,7 @@ const serviceWords = [
 const Services = () => {
 
   return (
-    <section id="work" className="pt-16 md:pt-20" style={{backgroundColor: '#f9fafb'}}>
+    <section id="work" className="pt-8 md:pt-20" style={{backgroundColor: '#f9fafb'}}>
       <div className="container-custom">
         <div className="text-center max-w-6xl mx-auto mb-16 section-animate">
           <h2 className="section-title mb-8 from-left font-black">

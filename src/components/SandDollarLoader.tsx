@@ -36,7 +36,7 @@ const SandDollarLoader: React.FC<SandDollarLoaderProps> = ({
           }}
         >
           <img
-            src={import.meta.env.DEV ? "/Sand-Dollar-icon.png" : "/sand-dollar-simplicity/Sand-Dollar-icon.png"}
+            src="/Sand-Dollar-icon.png"
             alt="Sand Dollar Design"
             className="w-3/4 h-3/4 object-contain filter brightness-0 invert"
           />

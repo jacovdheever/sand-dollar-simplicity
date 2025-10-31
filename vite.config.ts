@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: { mode: string }) => ({
-  base: '/',  // Use root path for custom domain
+  base: '/',  // Use root path for custom domain (sanddollardesign.co.za)
   server: {
     host: "::",
     port: 8080,

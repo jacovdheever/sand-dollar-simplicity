@@ -3,12 +3,12 @@
 
 export const getApiBaseUrl = (): string => {
   // Use root path for both development and production (custom domain)
-  return '/api';
+    return '/api';
 };
 
 export const getStaticDataUrl = (): string => {
   // Use root path for both development and production (custom domain)
-  return '/data';
+    return '/data';
 };
 
 export const API_BASE_URL = getApiBaseUrl();

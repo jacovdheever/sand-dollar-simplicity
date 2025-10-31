@@ -118,9 +118,16 @@ const Media = () => {
       // Update current page based on scroll position
       const cardWidth = 320 + 32; // w-80 (320px) + gap-8 (32px)
       const visibleCards = Math.floor(container.clientWidth / cardWidth);
-      const totalPages = Math.ceil((allArticles.length - 1) / visibleCards); // -1 because we skip the first article
-      const newPage = Math.max(0, Math.min(Math.round(scrollLeft / (cardWidth * visibleCards)), totalPages - 1));
-      setCurrentPage(newPage);
+      
+      // Prevent division by zero and invalid calculations
+      if (visibleCards > 0 && isFinite(visibleCards)) {
+        const totalPages = Math.ceil((allArticles.length - 1) / visibleCards); // -1 because we skip the first article
+        
+        if (isFinite(totalPages) && totalPages > 0) {
+          const newPage = Math.max(0, Math.min(Math.round(scrollLeft / (cardWidth * visibleCards)), totalPages - 1));
+          setCurrentPage(newPage);
+        }
+      }
     }
   }, [allArticles.length]);
 
@@ -148,11 +155,29 @@ const Media = () => {
     
     const container = scrollContainerRef.current;
     const containerWidth = container.clientWidth;
+    
+    // Check if container has valid width (might be 0 before layout)
+    if (!containerWidth || containerWidth <= 0 || !isFinite(containerWidth)) return [];
+    
     const cardWidth = 320 + 32; // w-80 (320px) + gap-8 (32px)
     const visibleCards = Math.floor(containerWidth / cardWidth);
+    
+    // Prevent division by zero and invalid calculations
+    if (!visibleCards || visibleCards <= 0 || !isFinite(visibleCards)) return [];
+    
+    // Ensure we have valid articles length
+    if (!allArticles.length || allArticles.length <= 1) return [];
+    
     const totalPages = Math.ceil((allArticles.length - 1) / visibleCards); // -1 because we skip the first article
     
-    return Array.from({ length: totalPages }, (_, index) => index);
+    // Validate totalPages before creating array
+    if (!totalPages || totalPages <= 0 || !isFinite(totalPages) || totalPages > 10000) return [];
+    
+    // Double-check totalPages is a safe integer
+    const safeTotalPages = Math.floor(Math.max(0, Math.min(totalPages, 10000)));
+    if (!safeTotalPages || safeTotalPages <= 0) return [];
+    
+    return Array.from({ length: safeTotalPages }, (_, index) => index);
   };
 
   const goToPage = (pageIndex: number) => {
@@ -161,7 +186,14 @@ const Media = () => {
     const container = scrollContainerRef.current;
     const cardWidth = 320 + 32; // w-80 (320px) + gap-8 (32px)
     const visibleCards = Math.floor(container.clientWidth / cardWidth);
+    
+    // Prevent division by zero and invalid calculations
+    if (!visibleCards || visibleCards <= 0 || !isFinite(visibleCards)) return;
+    
     const totalPages = Math.ceil((allArticles.length - 1) / visibleCards); // -1 because we skip the first article
+    
+    // Validate totalPages before proceeding
+    if (!totalPages || totalPages <= 0 || !isFinite(totalPages)) return;
     
     // Ensure page index is valid
     const validPageIndex = Math.max(0, Math.min(pageIndex, totalPages - 1));
