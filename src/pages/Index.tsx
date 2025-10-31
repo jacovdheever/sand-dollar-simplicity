@@ -16,10 +16,28 @@ const Index = () => {
     const sections = document.querySelectorAll('section:not([data-no-reveal])');
     const animatedElements = document.querySelectorAll('.section-animate');
     
+    // Helper function to check if element is initially in viewport
+    const isInViewport = (element: Element): boolean => {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    };
+
+    // Helper function to check if element is above the fold (visible on initial load)
+    const isAboveFold = (element: Element): boolean => {
+      const rect = element.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    };
+    
     const revealSection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fade-in');
+          (entry.target as HTMLElement).style.opacity = '1';
         }
       });
     };
@@ -34,24 +52,50 @@ const Index = () => {
     
     const sectionObserver = new IntersectionObserver(revealSection, {
       root: null,
-      threshold: 0.15,
+      threshold: 0.05, // Lower threshold for mobile
+      rootMargin: '50px 0px', // Trigger 50px before element enters viewport
     });
 
     const animatedObserver = new IntersectionObserver(revealAnimatedElements, {
       root: null,
-      threshold: 0.1, // Reduced from 0.7 to 0.1 for better mobile experience
+      threshold: 0.05, // Lower threshold for better mobile experience
+      rootMargin: '50px 0px',
     });
     
     sections.forEach(section => {
-      section.style.opacity = '0';
+      // Check if section is initially visible (above fold)
+      if (isAboveFold(section)) {
+        // Immediately show sections that are above the fold
+        (section as HTMLElement).style.opacity = '1';
+        section.classList.add('animate-fade-in');
+      } else {
+        // Hide sections below the fold initially
+        (section as HTMLElement).style.opacity = '0';
+      }
       sectionObserver.observe(section);
     });
 
     animatedElements.forEach(element => {
+      // If parent section is visible, show animated elements immediately
+      const parentSection = element.closest('section');
+      if (parentSection && isAboveFold(parentSection)) {
+        element.classList.add('in-view');
+      }
       animatedObserver.observe(element);
     });
+
+    // Fallback: Show all sections after a short delay if they haven't been revealed
+    const fallbackTimeout = setTimeout(() => {
+      sections.forEach(section => {
+        if ((section as HTMLElement).style.opacity === '0') {
+          (section as HTMLElement).style.opacity = '1';
+          section.classList.add('animate-fade-in');
+        }
+      });
+    }, 500);
     
     return () => {
+      clearTimeout(fallbackTimeout);
       sections.forEach(section => {
         sectionObserver.unobserve(section);
       });
