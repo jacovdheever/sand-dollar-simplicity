@@ -1,0 +1,1239 @@
+{
+  "ux-strategy-consulting": {
+    "body": [
+      {
+        "file": "ux-strategy-consulting - design sprint 1.jpg",
+        "placement": "BODY — Sprint process section",
+        "alt": "Design sprint session with sticky notes and journey mapping on a whiteboard"
+      },
+      {
+        "file": "ux-strategy-consulting - design sprint 2.jpg",
+        "placement": "BODY — Process steps section",
+        "alt": "UX strategist facilitating a design sprint with team members reviewing insights"
+      }
+    ],
+    "hero": {
+      "file": "ux-strategy-consulting.png",
+      "alt": "UX strategy consulting team presenting a customer journey map at a whiteboard in a collaborative workshop"
+    }
+  },
+  "ux-research-agency": {
+    "body": [
+      {
+        "file": "ux research - persona.png",
+        "placement": "BODY — Research methods section",
+        "alt": "User persona document showing demographic profile, goals, pain points and behavioural insights"
+      },
+      {
+        "file": "ux research - user testing report.png",
+        "placement": "BODY — Deliverables section",
+        "alt": "UX research report with usability findings, severity ratings, and recommendations"
+      }
+    ],
+    "hero": {
+      "file": "user research agency - usability testing.png",
+      "alt": "UX research agency usability testing session with product screens and user insights"
+    }
+  },
+  "ux-ui-design-services": {
+    "body": [
+      {
+        "file": "ux-ui-design-services - insurance example.png",
+        "placement": "BODY — Industries we serve section",
+        "alt": "Insurance UX/UI design — clean dashboard interface showing policy overview and claims"
+      },
+      {
+        "file": "Mukuru UX UI Redesign Light and Dark Mode UI.png",
+        "placement": "BODY — Design process section",
+        "alt": "Mukuru mobile app UX/UI redesign shown in light and dark mode"
+      }
+    ],
+    "hero": {
+      "file": "ux-ui-design-agency-usa 1.jpg",
+      "alt": "UX/UI design agency team collaborating on digital product design in a modern studio"
+    }
+  },
+  "enterprise-ux-consulting": {
+    "body": [
+      {
+        "file": "design-maturity-model.png",
+        "placement": "BODY — Enterprise design maturity section",
+        "alt": "Design maturity model diagram showing stages from ad hoc to strategic design organisation"
+      },
+      {
+        "file": "ux research - user testing observation.jpg",
+        "placement": "BODY — Research at scale section",
+        "alt": "Enterprise research team conducting structured usability testing with remote participants"
+      }
+    ],
+    "hero": {
+      "file": "ux-strategy-consulting.png",
+      "alt": "Enterprise UX consulting team mapping customer journeys in a large-scale design workshop"
+    }
+  },
+  "product-design-agency": {
+    "body": [
+      {
+        "file": "ai-product-development-for-startups.png",
+        "placement": "BODY — Product design for digital products section",
+        "alt": "Product design process showing user flows, wireframes, and component-level UI design"
+      },
+      {
+        "file": "GigExecs-find Gigs Desktop.png",
+        "placement": "BODY — Featured work section",
+        "alt": "GigExecs platform — find gigs desktop interface designed by Sand Dollar Design"
+      }
+    ],
+    "hero": {
+      "file": "product design agency hero background.png",
+      "alt": "Product design agency team shaping digital product strategy, UX flows and interface direction"
+    }
+  },
+  "design-system-consulting": {
+    "body": [
+      {
+        "file": "Design System example 2 figma file.png.png",
+        "placement": "BODY — What is in a design system section",
+        "alt": "Figma design system file showing organised component pages and token structure"
+      },
+      {
+        "file": "Design System example 1 fintec typography.png",
+        "placement": "BODY — Typography & tokens section",
+        "alt": "Fintech design system typography scale showing font sizes, weights, and line height tokens"
+      },
+      {
+        "file": "Design System example 3fintec color palette.png",
+        "placement": "BODY — Colour & brand tokens section",
+        "alt": "Fintech design system colour palette with semantic token naming for light and dark modes"
+      },
+      {
+        "file": "Design System example 2 SAAS.png",
+        "placement": "BODY — SaaS design system example",
+        "alt": "SaaS product design system component grid showing reusable UI patterns"
+      }
+    ],
+    "hero": {
+      "file": "design system hero banner.png",
+      "alt": "Design system consulting hero banner showing reusable product UI components and interface standards"
+    }
+  },
+  "ai-development-agency": {
+    "body": [
+      {
+        "file": "AI Development dashboard mockup.png",
+        "placement": "BODY — What we build section",
+        "alt": "AI product dashboard mockup with data visualisation and predictive analytics components"
+      },
+      {
+        "file": "ai development mobile app mockup.png",
+        "placement": "BODY — Platform capabilities section",
+        "alt": "AI development mobile app mockup showing readable and actionable AI product outputs"
+      },
+      {
+        "file": "ai development - coding.jpg",
+        "placement": "BODY — Engineering quality section",
+        "alt": "AI development engineer writing Python machine learning code in a modern workspace"
+      },
+      {
+        "file": "ai-development-agency - gigexecs desktop.png",
+        "placement": "BODY — Featured AI project: GigExecs",
+        "alt": "GigExecs AI-powered platform desktop interface — built by Sand Dollar Design"
+      }
+    ],
+    "hero": {
+      "file": "ai development mobile app hero banner.png",
+      "alt": "AI development agency hero banner showing an AI-powered mobile product experience"
+    }
+  },
+  "app-design-and-development": {
+    "body": [
+      {
+        "file": "Mukuru Onboarding Flow.png",
+        "placement": "BODY — Mobile app design section",
+        "alt": "Mukuru mobile app onboarding flow showing refreshed fintech UX screens"
+      },
+      {
+        "file": "healthcare digital solution my blood test responsive mockup also for app-design-and-development.png",
+        "placement": "BODY — Desktop web app section",
+        "alt": "Responsive app design and development — healthcare blood test results app shown on mobile, tablet and desktop"
+      },
+      {
+        "file": "GigExecs-menu - mobile.png",
+        "placement": "BODY — Navigation & interaction design section",
+        "alt": "GigExecs mobile navigation menu showing smooth interaction patterns and clear hierarchy"
+      }
+    ],
+    "hero": {
+      "file": "Telco mockup app screen hero banner.png",
+      "alt": "Telco mobile app screen mockup used as a full-width app design and development hero banner"
+    }
+  },
+  "digital-transformation-ux-consulting": {
+    "body": [
+      {
+        "file": "design-maturity-model.png",
+        "placement": "BODY — Maturity-led transformation section",
+        "alt": "Design maturity model used in digital transformation engagements to benchmark current capability"
+      },
+      {
+        "file": "tradition bank case study AFTER.png",
+        "placement": "BODY — Client transformation results section",
+        "alt": "Tradition Capital Bank data analytics platform redesigned after digital transformation engagement"
+      }
+    ],
+    "hero": {
+      "file": "ux-strategy-consulting.png",
+      "alt": "Digital transformation UX consulting — cross-functional team mapping a digital transformation roadmap"
+    }
+  },
+  "design-maturity-and-capability-building": {
+    "body": [
+      {
+        "file": "ux research - user testing observation.jpg",
+        "placement": "BODY — Building a research culture section",
+        "alt": "Team observing a user research session as part of design capability development"
+      },
+      {
+        "file": "Design System example 1 fintec typography.png",
+        "placement": "BODY — Design documentation & standards section",
+        "alt": "Fintech design system typography scale showing font sizes, weights, and line height tokens"
+      }
+    ],
+    "hero": {
+      "file": "design system hero banner.png",
+      "alt": "Design system consulting hero banner showing reusable product UI components and interface standards"
+    }
+  },
+  "website-design-and-development": {
+    "body": [
+      {
+        "file": "non-profit tebelo responsive.png",
+        "placement": "BODY — Website design for non-profits section",
+        "alt": "Tebelo Foundation responsive nonprofit website — clear, accessible layout across mobile, tablet and desktop"
+      },
+      {
+        "file": "heineken desktop landing.png",
+        "placement": "BODY — B2B website design section",
+        "alt": "Heineken B2B web platform landing page designed for trade customers"
+      }
+    ],
+    "hero": {
+      "file": "website development hero.png",
+      "alt": "Website design and development — UX-led, conversion-focused site design and modern responsive build"
+    }
+  },
+  "projects": {
+    "body": [
+      {
+        "file": "tradition bank case study AFTER.png",
+        "placement": "PROJECT CARD — Tradition Capital Bank",
+        "alt": "Tradition Capital Bank data analytics platform redesign — before and after"
+      },
+      {
+        "file": "gigexecs homepage desktop.png",
+        "placement": "PROJECT CARD — GigExecs platform",
+        "alt": "GigExecs executive gig economy platform — homepage and app designed by Sand Dollar Design"
+      },
+      {
+        "file": "heineken desktop landing.png",
+        "placement": "PROJECT CARD — Heineken B2B portal",
+        "alt": "Heineken B2B e-commerce and web platform UX/UI design project"
+      },
+      {
+        "file": "mukuru mobile app rebrand.png",
+        "placement": "PROJECT CARD — Mukuru mobile rebrand",
+        "alt": "Mukuru mobile app rebrand — new visual identity and UX redesign for African fintech"
+      },
+      {
+        "file": "healthcare mobile app WHOLE.png",
+        "placement": "PROJECT CARD — Healthcare app",
+        "alt": "Healthcare digital app — patient-facing mobile solution designed by Sand Dollar Design"
+      }
+    ],
+    "hero": {
+      "file": "ux-strategy-consulting.png",
+      "alt": "Sand Dollar Design projects — team collaborating across UX strategy, design and development engagements"
+    }
+  },
+  "financial-services-ux-design": {
+    "body": [
+      {
+        "file": "financial-services-ux-design - mockup.png",
+        "placement": "BODY — Digital banking interface section",
+        "alt": "Financial services UX design mockup showing account dashboard and transaction history"
+      },
+      {
+        "file": "financial-services-ux-design - simple wireframe.png",
+        "placement": "BODY — Process: wireframe to launch section",
+        "alt": "Wireframe for a financial services dashboard showing information architecture and flow"
+      },
+      {
+        "file": "tradition bank case study AFTER.png",
+        "placement": "BODY — Case study: Tradition Capital Bank",
+        "alt": "Tradition Capital Bank analytics platform — redesigned UX/UI for data-driven banking decisions"
+      }
+    ],
+    "hero": {
+      "file": "fintech hero banner.png",
+      "alt": "Financial services UX design hero banner for trusted digital banking, investment and insurance platforms"
+    }
+  },
+  "fintech-ux-design-agency": {
+    "body": [
+      {
+        "file": "fintech design systems.mp4",
+        "placement": "BODY — Fintech design systems section",
+        "alt": "Fintech design system interface video showing reusable UI patterns and product screens"
+      },
+      {
+        "file": "Brand and colour tokens fintech.png",
+        "placement": "BODY — Brand & colour tokens section",
+        "alt": "Brand and colour tokens for a fintech design system with trust-centred semantic colours"
+      },
+      {
+        "file": "tradition bank case study AFTER.png",
+        "placement": "BODY — Fintech case study: Tradition Capital Bank",
+        "alt": "Tradition Capital Bank — fintech UX transformation delivering a modern analytics platform"
+      }
+    ],
+    "hero": {
+      "file": "fintech hero banner.png",
+      "alt": "Fintech UX design agency hero banner for trusted digital financial products"
+    }
+  },
+  "banking-ux-consulting": {
+    "body": [
+      {
+        "file": "tradition bank case study before.png",
+        "placement": "BODY — Before & after case study section",
+        "alt": "Tradition Capital Bank legacy platform before UX redesign — complex, low-usability interface"
+      },
+      {
+        "file": "tradition bank case study AFTER.png",
+        "placement": "BODY — Before & after case study section",
+        "alt": "Tradition Capital Bank analytics platform after UX redesign — modern banking dashboard interface"
+      },
+      {
+        "file": "banking dashboard design.png",
+        "placement": "BODY — Banking dashboard design section",
+        "alt": "Banking dashboard design — account overview, balances and transaction management interface"
+      }
+    ],
+    "hero": {
+      "file": "fintech hero banner.png",
+      "alt": "Banking UX consulting hero banner for trusted digital financial products"
+    }
+  },
+  "healthcare-ux-design-agency": {
+    "body": [
+      {
+        "file": "healthcare mobile app WHOLE 2.png",
+        "placement": "BODY — Patient app design section",
+        "alt": "Healthcare mobile app second view — appointment booking, test results and medication tracking screens"
+      },
+      {
+        "file": "healthcare mobile app WHOLE.png",
+        "placement": "BODY — Responsive healthcare solutions section",
+        "alt": "Healthcare UX design — patient-facing mobile health app with intuitive navigation and accessibility"
+      }
+    ],
+    "hero": {
+      "file": "healthcare digital solution my blood test responsive mockup also for app-design-and-development.png",
+      "alt": "Healthcare digital platform — My Blood Test app shown on mobile, tablet and desktop for full accessibility"
+    }
+  },
+  "insurance-ux-design": {
+    "body": [
+      {
+        "file": "ux-ui-design-services - insurance example.png",
+        "placement": "BODY — Insurance platform design section",
+        "alt": "Insurance UX/UI design example — clean dashboard for policy overview and claims tracking"
+      }
+    ],
+    "hero": {
+      "file": "insurance hero banner.png",
+      "alt": "Insurance UX design — policy, claims and digital insurance experience hero"
+    }
+  },
+  "telco-ux-design": {
+    "body": [
+      {
+        "file": "Telco App Design Light and Dark mode.png",
+        "placement": "BODY — Light & dark mode design section",
+        "alt": "Telco app design showing both light and dark mode interface variants for user preference"
+      },
+      {
+        "file": "Telco App design 2.png",
+        "placement": "BODY — Account management screens section",
+        "alt": "Telco mobile app account management interface — data usage, billing and support screens"
+      },
+      {
+        "file": "Telco Web design 1.png",
+        "placement": "BODY — Telco web platform section",
+        "alt": "Telco web platform design — desktop interface for telecommunications self-service portal"
+      },
+      {
+        "file": "Telco web design mockup version.png",
+        "placement": "BODY — Responsive web section",
+        "alt": "Telco web design shown in browser mockup — scalable design system across breakpoints"
+      },
+      {
+        "file": "Telco mockup app screen alternative.png",
+        "placement": "BODY — Additional screens section",
+        "alt": "Telco app alternative screen design showing onboarding or plan selection interface"
+      }
+    ],
+    "hero": {
+      "file": "Telco mockup app screen hero banner.png",
+      "alt": "Telco UX design — mobile app interface for a telecommunications platform with service management"
+    }
+  },
+  "nonprofit-and-ngo-website-design": {
+    "body": [
+      {
+        "file": "non-profit tebelo responsive.png",
+        "placement": "BODY — Mobile-first non-profit design section",
+        "alt": "Tebelo Foundation responsive nonprofit website shown across desktop, tablet and mobile"
+      },
+      {
+        "file": "nonprofit-and-ngo-website-design - lifestyle image.jpg",
+        "placement": "BODY — Mission-driven design section",
+        "alt": "Community members benefiting from non-profit digital services — inclusive design in action"
+      }
+    ],
+    "hero": {
+      "file": "ngo hero banner.png",
+      "alt": "Nonprofit and NGO website design hero banner for mission-driven digital experiences"
+    }
+  },
+  "b2b-ecommerce-ux-design": {
+    "body": [
+      {
+        "file": "Heineken 1.png",
+        "placement": "BODY — Product catalogue UX section",
+        "alt": "Heineken B2B platform product catalogue interface designed for trade buyers"
+      },
+      {
+        "file": "Heineken 2.png",
+        "placement": "BODY — Order management section",
+        "alt": "Heineken B2B e-commerce order management screen — streamlined trade ordering experience"
+      },
+      {
+        "file": "Heineken 3.png",
+        "placement": "BODY — Account & reporting section",
+        "alt": "Heineken B2B portal account dashboard and reporting interface for trade account managers"
+      },
+      {
+        "file": "Heineken PC.png",
+        "placement": "BODY — Desktop-first B2B platform section",
+        "alt": "Heineken B2B e-commerce platform shown on desktop — optimised for trade buyer workflows"
+      },
+      {
+        "file": "heineken mobile landing.png",
+        "placement": "BODY — Mobile responsive B2B section",
+        "alt": "Heineken B2B platform mobile view — responsive design for trade buyers on the go"
+      }
+    ],
+    "hero": {
+      "file": "ux-strategy-consulting.png",
+      "alt": "UX strategy and B2B commerce context — team collaboration, journey mapping and product direction"
+    }
+  },
+  "ux-ui-design-agency-usa": {
+    "body": [
+      {
+        "file": "ux-ui-design-agency-usa 2.png",
+        "placement": "BODY — Our US client work section",
+        "alt": "UI design screens delivered for US market clients by Sand Dollar Design"
+      },
+      {
+        "file": "tradition bank case study AFTER.png",
+        "placement": "BODY — Featured US project section",
+        "alt": "US financial platform redesign — modern analytics dashboard for American banking client"
+      }
+    ],
+    "hero": {
+      "file": "ux-ui-design-agency-usa 1.jpg",
+      "alt": "UX/UI design agency USA — American-market design team delivering world-class digital products"
+    }
+  },
+  "ux-ui-design-agency-south-africa": {
+    "body": [
+      {
+        "file": "mukuru mobile app rebrand.png",
+        "placement": "BODY — South African market expertise section",
+        "alt": "Mukuru mobile app rebrand — African fintech UX redesign by Sand Dollar Design"
+      },
+      {
+        "file": "ux-strategy-consulting.png",
+        "placement": "BODY — Featured SA project: Mukuru section",
+        "alt": "UX strategy consulting team presenting a customer journey map at a whiteboard in a collaborative workshop"
+      },
+      {
+        "file": "client logo mukuru.png",
+        "placement": "BODY — Client logos section",
+        "alt": "Mukuru — Sand Dollar Design client logo"
+      }
+    ],
+    "hero": {
+      "file": "ux-ui-design-agency-south-africa 16 x 9.png",
+      "alt": "UX/UI design agency South Africa — leading Cape Town design consultancy for digital products"
+    }
+  },
+  "ux-design-agency-uk": {
+    "body": [
+      {
+        "file": "uk office.jpg",
+        "placement": "BODY — Our UK presence section",
+        "alt": "Sand Dollar Design UK studio environment — collaborative workspace for UX and product design"
+      }
+    ],
+    "hero": {
+      "file": "ux-design-agency-uk.png",
+      "alt": "UX design agency UK — Sand Dollar Design delivering user experience strategy and digital design for British brands"
+    }
+  },
+  "boston-product-design-agency": {
+    "body": [
+      {
+        "file": "tech hub environment example for boston.jpg",
+        "placement": "BODY — Boston tech ecosystem section",
+        "alt": "Boston tech hub environment — modern collaborative workspace typical of innovation districts"
+      },
+      {
+        "file": "ux-ui-design-agency-usa 2.png",
+        "placement": "BODY — Our product design work section",
+        "alt": "Product design screens delivered for Boston-area clients"
+      }
+    ],
+    "hero": {
+      "file": "boston-product-design-agency.png",
+      "alt": "Boston product design agency — UX and product design consultancy serving Boston tech companies"
+    }
+  },
+  "chicago-ux-design-agency": {
+    "body": [
+      {
+        "file": "ux-ui-design-agency-usa 2.png",
+        "placement": "BODY — Chicago digital product design section",
+        "alt": "UI design screens for Chicago-based clients — scalable digital product design"
+      }
+    ],
+    "hero": {
+      "file": "chicago-ux-agency.jpg",
+      "alt": "Chicago UX design agency — user experience design consultancy for Chicago and Midwest businesses"
+    }
+  },
+  "florida-ux-ui-design-agency": {
+    "body": [
+      {
+        "file": "ux-ui-design-agency-usa 1.jpg",
+        "placement": "BODY — Florida digital products section",
+        "alt": "Digital product design for Florida businesses — UX-led design for growth-stage companies"
+      }
+    ],
+    "hero": {
+      "file": "florida-product-ux-design-agency.png",
+      "alt": "Florida UX/UI design agency — product design consultancy serving Miami, Orlando and Tampa businesses"
+    }
+  },
+  "jacksonville-ux-ui-design-agency": {
+    "body": [
+      {
+        "file": "ux-ui-design-agency-usa 1.jpg",
+        "placement": "BODY — Jacksonville digital design section",
+        "alt": "UX/UI design delivered for Jacksonville and Northeast Florida businesses"
+      }
+    ],
+    "hero": {
+      "file": "florida-product-ux-design-agency.png",
+      "alt": "Jacksonville UX/UI design agency — user experience and product design for Jacksonville businesses"
+    }
+  },
+  "minneapolis-ux-agency": {
+    "body": [
+      {
+        "file": "ux-ui-design-agency-usa 2.png",
+        "placement": "BODY — Minneapolis design work section",
+        "alt": "Digital product design for Minneapolis clients — scalable UX across B2B and consumer platforms"
+      }
+    ],
+    "hero": {
+      "file": "minneapolis-ux-agency.png",
+      "alt": "Minneapolis UX agency — user experience design consultancy for Twin Cities businesses and startups"
+    }
+  },
+  "texas-ai-development-company": {
+    "body": [
+      {
+        "file": "AI Development Dashboard Image.png",
+        "placement": "BODY — AI product interfaces we build section",
+        "alt": "AI analytics dashboard interface built for Texas enterprise client"
+      },
+      {
+        "file": "ai development - coding.jpg",
+        "placement": "BODY — AI engineering capability section",
+        "alt": "AI developer writing Python ML code — Sand Dollar Design AI engineering team"
+      }
+    ],
+    "hero": {
+      "file": "texas-ai-development-company - server room.jpg",
+      "alt": "Texas AI development company — enterprise AI and machine learning solutions for Texas businesses"
+    }
+  },
+  "product-design-agency-netherlands": {
+    "body": [
+      {
+        "file": "ux-ui-design-agency-usa 2.png",
+        "placement": "BODY — Dutch market design work section",
+        "alt": "Digital product design screens for Netherlands and European market clients"
+      }
+    ],
+    "hero": {
+      "file": "product-design-agency-netherlands.jpg",
+      "alt": "Product design agency Netherlands — UX and product design consultancy for Dutch and European businesses"
+    }
+  },
+  "ux-agency-belgium": {
+    "body": [
+      {
+        "file": "ux-design-agency-uk.png",
+        "placement": "BODY — European design expertise section",
+        "alt": "UX design work for European clients — scalable, multilingual product design"
+      }
+    ],
+    "hero": {
+      "file": "product-design-agency-netherlands.jpg",
+      "alt": "UX agency Belgium — user experience design consultancy for Belgian and Benelux businesses"
+    }
+  },
+  "design-maturity-model": {
+    "body": [
+      {
+        "file": "ux research - user testing observation.jpg",
+        "placement": "BODY — Stage 3: Research-led practice section",
+        "alt": "UX researcher conducting user testing — hallmark of a research-led design maturity stage"
+      },
+      {
+        "file": "ux research - user testing report.png",
+        "placement": "BODY — Stage 4: Documented standards section",
+        "alt": "Formal UX research report — evidence of mature, documented design practice"
+      }
+    ],
+    "hero": {
+      "file": "design-maturity-model.png",
+      "alt": "Design maturity model — five-stage framework for assessing and growing organisational design capability"
+    }
+  },
+  "digital-transformation-ux": {
+    "body": [
+      {
+        "file": "tradition bank case study AFTER.png",
+        "placement": "BODY — Case example: Tradition Capital Bank section",
+        "alt": "Digital transformation outcome — Tradition Capital Bank analytics platform after UX-led redesign"
+      },
+      {
+        "file": "design-maturity-model.png",
+        "placement": "BODY — Maturity as a transformation lens section",
+        "alt": "Design maturity model used to track digital transformation progress across the organisation"
+      }
+    ],
+    "hero": {
+      "file": "ux-strategy-consulting.png",
+      "alt": "Digital transformation and UX — leadership team planning a digital transformation strategy"
+    }
+  },
+  "ai-product-development-for-startups": {
+    "body": [
+      {
+        "file": "AI Development Dashboard Image.png",
+        "placement": "BODY — What AI startup products look like section",
+        "alt": "AI analytics product dashboard built for a startup — real-time insights and ML-powered features"
+      },
+      {
+        "file": "AI Development dashboard mockup.png",
+        "placement": "BODY — AI UX design for startups section",
+        "alt": "AI dashboard mockup showing data visualisation and user workflow for a startup AI product"
+      },
+      {
+        "file": "ai development - coding.jpg",
+        "placement": "BODY — Engineering AI at startup pace section",
+        "alt": "AI engineer coding machine learning features for a startup product"
+      }
+    ],
+    "hero": {
+      "file": "ai-product-development-for-startups.png",
+      "alt": "AI product development for startups — building AI-powered products with design and engineering"
+    }
+  },
+  "design-capability-building": {
+    "body": [
+      {
+        "file": "ux research - user testing observation.jpg",
+        "placement": "BODY — Building a research practice section",
+        "alt": "Team learning UX research methods — foundational capability building for design organisations"
+      },
+      {
+        "file": "ux research - user testing report.png",
+        "placement": "BODY — Design documentation standards section",
+        "alt": "Research report template demonstrating mature design documentation standards"
+      }
+    ],
+    "hero": {
+      "file": "design-maturity-model.png",
+      "alt": "Design capability building — organisational framework for scaling in-house design teams"
+    }
+  },
+  "nonprofit-digital-strategy-and-ux": {
+    "body": [
+      {
+        "file": "nonprofit-and-ngo-website-design - lifestyle image.jpg",
+        "placement": "BODY — Why digital strategy matters for nonprofits section",
+        "alt": "Community members served by a nonprofit digital service — human impact of digital transformation"
+      },
+      {
+        "file": "nonprofit-and-ngo-website-design - Tebelo Mobile.png",
+        "placement": "BODY — Mobile-first nonprofit design section",
+        "alt": "Tebelo NGO website on mobile — accessible digital presence for nonprofit audiences on any device"
+      }
+    ],
+    "hero": {
+      "file": "nonprofit-and-ngo-website-design - Tebelo Desktop.png",
+      "alt": "Nonprofit digital strategy and UX — Tebelo Foundation website as example of mission-aligned digital design"
+    }
+  },
+  "heineken-b2b-ecommerce-ux-ui-design": {
+    "body": [
+      {
+        "file": "Heineken- User Persona.png",
+        "placement": "BODY — Research: Understanding the trade buyer section",
+        "alt": "Heineken B2B user persona — trade buyer archetype used to guide UX design decisions"
+      },
+      {
+        "file": "Heineken - Style Guide.png",
+        "placement": "BODY — Design system: Heineken brand section",
+        "alt": "Heineken B2B platform style guide — brand colours, typography and component standards"
+      },
+      {
+        "file": "heineken - language and content style guide.png",
+        "placement": "BODY — Content strategy: language & tone section",
+        "alt": "Heineken B2B content style guide — language rules and tone-of-voice for trade communications"
+      },
+      {
+        "file": "Heineken 1.png",
+        "placement": "BODY — Final design: Product catalogue section",
+        "alt": "Heineken B2B product catalogue screen — trade buyer browsing and filtering portfolio"
+      },
+      {
+        "file": "Heineken 2.png",
+        "placement": "BODY — Final design: Order flow section",
+        "alt": "Heineken B2B order management interface — streamlined ordering workflow for trade buyers"
+      },
+      {
+        "file": "Heineken 3.png",
+        "placement": "BODY — Final design: Account dashboard section",
+        "alt": "Heineken trade account dashboard — reporting and account management for B2B customers"
+      },
+      {
+        "file": "heineken mobile landing.png",
+        "placement": "BODY — Responsive design: Mobile section",
+        "alt": "Heineken B2B platform on mobile — responsive trade portal for buyers on the go"
+      },
+      {
+        "file": "Heineken PC.png",
+        "placement": "BODY — Desktop-optimised B2B experience section",
+        "alt": "Heineken B2B platform full desktop view — optimised for trade buyer procurement workflows"
+      }
+    ],
+    "hero": {
+      "file": "heineken desktop landing.png",
+      "alt": "Heineken B2B e-commerce platform — desktop landing page for trade customer portal"
+    }
+  },
+  "mukuru-mobile-app-rebrand-and-redesign": {
+    "body": [
+      {
+        "file": "Mukuru Onboarding Flow.png",
+        "placement": "BODY — The challenge: onboarding and rebrand section",
+        "alt": "Mukuru mobile app onboarding flow showing refreshed fintech UX screens"
+      },
+      {
+        "file": "Mukuru Send Money screen.png",
+        "placement": "BODY — Transaction flow and send money section",
+        "alt": "Mukuru send money mobile app screen with transaction details and clear call to action"
+      },
+      {
+        "file": "Mukuru UX UI Redesign Light and Dark Mode UI.png",
+        "placement": "BODY — Final UX/UI redesign output section",
+        "alt": "Mukuru mobile app UX/UI redesign shown in light and dark mode"
+      },
+      {
+        "file": "Mukuru Welcome Tour 1.png",
+        "placement": "BODY — Welcome tour app screen",
+        "alt": "Mukuru mobile app welcome tour screen introducing the redesigned experience"
+      },
+      {
+        "file": "Mukuru Welcome Tour 2.png",
+        "placement": "BODY — Welcome tour app screen",
+        "alt": "Mukuru mobile app second welcome tour screen for onboarding users"
+      },
+      {
+        "file": "Mukuru Splash Screen App.png",
+        "placement": "BODY — Splash screen app design",
+        "alt": "Mukuru mobile app splash screen with refreshed brand identity"
+      },
+      {
+        "file": "Mukuru style guide.png",
+        "placement": "BODY — Style guide and brand system section",
+        "alt": "Mukuru mobile app style guide showing brand and UI system elements"
+      },
+      {
+        "file": "client logo mukuru.png",
+        "placement": "BODY — About Mukuru section",
+        "alt": "Mukuru logo — African fintech and money transfer service"
+      }
+    ],
+    "hero": {
+      "file": "mukuru mobile app rebrand.png",
+      "alt": "Mukuru mobile app rebrand and redesign — new visual identity and UX for African fintech leader"
+    }
+  },
+  "tradition-capital-bank-data-analytics-platform-redesign": {
+    "body": [
+      {
+        "file": "tradition bank case study before.png",
+        "placement": "BODY — The challenge: legacy platform section",
+        "alt": "Tradition Capital Bank legacy analytics platform before redesign — complex, low-usability interface"
+      },
+      {
+        "file": "tradition bank problem statement.png",
+        "placement": "BODY — The challenge: problem statement",
+        "alt": "Tradition Capital Bank — problem statement: legacy platform UX challenges and internal reporting friction"
+      },
+      {
+        "file": "client logo tradition bank.png",
+        "placement": "BODY — About Tradition Capital Bank section",
+        "alt": "Tradition Capital Bank logo — boutique investment and data analytics banking client"
+      },
+      {
+        "file": "Filename",
+        "placement": "Used in mapping",
+        "alt": "Type"
+      },
+      {
+        "file": "AI Development Dashboard Image.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "AI Development dashboard mockup ALTERNATIVE.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "AI Development dashboard mockup.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "ai development - coding.jpg",
+        "placement": "Yes",
+        "alt": "JPG"
+      },
+      {
+        "file": "ai-development-agency - gigexecs desktop.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "ai-product-development-for-startups.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Design System example 1 SAAS.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Design System example 1 fintec typography.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Design System example 2 SAAS.png.png",
+        "placement": "Available",
+        "alt": "PNG"
+      },
+      {
+        "file": "Design System example 2 figma file.png.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Design System example 2 fintec form.png",
+        "placement": "Available",
+        "alt": "PNG"
+      },
+      {
+        "file": "Design System example 3 SAAS.png.png",
+        "placement": "Available",
+        "alt": "PNG"
+      },
+      {
+        "file": "Design System example 3fintec color palette.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Design System example 4 SAAS.png.png",
+        "placement": "Available",
+        "alt": "PNG"
+      },
+      {
+        "file": "GigExecs Homepage Desktop scroll.mp4",
+        "placement": "Available",
+        "alt": "MP4"
+      },
+      {
+        "file": "GigExecs-Profile Mobile.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "GigExecs-find Gigs Desktop.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "GigExecs-menu - mobile.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "gigexecs blog mobile.png",
+        "placement": "Available",
+        "alt": "PNG"
+      },
+      {
+        "file": "gigexecs homepage desktop.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Heineken - Style Guide.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Heineken 1.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Heineken 2.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Heineken 3.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Heineken PC.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Heineken- User Persona.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "heineken - language and content style guide.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "heineken desktop landing.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "heineken mobile landing.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "healthcare digital solution my blood test responsive mockup also for app-design-and-development.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "healthcare mobile app WHOLE 2.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "healthcare mobile app WHOLE.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "insurance hero banner.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Telco App Design Light and Dark mode.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Telco App design 2.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Telco Web design 1.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Telco app design 1.png",
+        "placement": "Available",
+        "alt": "PNG"
+      },
+      {
+        "file": "Telco mockup app screen alternative.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Telco mockup app screen hero banner.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Telco web design mockup version.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "boston-product-design-agency.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "chicago-ux-agency.jpg",
+        "placement": "Yes",
+        "alt": "JPG"
+      },
+      {
+        "file": "florida-product-ux-design-agency.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "minneapolis-ux-agency.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "texas-ai-development-company - server room.jpg",
+        "placement": "Yes",
+        "alt": "JPG"
+      },
+      {
+        "file": "tech hub environment example for boston.jpg",
+        "placement": "Yes",
+        "alt": "JPG"
+      },
+      {
+        "file": "ux-ui-design-agency-usa 1.jpg",
+        "placement": "Yes",
+        "alt": "JPG"
+      },
+      {
+        "file": "ux-ui-design-agency-usa 2.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "product-design-agency-netherlands.jpg",
+        "placement": "Yes",
+        "alt": "JPG"
+      },
+      {
+        "file": "uk office.jpg",
+        "placement": "Yes",
+        "alt": "JPG"
+      },
+      {
+        "file": "ux-design-agency-uk.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "ux-ui-design-agency-south-africa 16 x 9.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "ux-ui-design-agency-south-africa 4 x 3.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "mukuru mobile app rebrand.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "nonprofit-and-ngo-website-design - Tebelo Desktop.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "nonprofit-and-ngo-website-design - Tebelo Mobile.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "nonprofit-and-ngo-website-design - lifestyle image.jpg",
+        "placement": "Yes",
+        "alt": "JPG"
+      },
+      {
+        "file": "financial-services-ux-design - mockup.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "financial-services-ux-design - simple wireframe.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "financial-services-ux-design.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "tradition bank case study AFTER.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "tradition bank case study before.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "ux research - user Persona.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "ux research - user testing observation.jpg",
+        "placement": "Yes",
+        "alt": "JPG"
+      },
+      {
+        "file": "ux research - user testing report.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "ux-strategy-consulting - design sprint 1.jpg",
+        "placement": "Yes",
+        "alt": "JPG"
+      },
+      {
+        "file": "ux-strategy-consulting - design sprint 2.jpg",
+        "placement": "Yes",
+        "alt": "JPG"
+      },
+      {
+        "file": "ux-strategy-consulting.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "ux-ui-design-services - insurance example.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "design-maturity-model.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "client logo life healthcare.png",
+        "placement": "Available",
+        "alt": "PNG"
+      },
+      {
+        "file": "client logo mpact.jpg",
+        "placement": "Available",
+        "alt": "JPG"
+      },
+      {
+        "file": "client logo mukuru.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "client logo north west university.png",
+        "placement": "Available",
+        "alt": "PNG"
+      },
+      {
+        "file": "client logo toyota.png",
+        "placement": "Available",
+        "alt": "PNG"
+      },
+      {
+        "file": "client logo tradition bank.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "ai-development-agency hero wallpaper video.mp4",
+        "placement": "Available",
+        "alt": "MP4"
+      },
+      {
+        "file": "ai-development-agency - gigexecs desktop.png",
+        "placement": "Yes",
+        "alt": "PNG"
+      },
+      {
+        "file": "Production Notes",
+        "placement": "Image compression targets",
+        "alt": "•\tHero images (1440×600): ≤400KB — use WebP with JPEG fallback"
+      },
+      {
+        "file": "•\tBody images (760–800px wide): ≤150KB — compress in Squoosh or ImageOptim",
+        "placement": "•\tPortrait mobile screens (400×800): ≤100KB",
+        "alt": "•\tClient logos: ≤20KB — SVG preferred, PNG fallback"
+      },
+      {
+        "file": "Alt text guidelines",
+        "placement": "•\tAll alt texts are pre-written and SEO-optimised — use exactly as specified",
+        "alt": "•\tDo not use the filename as alt text"
+      },
+      {
+        "file": "Video assets",
+        "placement": "•\tGigExecs Homepage Desktop scroll.mp4 — use as background loop on GigExecs project card or projects page hero (muted, autoplay, loop)",
+        "alt": "•\tai-development-agency hero wallpaper video.mp4 — use as hero background on ai-development-agency page (muted, autoplay, loop, fallback to AI Development Dashboard Image.png)"
+      }
+    ],
+    "hero": {
+      "file": "tradition bank hero image conrad.png",
+      "alt": "Tradition Capital Bank — data analytics platform redesign partnership and enterprise banking context"
+    }
+  }
+}

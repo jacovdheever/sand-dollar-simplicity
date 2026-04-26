@@ -128,7 +128,7 @@ const ProjectPage = () => {
             <h1 className="text-2xl font-bold text-gray-900 mb-4">Project Not Found</h1>
             <p className="text-gray-600 mb-6">The project you're looking for doesn't exist.</p>
             <button
-              onClick={() => navigate('/work')}
+              onClick={() => navigate('/projects#featured-case-studies')}
               className="btn-primary"
             >
               Back to Our Work
@@ -159,7 +159,7 @@ const ProjectPage = () => {
             {/* Back Button */}
             <div className="mb-8">
               <button
-                onClick={() => navigate('/work')}
+                onClick={() => navigate('/projects#featured-case-studies')}
                 className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors duration-200"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />

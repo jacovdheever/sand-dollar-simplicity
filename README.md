@@ -2,6 +2,27 @@
 
 A comprehensive web platform for UX/UI design services, website auditing, and client project management. Built with modern React, TypeScript, and Node.js technologies.
 
+## Preview the site
+
+**Option 1 – Dev server (live reload):**
+```bash
+npm run dev
+```
+Then open **http://localhost:8080** in your browser. If that fails, try the **Network** URL shown in the terminal (e.g. `http://192.168.x.x:8080`).
+
+**Option 2 – Build + preview (if dev server has issues):**
+```bash
+npm run build:preview
+```
+Then open **http://localhost:8080**.
+
+---
+
+## ✅ Checkpoint (2025-10-31)
+- Added Apollo.io website tracking script to `index.html` for live visitor tracking.
+- Confirmed dev servers run on `http://localhost:8080` (frontend) and `http://localhost:3001` (backend).
+- Investigated Google Analytics integration; backend currently falls back to mock data when the service account JSON is absent.
+
 ## 🏗️ Technical Architecture
 
 ### Frontend Stack

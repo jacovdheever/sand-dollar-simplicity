@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { getSiteOrigin } from '@/lib/siteOrigin';
 
 interface SEOProps {
   title?: string;
@@ -14,9 +15,17 @@ interface SEOProps {
   section?: string;
   tags?: string[];
   noindex?: boolean;
+  /** When false, skips JSON-LD scripts (e.g. homepage already has schema in index.html). */
+  includeStructuredData?: boolean;
   canonical?: string;
   breadcrumbs?: Array<{ name: string; url: string }>;
   faq?: Array<{ question: string; answer: string }>;
+  /** Merged into Organization JSON-LD sameAs (e.g. Clutch profile). */
+  organizationSameAs?: string[];
+  /** Shorter social share title; defaults to document title. */
+  openGraphTitle?: string;
+  /** Social share description; defaults to meta description. */
+  openGraphDescription?: string;
   organization?: {
     name: string;
     url: string;
@@ -35,14 +44,16 @@ interface SEOProps {
       email: string;
     };
   };
+  /** Additional JSON-LD objects (e.g. LocalBusiness for geo pages). */
+  extraJsonLd?: Record<string, unknown>[];
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'Sand Dollar Design | UX/UI Design, AI Development & Innovation Consulting',
-  description = 'Leading UX/UI design and AI development firm specializing in digital transformation, rapid prototyping, and innovation consulting. Serving clients across USA and South Africa with cutting-edge solutions.',
-  keywords = 'UX design, UI design, AI development, rapid prototyping, innovation consulting, digital transformation, user experience, user interface, web development, mobile app development, South Africa, USA, design agency, technology consulting',
-  image = 'https://sanddollardesign.co.za/og-image.jpg',
-  url = 'https://sanddollardesign.co.za',
+  title = 'UX/UI Design Agency, Product Design & AI Development | Sand Dollar Design',
+  description = 'UX strategy, UX research, UX/UI and product design—plus AI development for startups. Serving fintech, healthcare, NGOs and enterprise teams in South Africa, the USA and Europe.',
+  keywords = 'UX design, UI design, product design, UX strategy, UX research, AI development, startups, fintech, healthcare, NGOs, enterprise, South Africa, USA, Europe, design agency',
+  image,
+  url,
   type = 'website',
   author = 'Sand Dollar Design',
   publishedTime,
@@ -50,15 +61,27 @@ const SEO: React.FC<SEOProps> = ({
   section,
   tags = [],
   noindex = false,
+  includeStructuredData = true,
   canonical,
   breadcrumbs = [],
   faq = [],
-  organization
+  organizationSameAs = [],
+  openGraphTitle,
+  openGraphDescription,
+  organization,
+  extraJsonLd = []
 }) => {
+  const origin = getSiteOrigin();
+  const resolvedUrl = url ?? origin;
+  const resolvedImage = image ?? `${origin}/og-image.jpg`;
   const fullTitle = title.includes('Sand Dollar Design') ? title : `${title} | Sand Dollar Design`;
-  const fullUrl = canonical || `${url}${typeof window !== 'undefined' ? window.location.pathname : ''}`;
-  const fullImage = image.startsWith('http') ? image : `https://sanddollardesign.co.za${image}`;
+  const fullUrl = canonical || `${resolvedUrl}${typeof window !== 'undefined' ? window.location.pathname : ''}`;
+  const fullImage = resolvedImage.startsWith('http') ? resolvedImage : `${origin}${resolvedImage.startsWith('/') ? resolvedImage : `/${resolvedImage}`}`;
+  const ogTitleResolved = openGraphTitle ?? fullTitle;
+  const ogDescriptionResolved = openGraphDescription ?? description;
   
+  const serviceName = title.replace(/\s*\|.*$/, '').trim() || title;
+
   // Base structured data
   const baseStructuredData = {
     "@context": "https://schema.org",
@@ -71,17 +94,28 @@ const SEO: React.FC<SEOProps> = ({
       "@type": "Organization",
       "name": author
     },
+    ...(type === 'service'
+      ? {
+          name: serviceName,
+          provider: {
+            "@type": "Organization",
+            name: "Sand Dollar Design",
+            url: origin,
+            logo: `${origin}/Sand-Dollar_Logo.png`,
+          },
+        }
+      : {}),
     "publisher": {
       "@type": "Organization",
       "name": "Sand Dollar Design",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://sanddollardesign.co.za/Sand-Dollar_Logo.png",
+        "url": `${origin}/Sand-Dollar_Logo.png`,
         "width": 512,
         "height": 512
       },
-      "url": "https://sanddollardesign.co.za",
-      "description": "Leading UX/UI design and AI development firm specializing in digital transformation, rapid prototyping, and innovation consulting.",
+      "url": origin,
+      "description": "UX strategy, UX research, UX/UI and product design—plus AI development for startups. Serving fintech, healthcare, NGOs and enterprise teams in South Africa, the USA and Europe.",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "ZA",
@@ -104,10 +138,10 @@ const SEO: React.FC<SEOProps> = ({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Sand Dollar Design",
-    "url": "https://sanddollardesign.co.za",
-    "logo": "https://sanddollardesign.co.za/Sand-Dollar_Logo.png",
-    "description": "Leading UX/UI design and AI development firm specializing in digital transformation, rapid prototyping, and innovation consulting. Serving clients across USA and South Africa.",
-    "foundingDate": "2020",
+    "url": origin,
+    "logo": `${origin}/Sand-Dollar_Logo.png`,
+    "description": "UX strategy, UX research, UX/UI and product design—plus AI development for startups. Serving fintech, healthcare, NGOs and enterprise teams in South Africa, the USA and Europe.",
+    "foundingDate": "2017",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "ZA",
@@ -119,7 +153,8 @@ const SEO: React.FC<SEOProps> = ({
       "email": "jaco@sanddollardesign.co.za"
     },
     "sameAs": [
-      "https://www.linkedin.com/company/sand-dollar-design"
+      "https://www.linkedin.com/company/sand-dollar-design",
+      ...organizationSameAs,
     ],
     "serviceArea": {
       "@type": "GeoCircle",
@@ -220,8 +255,8 @@ const SEO: React.FC<SEOProps> = ({
       <link rel="canonical" href={fullUrl} />
       
       {/* Open Graph Meta Tags */}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:title" content={ogTitleResolved} />
+      <meta property="og:description" content={ogDescriptionResolved} />
       <meta property="og:type" content={type} />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:image" content={fullImage} />
@@ -253,11 +288,11 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@sanddollardesign" />
       <meta name="twitter:creator" content="@sanddollardesign" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:title" content={ogTitleResolved} />
+      <meta name="twitter:description" content={ogDescriptionResolved} />
       <meta name="twitter:image" content={fullImage} />
       <meta name="twitter:image:alt" content={title} />
-      <meta name="twitter:domain" content="sanddollardesign.co.za" />
+      <meta name="twitter:domain" content={new URL(origin).hostname} />
       
       {/* Additional SEO Meta Tags */}
       <meta name="geo.region" content="ZA" />
@@ -287,28 +322,38 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="rating" content="General" />
       <meta name="revisit-after" content="7 days" />
       
-      {/* Structured Data - Base */}
-      <script type="application/ld+json">
-        {JSON.stringify(baseStructuredData)}
-      </script>
-      
-      {/* Structured Data - Organization */}
-      <script type="application/ld+json">
-        {JSON.stringify(organizationStructuredData)}
-      </script>
-      
-      {/* Structured Data - Breadcrumbs */}
-      {breadcrumbStructuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbStructuredData)}
-        </script>
-      )}
-      
-      {/* Structured Data - FAQ */}
-      {faqStructuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(faqStructuredData)}
-        </script>
+      {includeStructuredData && (
+        <>
+          {/* Structured Data - Base */}
+          <script type="application/ld+json">
+            {JSON.stringify(baseStructuredData)}
+          </script>
+
+          {/* Structured Data - Organization */}
+          <script type="application/ld+json">
+            {JSON.stringify(organizationStructuredData)}
+          </script>
+
+          {/* Structured Data - Breadcrumbs */}
+          {breadcrumbStructuredData && (
+            <script type="application/ld+json">
+              {JSON.stringify(breadcrumbStructuredData)}
+            </script>
+          )}
+
+          {/* Structured Data - FAQ */}
+          {faqStructuredData && (
+            <script type="application/ld+json">
+              {JSON.stringify(faqStructuredData)}
+            </script>
+          )}
+
+          {extraJsonLd.map((obj, i) => (
+            <script key={`extra-jsonld-${i}`} type="application/ld+json">
+              {JSON.stringify(obj)}
+            </script>
+          ))}
+        </>
       )}
     </Helmet>
   );

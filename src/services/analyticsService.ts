@@ -65,11 +65,10 @@ class AnalyticsService {
 
     try {
       // In production, you would make actual API calls to Google Analytics
-      // This requires proper authentication and API setup
+      // Backend uses service account authentication, so no Authorization header needed
       const response = await fetch('/api/analytics/realtime', {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${await this.getAccessToken()}`,
           'Content-Type': 'application/json',
         },
       });
@@ -100,7 +99,6 @@ class AnalyticsService {
       const response = await fetch('/api/analytics/historical', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${await this.getAccessToken()}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ dateRange }),
@@ -184,7 +182,6 @@ class AnalyticsService {
       const response = await fetch('/api/seo/metrics', {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${await this.getAccessToken()}`,
           'Content-Type': 'application/json',
         },
       });
