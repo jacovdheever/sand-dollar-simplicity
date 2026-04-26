@@ -1,5 +1,7 @@
+/* TODO: verify robots.txt, generate/submit sitemap.xml, verify Organization schema, verify OG/Twitter metadata, compress homepage images */
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
+import SEO from '@/components/SEO';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import Logos from '@/components/Logos';
@@ -105,8 +107,27 @@ const Index = () => {
     };
   }, []);
 
+  const homepageLocalBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'Sand Dollar Design',
+    description:
+      'UX/UI and product design agency delivering UX strategy, product design, and AI-powered development for startups, SMEs and enterprise teams.',
+    url: 'https://www.sanddollardesign.com',
+    areaServed: ['South Africa', 'United States', 'United Kingdom', 'Europe'],
+    serviceType: ['UX Design', 'UI Design', 'Product Design', 'UX Strategy', 'AI Development'],
+    priceRange: '$$',
+  };
+
   return (
     <>
+      <SEO
+        title="UX Design & Product Design Agency | Sand Dollar Design"
+        description="Sand Dollar Design is a UX/UI and product design agency helping startups, SMEs and enterprise teams build better digital products. Serving clients in the USA, Europe and South Africa."
+        canonical="https://www.sanddollardesign.com/"
+        includeStructuredData
+        extraJsonLd={[homepageLocalBusinessSchema]}
+      />
       <div className="smooth-scroll flex flex-col min-h-screen">
         <Navbar />
         <main>

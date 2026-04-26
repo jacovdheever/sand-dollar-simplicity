@@ -21,8 +21,9 @@ const copy404Plugin = () => {
 export default defineConfig(({ mode }: { mode: string }) => ({
   base: '/',  // Use root path for custom domain (sanddollardesign.co.za)
   server: {
-    host: "::",
+    host: "0.0.0.0",
     port: 8080,
+    open: true,
     proxy: {
       '/api': {
         target: 'http://localhost:3001',

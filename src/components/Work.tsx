@@ -65,7 +65,7 @@ const Work = ({ showHoverAnimation = true }: WorkProps) => {
                 {/* View More link - only show if hover animation is enabled and on desktop */}
                 {showHoverAnimation && (
                   <Link 
-                    to="/work"
+                    to="/projects#featured-case-studies"
                     className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2 py-2 px-4 text-sm font-bold text-white opacity-0 translate-x-0 transition-all duration-700 ease-out lg:group-hover:opacity-100 lg:group-hover:left-full lg:group-hover:transform lg:group-hover:-translate-x-full rounded-lg hover:scale-105 whitespace-nowrap hidden lg:flex"
                     style={{backgroundColor: '#f97315'}}
                   >
@@ -269,7 +269,7 @@ const Work = ({ showHoverAnimation = true }: WorkProps) => {
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center mt-16 mb-16 lg:hidden">
             <Link 
-              to="/work"
+              to="/projects#featured-case-studies"
               className="inline-flex items-center gap-2 py-3 px-6 text-sm font-bold text-white rounded-lg hover:scale-105 transition-transform duration-200"
               style={{backgroundColor: '#f97315'}}
             >

@@ -223,31 +223,25 @@ const Media = () => {
       <section id="media" className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16 section-animate">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="relative mb-8 group lg:group">
-              <div className="flex items-center justify-center transition-all duration-700 ease-out lg:group-hover:justify-between">
-                <h2 className="section-title from-left font-black transition-all duration-700 ease-out lg:group-hover:-translate-x-20">
-                  <span className="gradient-text">Our Insights.</span>
-                </h2>
-                
-                {/* Orange connecting line - only show on desktop hover */}
-                <div className="absolute left-1/2 transform -translate-x-[38%] hidden lg:group-hover:block h-[2px] bg-[#f97315] w-[330px] transition-all duration-700 ease-out"></div>
-                
-                {/* View More link - only show on desktop hover */}
-                <Link 
-                  to="/blog"
-                  className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2 py-2 px-4 text-sm font-bold text-white opacity-0 translate-x-0 transition-all duration-700 ease-out lg:group-hover:opacity-100 lg:group-hover:left-full lg:group-hover:transform lg:group-hover:-translate-x-full rounded-lg hover:scale-105 whitespace-nowrap hidden lg:flex"
-                  style={{backgroundColor: '#f97315'}}
-                >
-                  View more Articles
-                  <ChevronRight className="w-4 h-4 transition-transform duration-500 ease-out group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </div>
+          <div className="text-center max-w-4xl mx-auto mb-8">
+            <h2 className="section-title from-left font-black">
+              <span className="gradient-text">Insights for product and digital leaders</span>
+            </h2>
           </div>
-          <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto from-right">
-            Stay updated with our latest insights, case studies, and industry thoughts.
+          <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto from-right mb-6">
+            Practical thinking on UX strategy, UX research, product design, digital transformation UX, AI product development and design maturity.
           </p>
+          {/* Browse by topic - TODO: add category/tag routes when available */}
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            <span className="text-xs text-gray-500 font-medium">Browse by topic:</span>
+            <Link to="/blog?topic=ux-strategy" className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200">UX Strategy</Link>
+            <Link to="/blog?topic=ux-research" className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200">UX Research</Link>
+            <Link to="/blog?topic=enterprise-ux" className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200">Enterprise UX</Link>
+            <Link to="/blog?topic=fintech-ux" className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200">Fintech UX</Link>
+            <Link to="/blog?topic=healthcare-ux" className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200">Healthcare UX</Link>
+            <Link to="/ai-product-development-for-startups" className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200">AI for Startups</Link>
+            <Link to="/design-maturity-model" className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200">Design Maturity</Link>
+          </div>
         </div>
 
         {/* Latest Featured Blog Article Preview */}

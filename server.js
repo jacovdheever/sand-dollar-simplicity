@@ -592,8 +592,10 @@ try {
   analyticsDataClient = new BetaAnalyticsDataClient({
     keyFilename: path.join(__dirname, 'sand-dollar-design-ec8817f0bb25.json'),
   });
+  console.log('✅ Google Analytics client initialized successfully');
 } catch (error) {
   console.warn('⚠️  Google Analytics client not initialized:', error.message);
+  console.warn('⚠️  Analytics API endpoints will return 503 (Service Unavailable)');
 }
 
 // Get real-time analytics data

@@ -19,8 +19,8 @@ const Stats = () => {
   return (
     <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
       {[
-        { value: '80+', label: 'Projects completed' },
-        { value: '2017', label: 'Year Founded' },
+        { value: '80+', label: 'projects delivered' },
+        { value: '17+', label: 'years experience' },
         {
           value: (
             <div className="flex gap-1 justify-center sm:justify-start">
@@ -29,7 +29,7 @@ const Stats = () => {
               ))}
             </div>
           ),
-          label: 'Average client rating'
+          label: '5-star reviews'
         }
       ].map((stat, index) => (
         <div

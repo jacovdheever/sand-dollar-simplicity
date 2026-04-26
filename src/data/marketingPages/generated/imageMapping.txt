@@ -1,0 +1,891 @@
+Image Asset Mapping
+Sand Dollar Design — Website Image Specifications
+Updated: 2026-04-24  |  39 pages  |  76 sourced assets
+
+
+Summary
+This document maps all sourced images to their target pages. Each image has been assigned a specific placement position, production dimensions, and SEO-optimised alt text. Use this document alongside the individual page content docs (which also contain IMAGE SPECIFICATIONS sections) when implementing the website.
+
+Asset overview
+Metric
+Count
+Total sourced images
+76
+Images assigned to pages
+66
+Total pages covered
+39
+Video assets (supporting)
+2 (.mp4)
+Client logo assets
+6
+
+Note: Image filenames reference files in website-copy/images/. Compress all images before deploying — hero images target ≤400KB, body images ≤150KB.
+
+
+
+01 — Core Services (12 pages)
+/ux-strategy-consulting
+Image file
+Placement
+Alt text
+ux-strategy-consulting.png
+HERO
+UX strategy consulting team presenting a customer journey map at a whiteboard in a collaborative workshop
+ux-strategy-consulting - design sprint 1.jpg
+BODY — Sprint process section
+Design sprint session with sticky notes and journey mapping on a whiteboard
+ux-strategy-consulting - design sprint 2.jpg
+BODY — Process steps section
+UX strategist facilitating a design sprint with team members reviewing insights
+
+/ux-research-agency
+Image file
+Placement
+Alt text
+ux research - user testing observation.jpg
+HERO
+UX researcher observing a user testing session through a one-way mirror
+ux research - user Persona.png
+BODY — Research methods section
+User persona document showing demographic profile, goals, pain points and behavioural insights
+ux research - user testing report.png
+BODY — Deliverables section
+UX research report with usability findings, severity ratings, and recommendations
+
+/ux-ui-design-services
+Image file
+Placement
+Alt text
+ux-ui-design-agency-usa 1.jpg
+HERO
+UX/UI design agency team collaborating on digital product design in a modern studio
+ux-ui-design-services - insurance example.png
+BODY — Industries we serve section
+Insurance UX/UI design — clean dashboard interface showing policy overview and claims
+ux-ui-design-agency-usa 2.png
+BODY — Design process section
+UI design screens showing high-fidelity wireframes and component library
+
+/enterprise-ux-consulting
+Image file
+Placement
+Alt text
+ux-strategy-consulting.png
+HERO
+Enterprise UX consulting team mapping customer journeys in a large-scale design workshop
+design-maturity-model.png
+BODY — Enterprise design maturity section
+Design maturity model diagram showing stages from ad hoc to strategic design organisation
+ux research - user testing observation.jpg
+BODY — Research at scale section
+Enterprise research team conducting structured usability testing with remote participants
+
+/product-design-agency
+Image file
+Placement
+Alt text
+ux-ui-design-agency-usa 2.png
+HERO
+Product design agency delivering high-fidelity UI screens and interactive prototypes
+ai-product-development-for-startups.png
+BODY — Product design for digital products section
+Product design process showing user flows, wireframes, and component-level UI design
+GigExecs-find Gigs Desktop.png
+BODY — Featured work section
+GigExecs platform — find gigs desktop interface designed by Sand Dollar Design
+
+/design-system-consulting
+Image file
+Placement
+Alt text
+Design System example 1 SAAS.png
+HERO
+Design system component library for a SaaS product showing buttons, inputs, and card patterns
+Design System example 2 figma file.png.png
+BODY — What is in a design system section
+Figma design system file showing organised component pages and token structure
+Design System example 1 fintec typography.png
+BODY — Typography & tokens section
+Fintech design system typography scale showing font sizes, weights, and line height tokens
+Design System example 3fintec color palette.png
+BODY — Colour & brand tokens section
+Fintech design system colour palette with semantic token naming for light and dark modes
+Design System example 2 SAAS.png
+BODY — SaaS design system example
+SaaS product design system component grid showing reusable UI patterns
+
+/ai-development-agency
+Image file
+Placement
+Alt text
+AI Development Dashboard Image.png
+HERO
+AI development dashboard interface showing real-time insights and machine learning analytics
+AI Development dashboard mockup.png
+BODY — What we build section
+AI product dashboard mockup with data visualisation and predictive analytics components
+AI Development dashboard mockup ALTERNATIVE.png
+BODY — Platform capabilities section
+Alternative AI dashboard view showing user workflow and ML model output visualisation
+ai development - coding.jpg
+BODY — Engineering quality section
+AI development engineer writing Python machine learning code in a modern workspace
+ai-development-agency - gigexecs desktop.png
+BODY — Featured AI project: GigExecs
+GigExecs AI-powered platform desktop interface — built by Sand Dollar Design
+
+/app-design-and-development
+Image file
+Placement
+Alt text
+healthcare digital solution my blood test responsive mockup also for app-design-and-development.png
+HERO
+Responsive app design and development — healthcare blood test results app shown on mobile, tablet and desktop
+GigExecs-Profile Mobile.png
+BODY — Mobile app design section
+GigExecs mobile app profile screen designed and developed by Sand Dollar Design
+GigExecs-find Gigs Desktop.png
+BODY — Desktop web app section
+GigExecs platform find-gigs desktop web app interface designed by Sand Dollar Design
+GigExecs-menu - mobile.png
+BODY — Navigation & interaction design section
+GigExecs mobile navigation menu showing smooth interaction patterns and clear hierarchy
+
+/digital-transformation-ux-consulting
+Image file
+Placement
+Alt text
+ux-strategy-consulting.png
+HERO
+Digital transformation UX consulting — cross-functional team mapping a digital transformation roadmap
+design-maturity-model.png
+BODY — Maturity-led transformation section
+Design maturity model used in digital transformation engagements to benchmark current capability
+tradition bank case study AFTER.png
+BODY — Client transformation results section
+Tradition Capital Bank data analytics platform redesigned after digital transformation engagement
+
+/design-maturity-and-capability-building
+Image file
+Placement
+Alt text
+design-maturity-model.png
+HERO
+Design maturity model — five-stage framework for assessing and growing organisational design capability
+ux research - user testing observation.jpg
+BODY — Building a research culture section
+Team observing a user research session as part of design capability development
+ux research - user testing report.png
+BODY — Design documentation & standards section
+UX research report template used to build consistent design documentation practices
+
+/website-design-and-development
+Image file
+Placement
+Alt text
+website development hero.png
+HERO
+Website design and development — UX-led, conversion-focused site design and modern responsive build
+non-profit tebelo responsive.png
+BODY — Website design for non-profits section
+Tebelo Foundation responsive nonprofit website — clear, accessible layout across mobile, tablet and desktop
+heineken desktop landing.png
+BODY — B2B website design section
+Heineken B2B web platform landing page designed for trade customers
+
+/projects
+Image file
+Placement
+Alt text
+ux-strategy-consulting.png
+HERO
+Sand Dollar Design projects — team collaborating across UX strategy, design and development engagements
+tradition bank case study AFTER.png
+PROJECT CARD — Tradition Capital Bank
+Tradition Capital Bank data analytics platform redesign — before and after
+gigexecs homepage desktop.png
+PROJECT CARD — GigExecs platform
+GigExecs executive gig economy platform — homepage and app designed by Sand Dollar Design
+heineken desktop landing.png
+PROJECT CARD — Heineken B2B portal
+Heineken B2B e-commerce and web platform UX/UI design project
+mukuru mobile app rebrand.png
+PROJECT CARD — Mukuru mobile rebrand
+Mukuru mobile app rebrand — new visual identity and UX redesign for African fintech
+healthcare mobile app WHOLE.png
+PROJECT CARD — Healthcare app
+Healthcare digital app — patient-facing mobile solution designed by Sand Dollar Design
+
+
+
+02 — Industries (8 pages)
+/financial-services-ux-design
+Image file
+Placement
+Alt text
+financial-services-ux-design.png
+HERO
+Financial services UX design — intuitive interface design for banking, investment and insurance platforms
+financial-services-ux-design - mockup.png
+BODY — Digital banking interface section
+Financial services UX design mockup showing account dashboard and transaction history
+financial-services-ux-design - simple wireframe.png
+BODY — Process: wireframe to launch section
+Wireframe for a financial services dashboard showing information architecture and flow
+tradition bank case study AFTER.png
+BODY — Case study: Tradition Capital Bank
+Tradition Capital Bank analytics platform — redesigned UX/UI for data-driven banking decisions
+
+/fintech-ux-design-agency
+Image file
+Placement
+Alt text
+financial-services-ux-design.png
+HERO
+Fintech UX design agency — crafting user-centred digital financial products and platforms
+Design System example 1 fintec typography.png
+BODY — Fintech design systems section
+Fintech design system typography tokens showing accessible, scalable type hierarchy
+Design System example 3fintec color palette.png
+BODY — Brand & colour tokens section
+Fintech design system colour palette with trust-centred brand colours and semantic naming
+tradition bank case study AFTER.png
+BODY — Fintech case study: Tradition Capital Bank
+Tradition Capital Bank — fintech UX transformation delivering a modern analytics platform
+
+/banking-ux-consulting
+Image file
+Placement
+Alt text
+tradition bank case study AFTER.png
+HERO
+Banking UX consulting — Tradition Capital Bank analytics platform redesign result
+tradition bank case study before.png
+BODY — Before & after case study section
+Tradition Capital Bank legacy platform before UX redesign — complex, low-usability interface
+banking dashboard design.png
+BODY — Banking dashboard design section
+Banking dashboard design — account overview, balances and transaction management interface
+
+/healthcare-ux-design-agency
+Image file
+Placement
+Alt text
+healthcare mobile app WHOLE.png
+HERO
+Healthcare UX design — patient-facing mobile health app with intuitive navigation and accessibility
+healthcare mobile app WHOLE 2.png
+BODY — Patient app design section
+Healthcare mobile app second view — appointment booking, test results and medication tracking screens
+healthcare digital solution my blood test responsive mockup also for app-design-and-development.png
+BODY — Responsive healthcare solutions section
+Healthcare digital platform — My Blood Test app shown on mobile, tablet and desktop for full accessibility
+
+/insurance-ux-design
+Image file
+Placement
+Alt text
+insurance hero banner.png
+HERO
+Insurance UX design — policy, claims and digital insurance experience hero
+ux-ui-design-services - insurance example.png
+BODY — Insurance platform design section
+Insurance UX/UI design example — clean dashboard for policy overview and claims tracking
+
+/telco-ux-design
+Image file
+Placement
+Alt text
+Telco mockup app screen hero banner.png
+HERO
+Telco UX design — mobile app interface for a telecommunications platform with service management
+Telco App Design Light and Dark mode.png
+BODY — Light & dark mode design section
+Telco app design showing both light and dark mode interface variants for user preference
+Telco App design 2.png
+BODY — Account management screens section
+Telco mobile app account management interface — data usage, billing and support screens
+Telco Web design 1.png
+BODY — Telco web platform section
+Telco web platform design — desktop interface for telecommunications self-service portal
+Telco web design mockup version.png
+BODY — Responsive web section
+Telco web design shown in browser mockup — scalable design system across breakpoints
+Telco mockup app screen alternative.png
+BODY — Additional screens section
+Telco app alternative screen design showing onboarding or plan selection interface
+
+/nonprofit-and-ngo-website-design
+Image file
+Placement
+Alt text
+nonprofit-and-ngo-website-design - Tebelo Desktop.png
+HERO
+Non-profit and NGO website design — Tebelo Foundation desktop website designed by Sand Dollar Design
+nonprofit-and-ngo-website-design - Tebelo Mobile.png
+BODY — Mobile-first non-profit design section
+Tebelo Foundation website on mobile — accessible, fast-loading NGO web presence
+nonprofit-and-ngo-website-design - lifestyle image.jpg
+BODY — Mission-driven design section
+Community members benefiting from non-profit digital services — inclusive design in action
+
+/b2b-ecommerce-ux-design
+Image file
+Placement
+Alt text
+ux-strategy-consulting.png
+HERO
+UX strategy and B2B commerce context — team collaboration, journey mapping and product direction
+Heineken 1.png
+BODY — Product catalogue UX section
+Heineken B2B platform product catalogue interface designed for trade buyers
+Heineken 2.png
+BODY — Order management section
+Heineken B2B e-commerce order management screen — streamlined trade ordering experience
+Heineken 3.png
+BODY — Account & reporting section
+Heineken B2B portal account dashboard and reporting interface for trade account managers
+Heineken PC.png
+BODY — Desktop-first B2B platform section
+Heineken B2B e-commerce platform shown on desktop — optimised for trade buyer workflows
+heineken mobile landing.png
+BODY — Mobile responsive B2B section
+Heineken B2B platform mobile view — responsive design for trade buyers on the go
+
+
+
+03 — Geo Pages (11 pages)
+/ux-ui-design-agency-usa
+Image file
+Placement
+Alt text
+ux-ui-design-agency-usa 1.jpg
+HERO
+UX/UI design agency USA — American-market design team delivering world-class digital products
+ux-ui-design-agency-usa 2.png
+BODY — Our US client work section
+UI design screens delivered for US market clients by Sand Dollar Design
+tradition bank case study AFTER.png
+BODY — Featured US project section
+US financial platform redesign — modern analytics dashboard for American banking client
+
+/ux-ui-design-agency-south-africa
+Image file
+Placement
+Alt text
+ux-ui-design-agency-south-africa 16 x 9.png
+HERO
+UX/UI design agency South Africa — leading Cape Town design consultancy for digital products
+ux-ui-design-agency-south-africa 4 x 3.png
+BODY — South African market expertise section
+Sand Dollar Design South Africa team and studio environment in Cape Town
+mukuru mobile app rebrand.png
+BODY — Featured SA project: Mukuru section
+Mukuru mobile app rebrand — African fintech UX redesign by Sand Dollar Design
+client logo mukuru.png
+BODY — Client logos section
+Mukuru — Sand Dollar Design client logo
+
+/ux-design-agency-uk
+Image file
+Placement
+Alt text
+ux-design-agency-uk.png
+HERO
+UX design agency UK — Sand Dollar Design delivering user experience strategy and digital design for British brands
+uk office.jpg
+BODY — Our UK presence section
+Sand Dollar Design UK studio environment — collaborative workspace for UX and product design
+
+/boston-product-design-agency
+Image file
+Placement
+Alt text
+boston-product-design-agency.png
+HERO
+Boston product design agency — UX and product design consultancy serving Boston tech companies
+tech hub environment example for boston.jpg
+BODY — Boston tech ecosystem section
+Boston tech hub environment — modern collaborative workspace typical of innovation districts
+ux-ui-design-agency-usa 2.png
+BODY — Our product design work section
+Product design screens delivered for Boston-area clients
+
+/chicago-ux-design-agency
+Image file
+Placement
+Alt text
+chicago-ux-agency.jpg
+HERO
+Chicago UX design agency — user experience design consultancy for Chicago and Midwest businesses
+ux-ui-design-agency-usa 2.png
+BODY — Chicago digital product design section
+UI design screens for Chicago-based clients — scalable digital product design
+
+/florida-ux-ui-design-agency
+Image file
+Placement
+Alt text
+florida-product-ux-design-agency.png
+HERO
+Florida UX/UI design agency — product design consultancy serving Miami, Orlando and Tampa businesses
+ux-ui-design-agency-usa 1.jpg
+BODY — Florida digital products section
+Digital product design for Florida businesses — UX-led design for growth-stage companies
+
+/jacksonville-ux-ui-design-agency
+Image file
+Placement
+Alt text
+florida-product-ux-design-agency.png
+HERO
+Jacksonville UX/UI design agency — user experience and product design for Jacksonville businesses
+ux-ui-design-agency-usa 1.jpg
+BODY — Jacksonville digital design section
+UX/UI design delivered for Jacksonville and Northeast Florida businesses
+
+/minneapolis-ux-agency
+Image file
+Placement
+Alt text
+minneapolis-ux-agency.png
+HERO
+Minneapolis UX agency — user experience design consultancy for Twin Cities businesses and startups
+ux-ui-design-agency-usa 2.png
+BODY — Minneapolis design work section
+Digital product design for Minneapolis clients — scalable UX across B2B and consumer platforms
+
+/texas-ai-development-company
+Image file
+Placement
+Alt text
+texas-ai-development-company - server room.jpg
+HERO
+Texas AI development company — enterprise AI and machine learning solutions for Texas businesses
+AI Development Dashboard Image.png
+BODY — AI product interfaces we build section
+AI analytics dashboard interface built for Texas enterprise client
+ai development - coding.jpg
+BODY — AI engineering capability section
+AI developer writing Python ML code — Sand Dollar Design AI engineering team
+
+/product-design-agency-netherlands
+Image file
+Placement
+Alt text
+product-design-agency-netherlands.jpg
+HERO
+Product design agency Netherlands — UX and product design consultancy for Dutch and European businesses
+ux-ui-design-agency-usa 2.png
+BODY — Dutch market design work section
+Digital product design screens for Netherlands and European market clients
+
+/ux-agency-belgium
+Image file
+Placement
+Alt text
+product-design-agency-netherlands.jpg
+HERO
+UX agency Belgium — user experience design consultancy for Belgian and Benelux businesses
+ux-design-agency-uk.png
+BODY — European design expertise section
+UX design work for European clients — scalable, multilingual product design
+
+
+
+04 — Insights (5 pages)
+/design-maturity-model
+Image file
+Placement
+Alt text
+design-maturity-model.png
+HERO
+Design maturity model — five-stage framework for assessing and growing organisational design capability
+ux research - user testing observation.jpg
+BODY — Stage 3: Research-led practice section
+UX researcher conducting user testing — hallmark of a research-led design maturity stage
+ux research - user testing report.png
+BODY — Stage 4: Documented standards section
+Formal UX research report — evidence of mature, documented design practice
+
+/digital-transformation-ux
+Image file
+Placement
+Alt text
+ux-strategy-consulting.png
+HERO
+Digital transformation and UX — leadership team planning a digital transformation strategy
+tradition bank case study AFTER.png
+BODY — Case example: Tradition Capital Bank section
+Digital transformation outcome — Tradition Capital Bank analytics platform after UX-led redesign
+design-maturity-model.png
+BODY — Maturity as a transformation lens section
+Design maturity model used to track digital transformation progress across the organisation
+
+/ai-product-development-for-startups
+Image file
+Placement
+Alt text
+ai-product-development-for-startups.png
+HERO
+AI product development for startups — building AI-powered products with design and engineering
+AI Development Dashboard Image.png
+BODY — What AI startup products look like section
+AI analytics product dashboard built for a startup — real-time insights and ML-powered features
+AI Development dashboard mockup.png
+BODY — AI UX design for startups section
+AI dashboard mockup showing data visualisation and user workflow for a startup AI product
+ai development - coding.jpg
+BODY — Engineering AI at startup pace section
+AI engineer coding machine learning features for a startup product
+
+/design-capability-building
+Image file
+Placement
+Alt text
+design-maturity-model.png
+HERO
+Design capability building — organisational framework for scaling in-house design teams
+ux research - user testing observation.jpg
+BODY — Building a research practice section
+Team learning UX research methods — foundational capability building for design organisations
+ux research - user testing report.png
+BODY — Design documentation standards section
+Research report template demonstrating mature design documentation standards
+
+/nonprofit-digital-strategy-and-ux
+Image file
+Placement
+Alt text
+nonprofit-and-ngo-website-design - Tebelo Desktop.png
+HERO
+Nonprofit digital strategy and UX — Tebelo Foundation website as example of mission-aligned digital design
+nonprofit-and-ngo-website-design - lifestyle image.jpg
+BODY — Why digital strategy matters for nonprofits section
+Community members served by a nonprofit digital service — human impact of digital transformation
+nonprofit-and-ngo-website-design - Tebelo Mobile.png
+BODY — Mobile-first nonprofit design section
+Tebelo NGO website on mobile — accessible digital presence for nonprofit audiences on any device
+
+
+
+05 — Case Studies (3 pages)
+/heineken-b2b-ecommerce-ux-ui-design
+Image file
+Placement
+Alt text
+heineken desktop landing.png
+HERO
+Heineken B2B e-commerce platform — desktop landing page for trade customer portal
+Heineken- User Persona.png
+BODY — Research: Understanding the trade buyer section
+Heineken B2B user persona — trade buyer archetype used to guide UX design decisions
+Heineken - Style Guide.png
+BODY — Design system: Heineken brand section
+Heineken B2B platform style guide — brand colours, typography and component standards
+heineken - language and content style guide.png
+BODY — Content strategy: language & tone section
+Heineken B2B content style guide — language rules and tone-of-voice for trade communications
+Heineken 1.png
+BODY — Final design: Product catalogue section
+Heineken B2B product catalogue screen — trade buyer browsing and filtering portfolio
+Heineken 2.png
+BODY — Final design: Order flow section
+Heineken B2B order management interface — streamlined ordering workflow for trade buyers
+Heineken 3.png
+BODY — Final design: Account dashboard section
+Heineken trade account dashboard — reporting and account management for B2B customers
+heineken mobile landing.png
+BODY — Responsive design: Mobile section
+Heineken B2B platform on mobile — responsive trade portal for buyers on the go
+Heineken PC.png
+BODY — Desktop-optimised B2B experience section
+Heineken B2B platform full desktop view — optimised for trade buyer procurement workflows
+
+/mukuru-mobile-app-rebrand-and-redesign
+Image file
+Placement
+Alt text
+mukuru mobile app rebrand.png
+HERO
+Mukuru mobile app rebrand and redesign — new visual identity and UX for African fintech leader
+client logo mukuru.png
+BODY — About Mukuru section
+Mukuru logo — African fintech and money transfer service
+
+/tradition-capital-bank-data-analytics-platform-redesign
+Image file
+Placement
+Alt text
+tradition bank case study AFTER.png
+HERO
+Tradition Capital Bank data analytics platform redesign — the final, redesigned interface
+tradition bank case study before.png
+BODY — The challenge: legacy platform section
+Tradition Capital Bank legacy analytics platform before redesign — complex, low-usability interface
+client logo tradition bank.png
+BODY — About Tradition Capital Bank section
+Tradition Capital Bank logo — boutique investment and data analytics banking client
+
+
+
+Complete Image Inventory (76 assets)
+All files located in: website-copy/images/
+
+Filename
+Used in mapping
+Type
+AI Development Dashboard Image.png
+Yes
+PNG
+AI Development dashboard mockup ALTERNATIVE.png
+Yes
+PNG
+AI Development dashboard mockup.png
+Yes
+PNG
+ai development - coding.jpg
+Yes
+JPG
+ai-development-agency - gigexecs desktop.png
+Yes
+PNG
+ai-product-development-for-startups.png
+Yes
+PNG
+Design System example 1 SAAS.png
+Yes
+PNG
+Design System example 1 fintec typography.png
+Yes
+PNG
+Design System example 2 SAAS.png.png
+Available
+PNG
+Design System example 2 figma file.png.png
+Yes
+PNG
+Design System example 2 fintec form.png
+Available
+PNG
+Design System example 3 SAAS.png.png
+Available
+PNG
+Design System example 3fintec color palette.png
+Yes
+PNG
+Design System example 4 SAAS.png.png
+Available
+PNG
+GigExecs Homepage Desktop scroll.mp4
+Available
+MP4
+GigExecs-Profile Mobile.png
+Yes
+PNG
+GigExecs-find Gigs Desktop.png
+Yes
+PNG
+GigExecs-menu - mobile.png
+Yes
+PNG
+gigexecs blog mobile.png
+Available
+PNG
+gigexecs homepage desktop.png
+Yes
+PNG
+Heineken - Style Guide.png
+Yes
+PNG
+Heineken 1.png
+Yes
+PNG
+Heineken 2.png
+Yes
+PNG
+Heineken 3.png
+Yes
+PNG
+Heineken PC.png
+Yes
+PNG
+Heineken- User Persona.png
+Yes
+PNG
+heineken - language and content style guide.png
+Yes
+PNG
+heineken desktop landing.png
+Yes
+PNG
+heineken mobile landing.png
+Yes
+PNG
+healthcare digital solution my blood test responsive mockup also for app-design-and-development.png
+Yes
+PNG
+healthcare mobile app WHOLE 2.png
+Yes
+PNG
+healthcare mobile app WHOLE.png
+Yes
+PNG
+insurance hero banner.png
+Yes
+PNG
+Telco App Design Light and Dark mode.png
+Yes
+PNG
+Telco App design 2.png
+Yes
+PNG
+Telco Web design 1.png
+Yes
+PNG
+Telco app design 1.png
+Available
+PNG
+Telco mockup app screen alternative.png
+Yes
+PNG
+Telco mockup app screen hero banner.png
+Yes
+PNG
+Telco web design mockup version.png
+Yes
+PNG
+boston-product-design-agency.png
+Yes
+PNG
+chicago-ux-agency.jpg
+Yes
+JPG
+florida-product-ux-design-agency.png
+Yes
+PNG
+minneapolis-ux-agency.png
+Yes
+PNG
+texas-ai-development-company - server room.jpg
+Yes
+JPG
+tech hub environment example for boston.jpg
+Yes
+JPG
+ux-ui-design-agency-usa 1.jpg
+Yes
+JPG
+ux-ui-design-agency-usa 2.png
+Yes
+PNG
+product-design-agency-netherlands.jpg
+Yes
+JPG
+uk office.jpg
+Yes
+JPG
+ux-design-agency-uk.png
+Yes
+PNG
+ux-ui-design-agency-south-africa 16 x 9.png
+Yes
+PNG
+ux-ui-design-agency-south-africa 4 x 3.png
+Yes
+PNG
+mukuru mobile app rebrand.png
+Yes
+PNG
+nonprofit-and-ngo-website-design - Tebelo Desktop.png
+Yes
+PNG
+nonprofit-and-ngo-website-design - Tebelo Mobile.png
+Yes
+PNG
+nonprofit-and-ngo-website-design - lifestyle image.jpg
+Yes
+JPG
+financial-services-ux-design - mockup.png
+Yes
+PNG
+financial-services-ux-design - simple wireframe.png
+Yes
+PNG
+financial-services-ux-design.png
+Yes
+PNG
+tradition bank case study AFTER.png
+Yes
+PNG
+tradition bank case study before.png
+Yes
+PNG
+ux research - user Persona.png
+Yes
+PNG
+ux research - user testing observation.jpg
+Yes
+JPG
+ux research - user testing report.png
+Yes
+PNG
+ux-strategy-consulting - design sprint 1.jpg
+Yes
+JPG
+ux-strategy-consulting - design sprint 2.jpg
+Yes
+JPG
+ux-strategy-consulting.png
+Yes
+PNG
+ux-ui-design-services - insurance example.png
+Yes
+PNG
+design-maturity-model.png
+Yes
+PNG
+client logo life healthcare.png
+Available
+PNG
+client logo mpact.jpg
+Available
+JPG
+client logo mukuru.png
+Yes
+PNG
+client logo north west university.png
+Available
+PNG
+client logo toyota.png
+Available
+PNG
+client logo tradition bank.png
+Yes
+PNG
+ai-development-agency hero wallpaper video.mp4
+Available
+MP4
+ai-development-agency - gigexecs desktop.png
+Yes
+PNG
+
+
+
+Production Notes
+Image compression targets
+	•	Hero images (1440×600): ≤400KB — use WebP with JPEG fallback
+	•	Body images (760–800px wide): ≤150KB — compress in Squoosh or ImageOptim
+	•	Portrait mobile screens (400×800): ≤100KB
+	•	Client logos: ≤20KB — SVG preferred, PNG fallback
+
+Alt text guidelines
+	•	All alt texts are pre-written and SEO-optimised — use exactly as specified
+	•	Do not use the filename as alt text
+	•	Decorative dividers or background textures: use alt="" (empty)
+
+Video assets
+	•	GigExecs Homepage Desktop scroll.mp4 — use as background loop on GigExecs project card or projects page hero (muted, autoplay, loop)
+	•	ai-development-agency hero wallpaper video.mp4 — use as hero background on ai-development-agency page (muted, autoplay, loop, fallback to AI Development Dashboard Image.png)
+

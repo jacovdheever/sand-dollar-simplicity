@@ -100,7 +100,10 @@ const Contact = () => {
       <div className="container-custom">
         <div className="max-w-2xl mx-auto">
           <div className="section-animate in-view">
-            <h2 className="section-title mb-6 text-center from-left font-black md:whitespace-nowrap">Let's design your solution.</h2>
+            <h2 className="section-title mb-6 text-center from-left font-black md:whitespace-nowrap">Book a free strategy call</h2>
+            <p className="text-gray-800 text-center mb-8 max-w-xl mx-auto">
+              We'll review your website, product or platform, identify the biggest friction points, and suggest practical next steps.
+            </p>
           </div>
           
           {submitStatus === 'success' && (
@@ -175,11 +178,19 @@ const Contact = () => {
               />
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="https://calendly.com/sanddollardesign/intro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center font-semibold py-4 px-8 rounded-full bg-white text-gray-900 hover:bg-gray-100 transition-all shadow-lg"
+              >
+                Book a free strategy call
+              </a>
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                className="py-4 px-8 rounded-full border-2 border-white/80 text-white font-medium hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
                 {isSubmitting ? 'Sending...' : 'Send message'}
               </button>
