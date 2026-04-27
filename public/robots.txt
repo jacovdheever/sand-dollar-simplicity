@@ -1,14 +1,19 @@
 # Robots.txt for Sand Dollar Design
 # https://sanddollardesign.co.za
+# Updated with marketing routes, portfolio, and blog articles (see public/sitemap.xml).
 
 User-agent: *
 Allow: /
 
-# Allow all search engines to crawl the entire site
+# Core and content
 Allow: /work
+Allow: /projects
 Allow: /blog
 Allow: /article/
 Allow: /project/
+Allow: /about
+Allow: /contact
+Allow: /testimonials
 
 # Disallow admin and private areas
 Disallow: /sanddollar-admin
