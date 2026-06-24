@@ -257,7 +257,7 @@ const Media = () => {
                   {latestArticle.featuredImage ? (
                     <img
                       src={latestArticle.featuredImage}
-                      alt={latestArticle.title}
+                      alt={latestArticle.imageAlt || latestArticle.title}
                       className="w-full h-full object-cover"
                     />
                   ) : (
@@ -393,7 +393,7 @@ const Media = () => {
                           {article.featuredImage ? (
                             <img
                               src={article.featuredImage}
-                              alt={article.title}
+                              alt={article.imageAlt || article.title}
                               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                             />
                           ) : (

@@ -8,6 +8,9 @@ export interface BlogPost {
   category: string;
   tags: string[];
   featuredImage?: string;
+  imageAlt?: string;
+  metaTitle?: string;
+  metaDescription?: string;
   readTime: number; // in minutes
   featured?: boolean;
   slug: string; // URL-friendly version of the title

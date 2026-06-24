@@ -150,13 +150,13 @@ const ArticlePage = () => {
   return (
     <div className="smooth-scroll flex flex-col min-h-screen">
       <SEO
-        title={article.title}
-        description={article.excerpt || article.content?.replace(/<[^>]*>/g, '').substring(0, 160) || `Read ${article.title} - Expert insights on UX/UI design and AI development.`}
+        title={article.metaTitle || article.title}
+        description={article.metaDescription || article.excerpt || article.content?.replace(/<[^>]*>/g, '').substring(0, 160) || `Read ${article.title} - Expert insights on UX/UI design and AI development.`}
         keywords={`${article.category}, UX design, UI design, AI development, ${article.tags?.join(', ') || ''}, design insights, technology trends`}
         image={article.featuredImage}
-        url={`https://sanddollardesign.co.za/article/${article.slug}`}
+        url={`https://www.sanddollardesign.co.za/article/${article.slug}`}
         type="article"
-        author="Sand Dollar Design"
+        author={article.author}
         publishedTime={article.publishDate}
         section={article.category}
         tags={article.tags || []}
@@ -226,7 +226,7 @@ const ArticlePage = () => {
                 <div className="mb-8">
                   <img
                     src={article.featuredImage}
-                    alt={article.title}
+                    alt={article.imageAlt || article.title}
                     className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl"
                   />
                 </div>
