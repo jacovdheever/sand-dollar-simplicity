@@ -10,6 +10,7 @@ import { BlogPost } from '@/types/blog';
 import { loadArticlesFromStorage } from '@/utils/storageManager';
 import { loadArticlesWithFallback } from '@/utils/fileStorageManager';
 import { ensureArticlesHaveSlugs, findArticleBySlug } from '@/utils/articleUtils';
+import { absoluteUrl } from '@/lib/siteOrigin';
 
 const ArticlePage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -154,12 +155,15 @@ const ArticlePage = () => {
         description={article.metaDescription || article.excerpt || article.content?.replace(/<[^>]*>/g, '').substring(0, 160) || `Read ${article.title} - Expert insights on UX/UI design and AI development.`}
         keywords={`${article.category}, UX design, UI design, AI development, ${article.tags?.join(', ') || ''}, design insights, technology trends`}
         image={article.featuredImage}
-        url={`https://www.sanddollardesign.co.za/article/${article.slug}`}
+        url={absoluteUrl(`/article/${article.slug}`)}
+        canonical={absoluteUrl(`/article/${article.slug}`)}
         type="article"
         author={article.author}
         publishedTime={article.publishDate}
         section={article.category}
         tags={article.tags || []}
+        openGraphTitle={article.openGraphTitle}
+        openGraphDescription={article.openGraphDescription}
       />
       <Navbar />
       <main>
@@ -202,7 +206,7 @@ const ArticlePage = () => {
                   <span>{article.readTime} min read</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span>By {article.author}</span>
+                  <span>By {article.author}{article.authorRole ? ` | ${article.authorRole}` : ''}</span>
                 </div>
               </div>
 

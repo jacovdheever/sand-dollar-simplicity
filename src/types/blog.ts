@@ -11,6 +11,9 @@ export interface BlogPost {
   imageAlt?: string;
   metaTitle?: string;
   metaDescription?: string;
+  openGraphTitle?: string;
+  openGraphDescription?: string;
+  authorRole?: string;
   readTime: number; // in minutes
   featured?: boolean;
   slug: string; // URL-friendly version of the title

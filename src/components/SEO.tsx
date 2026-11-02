@@ -91,9 +91,17 @@ const SEO: React.FC<SEOProps> = ({
     "image": fullImage,
     "url": fullUrl,
     "author": {
-      "@type": "Organization",
+      "@type": type === 'article' ? "Person" : "Organization",
       "name": author
     },
+    ...(type === 'article'
+      ? {
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": fullUrl,
+          },
+        }
+      : {}),
     ...(type === 'service'
       ? {
           name: serviceName,
