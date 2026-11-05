@@ -7,6 +7,7 @@ import BackToTop from '@/components/BackToTop';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import SEO from '@/components/SEO';
+import { EMAILJS_CONTACT_CONFIG, buildContactEmailParams } from '@/lib/emailjsContact';
 
 const calendarHref = 'https://calendly.com/sanddollardesign/intro';
 
@@ -156,7 +157,7 @@ const ContactPage = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
-    emailjs.init('EdeMDiduxh2tdO30U');
+    emailjs.init(EMAILJS_CONTACT_CONFIG.publicKey);
   }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -176,19 +177,10 @@ const ContactPage = () => {
       }
 
       await emailjs.send(
-        'service_ihil4up',
-        'template_ueizqz4',
-        {
-          from_name: formData.fullName,
-          from_email: formData.email,
-          reply_to: formData.email,
-          company: formData.company || 'Not provided',
-          need_help_with: formData.needHelpWith || 'Not provided',
-          location: formData.location || 'Not provided',
-          message: formData.message,
-          to_name: 'Sand Dollar Design Team',
-        },
-        'EdeMDiduxh2tdO30U',
+        EMAILJS_CONTACT_CONFIG.serviceId,
+        EMAILJS_CONTACT_CONFIG.templateId,
+        buildContactEmailParams(formData),
+        EMAILJS_CONTACT_CONFIG.publicKey,
       );
 
       setSubmitStatus('success');

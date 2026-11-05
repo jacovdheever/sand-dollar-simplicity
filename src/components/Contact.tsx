@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
+import { EMAILJS_CONTACT_CONFIG, buildContactEmailParams } from '@/lib/emailjsContact';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +15,7 @@ const Contact = () => {
   // Initialize EmailJS
   useEffect(() => {
     try {
-      emailjs.init('EdeMDiduxh2tdO30U');
+      emailjs.init(EMAILJS_CONTACT_CONFIG.publicKey);
       console.log('EmailJS initialized successfully');
     } catch (error) {
       console.error('EmailJS initialization failed:', error);
@@ -40,29 +41,15 @@ const Contact = () => {
         return;
       }
 
-      const templateParams = {
-        from_name: formData.fullName,
-        from_email: formData.email,
-        reply_to: formData.email,
-        company: formData.company || 'Not provided',
-        message: formData.message,
-        to_name: 'Sand Dollar Design Team'
-      };
+      const templateParams = buildContactEmailParams(formData);
 
       console.log('Sending email with params:', templateParams);
-      
-      // Test EmailJS connection first
-      console.log('Testing EmailJS connection...');
-      console.log('Service ID:', 'service_ihil4up');
-      console.log('Template ID:', 'template_ueizqz4');
-      console.log('Public Key:', 'EdeMDiduxh2tdO30U');
-      
-      // Try the standard EmailJS send method
+
       const result = await emailjs.send(
-        'service_ihil4up',
-        'template_ueizqz4',
+        EMAILJS_CONTACT_CONFIG.serviceId,
+        EMAILJS_CONTACT_CONFIG.templateId,
         templateParams,
-        'EdeMDiduxh2tdO30U'
+        EMAILJS_CONTACT_CONFIG.publicKey,
       );
 
       console.log('Email sent successfully:', result);
