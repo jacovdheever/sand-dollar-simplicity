@@ -14,6 +14,8 @@ import { fixArticleExcerpts } from '@/utils/excerptFixer';
 import { loadArticlesFromStorage, restoreAllTruncatedArticles } from '@/utils/storageManager';
 import { loadArticlesWithFallback } from '@/utils/fileStorageManager';
 import { ensureArticlesHaveSlugs } from '@/utils/articleUtils';
+import { isArticlePublished } from '@/utils/articlePublish';
+import { absoluteUrl } from '@/lib/siteOrigin';
 
 
 const BlogPage = () => {
@@ -50,7 +52,8 @@ const BlogPage = () => {
             
             if (realArticles.length > 0) {
               console.log(`✅ Found ${realArticles.length} real articles, using them`);
-              setArticles(ensureArticlesHaveSlugs(realArticles));
+              const published = realArticles.filter((a) => isArticlePublished(a.publishDate));
+              setArticles(ensureArticlesHaveSlugs(published));
             } else {
               console.log('⚠️ No real articles found, using default blog posts');
               setArticles(ensureArticlesHaveSlugs(blogPosts));
@@ -180,7 +183,7 @@ const BlogPage = () => {
         title="Our Blog - UX/UI Design Insights & AI Development Articles"
         description="Stay updated with the latest insights, trends, and innovations in UX/UI design, AI development, and digital strategy. Expert articles on user experience, technology, and business transformation."
         keywords="UX design blog, UI design articles, AI development insights, digital strategy, user experience, design thinking, innovation consulting, technology trends, South Africa, USA"
-        url="https://sanddollardesign.co.za/blog"
+        canonical={absoluteUrl('/blog')}
         type="website"
       />
       <div className="smooth-scroll flex flex-col min-h-screen">

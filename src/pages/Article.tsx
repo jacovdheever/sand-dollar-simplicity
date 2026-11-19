@@ -11,6 +11,7 @@ import { loadArticlesFromStorage } from '@/utils/storageManager';
 import { loadArticlesWithFallback } from '@/utils/fileStorageManager';
 import { ensureArticlesHaveSlugs, findArticleBySlug } from '@/utils/articleUtils';
 import { absoluteUrl } from '@/lib/siteOrigin';
+import { isArticlePublished } from '@/utils/articlePublish';
 
 const ArticlePage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -25,7 +26,7 @@ const ArticlePage = () => {
         const articlesWithSlugs = ensureArticlesHaveSlugs(articles);
         const foundArticle = findArticleBySlug(articlesWithSlugs, slug || '');
         
-        if (foundArticle) {
+        if (foundArticle && isArticlePublished(foundArticle.publishDate)) {
           setArticle(foundArticle);
         } else {
           // If not found, redirect to blog page

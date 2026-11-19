@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
 import SandDollarLoader from '@/components/SandDollarLoader';
 import SEO from '@/components/SEO';
+import { absoluteUrl } from '@/lib/siteOrigin';
 import { Project } from '@/types/project';
 import { loadProjectsWithFallback } from '@/utils/fileStorageManager';
 
@@ -148,7 +149,7 @@ const ProjectPage = () => {
         description={project.description || `Explore ${project.title} - A successful UX/UI design and development project by Sand Dollar Design. See how we solved complex challenges and delivered exceptional results.`}
         keywords={`${project.category}, ${project.industry || ''}, UX design, UI design, project case study, ${project.title}, design portfolio, digital transformation, innovation consulting`}
         image={project.featuredImage}
-        url={`https://sanddollardesign.co.za/project/${project.slug}`}
+        canonical={absoluteUrl(`/project/${project.slug}`)}
         type="website"
       />
       <Navbar />
