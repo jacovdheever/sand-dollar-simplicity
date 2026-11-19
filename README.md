@@ -16,6 +16,8 @@ npm run build:preview
 ```
 Then open **http://localhost:8080**.
 
+**Blog posts (markdown):** see [BLOG_CONTRIBUTING.md](./BLOG_CONTRIBUTING.md) for the weekly `.md` → deploy workflow.
+
 ---
 
 ## ✅ Checkpoint (2025-10-31)

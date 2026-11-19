@@ -75,7 +75,24 @@ const SEO: React.FC<SEOProps> = ({
   const resolvedUrl = url ?? origin;
   const resolvedImage = image ?? `${origin}/og-image.jpg`;
   const fullTitle = title.includes('Sand Dollar Design') ? title : `${title} | Sand Dollar Design`;
-  const fullUrl = canonical || `${resolvedUrl}${typeof window !== 'undefined' ? window.location.pathname : ''}`;
+  const fullUrl = (() => {
+    if (canonical) return canonical;
+    if (url && /^https?:\/\//i.test(url)) {
+      try {
+        const parsed = new URL(url);
+        const pathPart = parsed.pathname.replace(/\/$/, '') || '/';
+        return pathPart === '/' ? `${parsed.origin}/` : `${parsed.origin}${pathPart}`;
+      } catch {
+        return url;
+      }
+    }
+    const pathname =
+      typeof window !== 'undefined' && window.location.pathname
+        ? window.location.pathname
+        : '/';
+    const normalized = pathname === '/' ? '/' : pathname.replace(/\/$/, '');
+    return `${origin}${normalized}`;
+  })();
   const fullImage = resolvedImage.startsWith('http') ? resolvedImage : `${origin}${resolvedImage.startsWith('/') ? resolvedImage : `/${resolvedImage}`}`;
   const ogTitleResolved = openGraphTitle ?? fullTitle;
   const ogDescriptionResolved = openGraphDescription ?? description;

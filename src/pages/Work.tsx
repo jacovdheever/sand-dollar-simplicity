@@ -5,6 +5,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
 import SEO from '@/components/SEO';
+import { absoluteUrl } from '@/lib/siteOrigin';
 
 
 const WorkPage = () => {
@@ -67,7 +68,7 @@ const WorkPage = () => {
         title="Our Work - Portfolio of UX/UI Design & AI Development Projects"
         description="Explore our portfolio of successful UX/UI design and AI development projects. See how we've helped businesses across various industries with digital transformation, rapid prototyping, and innovation consulting."
         keywords="portfolio, UX design projects, UI design projects, AI development projects, digital transformation, rapid prototyping, case studies, design agency portfolio, South Africa, USA"
-        url="https://sanddollardesign.co.za/work"
+        canonical={absoluteUrl('/work')}
         type="website"
       />
       <div className="smooth-scroll flex flex-col min-h-screen">
